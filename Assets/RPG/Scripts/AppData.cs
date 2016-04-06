@@ -70,6 +70,10 @@ public class AppData : MonoBehaviour
     list of each type of magic in order to set the base power value
     list of regions in the game (either by scene or by trigger volume.  Scene will probably be easiest and make more sense)
     list of monster groups in the game  (each region would contain monster groups that appear in that region. monsters could be prefab or scriptable object, who knows atm)
+
+    for random encounters:
+    list of scenes that can be battled in. has a list of monsters with a max amount next to it. also under has a max number for amount of monsters in battle
+    randomly choose how many monsters than randomly choose from the list while not exceeding the max amount of that monster.  probably be the most random way to do it
     
     */
 
