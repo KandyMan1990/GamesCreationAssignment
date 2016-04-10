@@ -28,6 +28,7 @@ public class CreateDatabase : EditorWindow
     }
 
     //TODO: list of databases here (not actual list, just variables)
+    RPGDatabase database;
 
     const string DATABASE_FOLDER_NAME = @"RPG/Databases";
 
@@ -274,7 +275,27 @@ public class CreateDatabase : EditorWindow
     }
     void CharactersTab()
     {
+        /*
+                if (charDatabase == null)
+        {
+            charDatabase = ScriptableObjectUtility.GetDatabase<CharacterDatabase>(DATABASE_FOLDER_NAME, "Characters Database.asset");
+        }
+        scrollPos = GUILayout.BeginScrollView(scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.Width(listViewWidth));
 
+        for (int i = 0; i < charDatabase.Count; i++)
+        {
+            if (GUILayout.Button(charDatabase.Get(i).Name, GUILayout.Width(listViewButtonWidth), GUILayout.Height(listViewButtonHeight)))
+            {
+                selectedIndex = i;
+                tempCharacter = new BaseCharacter();
+                tempCharacter.Clone(charDatabase.Get(i));
+                currentDetailsState = DetailsState.DETAILS;
+                GUI.FocusControl("SaveButton");
+            }
+        }
+
+        GUILayout.EndScrollView();
+        */
     }
     void ClassesTab()
     {
@@ -328,6 +349,65 @@ public class CreateDatabase : EditorWindow
 
     void DisplayDetails()
     {
-        //TODO: continue from here
+        if(currentDetailsState == DetailsState.DETAILS)
+        {
+            GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
+            ObjectDetails();
+            GUILayout.EndHorizontal();
+        }
+    }
+
+    void ObjectDetails()
+    {
+        switch(currentEditorState)
+        {
+            case EditorState.HOME:
+                break;
+            case EditorState.CHARACTERS:
+                CharacterDetails();
+                break;
+            case EditorState.CLASSES:
+                break;
+            case EditorState.SKILLS:
+                break;
+            case EditorState.ITEMS:
+                break;
+            case EditorState.WEAPONS:
+                break;
+            case EditorState.ARMOURS:
+                break;
+            case EditorState.ACCESSORIES:
+                break;
+            case EditorState.ENEMIES:
+                break;
+            case EditorState.ENEMYGROUPS:
+                break;
+            case EditorState.STATES:
+                break;
+            case EditorState.QUESTS:
+                break;
+            case EditorState.SYSTEM:
+                break;
+            case EditorState.TERMS:
+                break;
+        }
+    }
+
+    void CharacterDetails()
+    {
+        /*
+                EditorGUILayout.BeginScrollView(detailsScrollPos);
+
+        tempCharacter.Name = EditorGUILayout.TextField("Name: ", tempCharacter.Name);
+        tempCharacter.StartingLevel = EditorGUILayout.IntSlider("Starting Level: ", tempCharacter.StartingLevel, 1, 100);
+        tempCharacter.HealthCurve = EditorGUILayout.CurveField("Health Curve: ", tempCharacter.HealthCurve);
+        tempCharacter.PhysicalAttackCurve = EditorGUILayout.CurveField("Physical Attack Curve: ", tempCharacter.PhysicalAttackCurve);
+        tempCharacter.PhysicalDefenceCurve = EditorGUILayout.CurveField("Physical Defece Curve: ", tempCharacter.PhysicalDefenceCurve);
+        tempCharacter.MagicalAttackCurve = EditorGUILayout.CurveField("Magical Attack Curve: ", tempCharacter.MagicalAttackCurve);
+        tempCharacter.MagicalDefenceCurve = EditorGUILayout.CurveField("Magical Defence Curve: ", tempCharacter.MagicalDefenceCurve);
+        tempCharacter.EvasionCurve = EditorGUILayout.CurveField("Evasion Curve: ", tempCharacter.EvasionCurve);
+
+        EditorGUILayout.EndScrollView();
+    */
     }
 }
