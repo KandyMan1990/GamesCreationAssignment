@@ -30,4 +30,23 @@ public static class ScriptableObjectUtility
         EditorUtility.FocusProjectWindow();
         Selection.activeObject = asset;
     }
+
+    public static U GetDatabase<U>(string dbPath, string dbName) where U : ScriptableObject
+    {
+        string dbFullPath = @"Assets/" + dbPath + "/" + dbName;
+
+        U db = AssetDatabase.LoadAssetAtPath(dbFullPath, typeof(U)) as U;
+        if (db == null)
+        {
+            if (!AssetDatabase.IsValidFolder(@"Assets/" + dbPath))
+                AssetDatabase.CreateFolder("Assets/", dbPath);
+
+            db = ScriptableObject.CreateInstance<U>() as U;
+            AssetDatabase.CreateAsset(db, dbFullPath);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+
+        return db;
+    }
 }

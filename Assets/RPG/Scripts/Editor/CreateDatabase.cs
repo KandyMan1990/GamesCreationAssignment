@@ -27,10 +27,11 @@ public class CreateDatabase : EditorWindow
         DETAILS
     }
 
-    //TODO: list of databases here (not actual list, just variables)
-    RPGDatabase database;
+    Terms TermsDB;
 
     const string DATABASE_FOLDER_NAME = @"RPG/Databases";
+    const string DATABASE_TERMS_NAME = @"Terms.asset";
+    const string DATABASE_MAIN_NAME = @"RPG Database.asset";
 
     EditorState currentEditorState;
     DetailsState currentDetailsState;
@@ -343,7 +344,19 @@ public class CreateDatabase : EditorWindow
     }
     void TermsTab()
     {
+        if (TermsDB == null)
+        {
+            TermsDB = ScriptableObjectDatabase<Terms>.GetDatabase<Terms>(DATABASE_FOLDER_NAME, DATABASE_TERMS_NAME);
+        }
 
+        scrollPos = GUILayout.BeginScrollView(scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+
+        TermsTitleScreen();
+        TermsMenuScreen();
+
+        GUILayout.EndScrollView();
+
+        EditorUtility.SetDirty(TermsDB);
     }
     #endregion
 
@@ -410,4 +423,54 @@ public class CreateDatabase : EditorWindow
         EditorGUILayout.EndScrollView();
     */
     }
+
+    void TermsTitleScreen()
+    {
+        GUILayout.BeginVertical("Box", GUILayout.Height(160), GUILayout.Width(120));
+
+        EditorGUILayout.LabelField("Title Screen:",EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+
+        EditorGUILayout.LabelField("New Game:");
+        TermsDB._newGame = EditorGUILayout.TextField(TermsDB._newGame,GUILayout.Width(100));
+
+        EditorGUILayout.LabelField("Load Game:");
+        TermsDB._loadGame = EditorGUILayout.TextField(TermsDB._loadGame, GUILayout.Width(100));
+
+        EditorGUILayout.LabelField("Quit Game:");
+        TermsDB._quit = EditorGUILayout.TextField(TermsDB._quit, GUILayout.Width(100));
+
+        EditorGUILayout.LabelField("Cancel:");
+        TermsDB._cancel = EditorGUILayout.TextField(TermsDB._cancel, GUILayout.Width(100));
+
+        GUILayout.EndVertical();
+    }
+
+    void TermsMenuScreen()
+    {
+        GUILayout.BeginVertical("Box", GUILayout.Height(160), GUILayout.Width(120));
+
+        EditorGUILayout.LabelField("In-Game Menus:", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+
+        EditorGUILayout.LabelField("Weapons:");
+        TermsDB._weapons = EditorGUILayout.TextField(TermsDB._weapons, GUILayout.Width(100));
+
+        EditorGUILayout.LabelField("Armours");
+        TermsDB._armours = EditorGUILayout.TextField(TermsDB._armours, GUILayout.Width(100));
+
+        EditorGUILayout.LabelField("Items:");
+        TermsDB._items = EditorGUILayout.TextField(TermsDB._items, GUILayout.Width(100));
+
+        EditorGUILayout.LabelField("Equip:");
+        TermsDB._equip = EditorGUILayout.TextField(TermsDB._equip, GUILayout.Width(100));
+
+        EditorGUILayout.LabelField("Optimize:");
+        TermsDB._autoEquip = EditorGUILayout.TextField(TermsDB._autoEquip, GUILayout.Width(100));
+
+        EditorGUILayout.LabelField("Clear:");
+        TermsDB._clear = EditorGUILayout.TextField(TermsDB._clear, GUILayout.Width(100));
+
+        GUILayout.EndVertical();
+}
 }
