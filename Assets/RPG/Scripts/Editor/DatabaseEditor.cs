@@ -205,14 +205,6 @@ public partial class DatabaseEditor : EditorWindow
                 currentEditorState = EditorState.QUESTS;
         }
     }
-    void SystemButton()
-    {
-        if (currentEditorState != EditorState.SYSTEM)
-        {
-            if (GUILayout.Button("System"))
-                currentEditorState = EditorState.SYSTEM;
-        }
-    }
     #endregion
 
     #region Editor Tabs
@@ -330,10 +322,6 @@ public partial class DatabaseEditor : EditorWindow
 
     }
     void QuestsTab()
-    {
-
-    }
-    void SystemTab()
     {
 
     }
