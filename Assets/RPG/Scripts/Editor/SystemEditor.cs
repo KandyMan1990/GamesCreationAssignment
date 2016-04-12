@@ -101,6 +101,7 @@ public partial class DatabaseEditor : EditorWindow
 
         //keep working
         //set dirty will be removed in future versions, look for alternatives
+        //should set dirty when losing focus of window instead of when closing window
 
         GUILayout.EndVertical();
     }
