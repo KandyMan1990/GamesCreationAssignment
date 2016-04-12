@@ -5,12 +5,16 @@ using System.Collections.Generic;
 public class Terms : ScriptableObject
 {
     //title screen
+    [HideInInspector]
     [SerializeField]
     string _newGame;
+    [HideInInspector]
     [SerializeField]
     string _loadGame;
+    [HideInInspector]
     [SerializeField]
     string _quit;
+    [HideInInspector]
     [SerializeField]
     string _cancel;
 
@@ -36,16 +40,22 @@ public class Terms : ScriptableObject
     }
 
     //menus
+    [HideInInspector]
     [SerializeField]
     string _weapons;
+    [HideInInspector]
     [SerializeField]
     string _armours;
+    [HideInInspector]
     [SerializeField]
     string _items;
+    [HideInInspector]
     [SerializeField]
     string _equip;
+    [HideInInspector]
     [SerializeField]
     string _autoEquip;
+    [HideInInspector]
     [SerializeField]
     string _clear;
 
@@ -81,14 +91,19 @@ public class Terms : ScriptableObject
     }
 
     //commands
+    [HideInInspector]
     [SerializeField]
     string _fight;
+    [HideInInspector]
     [SerializeField]
     string _escape;
+    [HideInInspector]
     [SerializeField]
     string _skills;
+    [HideInInspector]
     [SerializeField]
     string _status;
+    [HideInInspector]
     [SerializeField]
     string _save;
 
@@ -119,10 +134,13 @@ public class Terms : ScriptableObject
     }
 
     //equipment types
+    [HideInInspector]
     [SerializeField]
     string _weapon;
+    [HideInInspector]
     [SerializeField]
     string _armour;
+    [HideInInspector]
     [SerializeField]
     string _accessory;
 
@@ -143,10 +161,13 @@ public class Terms : ScriptableObject
     }
 
     //basic status
+    [HideInInspector]
     [SerializeField]
     string _level;
+    [HideInInspector]
     [SerializeField]
     string _levelShort;
+    [HideInInspector]
     [SerializeField]
     string _hp;
 
@@ -167,14 +188,19 @@ public class Terms : ScriptableObject
     }
 
     //parameters
+    [HideInInspector]
     [SerializeField]
     string _maxHP;
+    [HideInInspector]
     [SerializeField]
     string _statPhysicalAttack;
+    [HideInInspector]
     [SerializeField]
     string _statPhysicalDefence;
+    [HideInInspector]
     [SerializeField]
     string _statMagicalAttack;
+    [HideInInspector]
     [SerializeField]
     string _statMagicalDefence;
 
@@ -205,12 +231,16 @@ public class Terms : ScriptableObject
     }
 
     //list of types
+    [HideInInspector]
     [SerializeField]
     List<string> _weaponTypes = new List<string>();
+    [HideInInspector]
     [SerializeField]
     List<string> _armourTypes = new List<string>();
+    [HideInInspector]
     [SerializeField]
     List<string> _skillTypes = new List<string>();
+    [HideInInspector]
     [SerializeField]
     List<string> _elementTypes = new List<string>();
 

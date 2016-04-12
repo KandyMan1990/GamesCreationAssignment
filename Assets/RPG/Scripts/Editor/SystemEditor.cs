@@ -100,7 +100,7 @@ public partial class DatabaseEditor : EditorWindow
         System_DB.GameOverMusic = (IntroloopAudio)EditorGUILayout.ObjectField(System_DB.GameOverMusic, typeof(IntroloopAudio), true);
 
         //keep working
-        //info not saved in either asset
+        //set dirty will be removed in future versions, look for alternatives
 
         GUILayout.EndVertical();
     }
