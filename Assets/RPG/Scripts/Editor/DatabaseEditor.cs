@@ -404,5 +404,4 @@ public partial class DatabaseEditor : EditorWindow
     }
 
     //TODO: remember to set window min size per tab
-    //TODO: scriptable object utility can be deleted (I think)
 }

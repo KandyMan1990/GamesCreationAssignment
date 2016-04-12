@@ -217,13 +217,17 @@ public partial class DatabaseEditor : EditorWindow
             GUILayout.BeginHorizontal();
             list[i] = EditorGUILayout.TextField(list[i]);
             if (GUILayout.Button("X"))
+            {
                 list.RemoveAt(i);
+                Selection.activeInstanceID = 0;
+            }
             GUILayout.EndHorizontal();
         }
 
         if (GUILayout.Button("Add " + type))
         {
             list.Add("New " + type);
+            Selection.activeInstanceID = 0;
         }
 
         GUILayout.EndVertical();
