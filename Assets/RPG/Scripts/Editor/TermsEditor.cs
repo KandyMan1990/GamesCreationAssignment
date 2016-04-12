@@ -16,6 +16,7 @@ public partial class DatabaseEditor : EditorWindow
                 currentEditorState = EditorState.TERMS;
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
                 window.minSize = new Vector2(1126, 560);
+                Selection.activeInstanceID = 0;
             }
         }
     }
