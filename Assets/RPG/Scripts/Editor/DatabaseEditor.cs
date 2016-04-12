@@ -59,6 +59,12 @@ public partial class DatabaseEditor : EditorWindow
         currentDetailsState = DetailsState.NONE;
     }
 
+    void OnDestroy()
+    {
+        EditorUtility.SetDirty(Terms_DB);
+        EditorUtility.SetDirty(System_DB);
+    }
+
     void OnGUI()
     {
         TopBar();

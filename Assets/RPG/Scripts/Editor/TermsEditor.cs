@@ -16,7 +16,7 @@ public partial class DatabaseEditor : EditorWindow
                 currentEditorState = EditorState.TERMS;
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
                 window.minSize = new Vector2(1126, 560);
-                Selection.activeInstanceID = 0;
+                GUIUtility.keyboardControl = 0;
             }
         }
     }
@@ -62,8 +62,6 @@ public partial class DatabaseEditor : EditorWindow
 
 
         GUILayout.EndScrollView();
-
-        EditorUtility.SetDirty(Terms_DB);
     }
 
     void TermsTitleScreen()

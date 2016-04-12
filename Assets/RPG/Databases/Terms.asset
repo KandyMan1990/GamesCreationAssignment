@@ -11,3 +11,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572360cb47f8e814e913d59fa9064a84, type: 3}
   m_Name: Terms
   m_EditorClassIdentifier: 
+  _newGame: New Game
+  _loadGame: Continue
+  _quit: Quit
+  _cancel: Cancel
+  _weapons: Weapons
+  _armours: Armours
+  _items: Items
+  _equip: Equip
+  _autoEquip: Auto Equip
+  _clear: Clear
+  _fight: Attack
+  _escape: Run
+  _skills: Skills
+  _status: Starus
+  _save: Save
+  _weapon: Weapon
+  _armour: Armour
+  _accessory: Accessory
+  _level: Level
+  _levelShort: LV
+  _hp: HP
+  _maxHP: MaxHP
+  _statPhysicalAttack: PhyAtk
+  _statPhysicalDefence: PhyDef
+  _statMagicalAttack: MagAtk
+  _statMagicalDefence: MagDef
+  _weaponTypes:
+  - Axe
+  - Claw
+  - Spear
+  - Sword
+  - Bow
+  - Dagger
+  - Staff
+  - Gun
+  _armourTypes:
+  - General Armour
+  - Magic Armour
+  - Light Armour
+  - Heavy Armour
+  _skillTypes:
+  - Special
+  - Magic
+  _elementTypes:
+  - Physical
+  - Absorb
+  - Fire
+  - Ice
+  - Thunder
+  - Water
+  - Earth
+  - Wind
+  - Holy
+  - Dark

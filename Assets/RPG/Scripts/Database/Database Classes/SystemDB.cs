@@ -5,14 +5,23 @@ using System.Collections.Generic;
 [System.Serializable]
 public class SystemDB : ScriptableObject
 {
+    [SerializeField]
     string _gameTitle;
+    [SerializeField]
     float _versionNumber;
+    [SerializeField]
     string _currencyUnit;
+    [SerializeField]
     Sprite _windowColour;
+    [SerializeField]
     IntroloopAudio _titleMusic;
+    [SerializeField]
     IntroloopAudio _battleMusic;
+    [SerializeField]
     IntroloopAudio _bossMusic;
+    [SerializeField]
     IntroloopAudio _victoryMusic;
+    [SerializeField]
     IntroloopAudio _gameOverMusic;
 
     public string GameTitle

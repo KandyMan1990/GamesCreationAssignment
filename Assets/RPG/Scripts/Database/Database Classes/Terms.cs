@@ -5,9 +5,13 @@ using System.Collections.Generic;
 public class Terms : ScriptableObject
 {
     //title screen
+    [SerializeField]
     string _newGame;
+    [SerializeField]
     string _loadGame;
+    [SerializeField]
     string _quit;
+    [SerializeField]
     string _cancel;
 
     public string NewGame
@@ -32,11 +36,17 @@ public class Terms : ScriptableObject
     }
 
     //menus
+    [SerializeField]
     string _weapons;
+    [SerializeField]
     string _armours;
+    [SerializeField]
     string _items;
+    [SerializeField]
     string _equip;
+    [SerializeField]
     string _autoEquip;
+    [SerializeField]
     string _clear;
 
     public string Weapons
@@ -71,10 +81,15 @@ public class Terms : ScriptableObject
     }
 
     //commands
+    [SerializeField]
     string _fight;
+    [SerializeField]
     string _escape;
+    [SerializeField]
     string _skills;
+    [SerializeField]
     string _status;
+    [SerializeField]
     string _save;
 
     public string Fight
@@ -104,8 +119,11 @@ public class Terms : ScriptableObject
     }
 
     //equipment types
+    [SerializeField]
     string _weapon;
+    [SerializeField]
     string _armour;
+    [SerializeField]
     string _accessory;
 
     public string Weapon
@@ -125,8 +143,11 @@ public class Terms : ScriptableObject
     }
 
     //basic status
+    [SerializeField]
     string _level;
+    [SerializeField]
     string _levelShort;
+    [SerializeField]
     string _hp;
 
     public string Level
@@ -146,10 +167,15 @@ public class Terms : ScriptableObject
     }
 
     //parameters
+    [SerializeField]
     string _maxHP;
+    [SerializeField]
     string _statPhysicalAttack;
+    [SerializeField]
     string _statPhysicalDefence;
+    [SerializeField]
     string _statMagicalAttack;
+    [SerializeField]
     string _statMagicalDefence;
 
     public string MaxHP
@@ -179,9 +205,13 @@ public class Terms : ScriptableObject
     }
 
     //list of types
+    [SerializeField]
     List<string> _weaponTypes = new List<string>();
+    [SerializeField]
     List<string> _armourTypes = new List<string>();
+    [SerializeField]
     List<string> _skillTypes = new List<string>();
+    [SerializeField]
     List<string> _elementTypes = new List<string>();
 
     public List<string> WeaponTypes

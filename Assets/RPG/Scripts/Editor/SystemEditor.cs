@@ -17,7 +17,7 @@ public partial class DatabaseEditor : EditorWindow
                 currentEditorState = EditorState.SYSTEM;
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
                 window.minSize = new Vector2(1126, 560);
-                Selection.activeInstanceID = 0;
+                GUIUtility.keyboardControl = 0;
             }
         }
     }
@@ -31,14 +31,12 @@ public partial class DatabaseEditor : EditorWindow
 
         scrollPos = GUILayout.BeginScrollView(scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
 
-        GUILayout.BeginHorizontal("Box", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+        GUILayout.BeginHorizontal(GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
         SystemMainSection();
         SystemMusicSection();
         GUILayout.EndHorizontal();
 
         GUILayout.EndScrollView();
-
-        EditorUtility.SetDirty(System_DB);
     }
 
     void SystemMainSection()
@@ -89,9 +87,20 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.LabelField("Title Music:");
         System_DB.TitleMusic = (IntroloopAudio)EditorGUILayout.ObjectField(System_DB.TitleMusic, typeof(IntroloopAudio), true);
 
-        //TODO: fix editor keeping objects selected/blank objects when they arent (try repaint?)
-        //TODO: too many box layouts on page
+        EditorGUILayout.LabelField("Battle Music:");
+        System_DB.BattleMusic = (IntroloopAudio)EditorGUILayout.ObjectField(System_DB.BattleMusic, typeof(IntroloopAudio), true);
+
+        EditorGUILayout.LabelField("Boss Music:");
+        System_DB.BossMusic = (IntroloopAudio)EditorGUILayout.ObjectField(System_DB.BossMusic, typeof(IntroloopAudio), true);
+
+        EditorGUILayout.LabelField("Victory Music:");
+        System_DB.VictoryMusic = (IntroloopAudio)EditorGUILayout.ObjectField(System_DB.VictoryMusic, typeof(IntroloopAudio), true);
+
+        EditorGUILayout.LabelField("Game Over Music:");
+        System_DB.GameOverMusic = (IntroloopAudio)EditorGUILayout.ObjectField(System_DB.GameOverMusic, typeof(IntroloopAudio), true);
+
         //keep working
+        //info not saved in either asset
 
         GUILayout.EndVertical();
     }
