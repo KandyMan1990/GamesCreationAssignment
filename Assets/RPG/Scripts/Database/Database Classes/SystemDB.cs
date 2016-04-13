@@ -10,13 +10,14 @@ public class SystemDB : ScriptableObject
     string _gameTitle;
     [HideInInspector]
     [SerializeField]
-    float _versionNumber;
+    string _versionNumber;
     [HideInInspector]
     [SerializeField]
     string _currencyUnit;
     [HideInInspector]
     [SerializeField]
     Sprite _windowColour;
+
     [HideInInspector]
     [SerializeField]
     IntroloopAudio _titleMusic;
@@ -33,12 +34,16 @@ public class SystemDB : ScriptableObject
     [SerializeField]
     IntroloopAudio _gameOverMusic;
 
+    [HideInInspector]
+    [SerializeField]
+    AudioClip _cursorSFX;
+
     public string GameTitle
     {
         get { return _gameTitle; }
         set { _gameTitle = value; }
     }
-    public float VersionNumber
+    public string VersionNumber
     {
         get { return _versionNumber; }
         set { _versionNumber = value; }
@@ -53,6 +58,7 @@ public class SystemDB : ScriptableObject
         get { return _windowColour; }
         set { _windowColour = value; }
     }
+
     public IntroloopAudio TitleMusic
     {
         get { return _titleMusic; }
@@ -79,11 +85,17 @@ public class SystemDB : ScriptableObject
         set { _gameOverMusic = value; }
     }
 
+    public AudioClip CursorSFX
+    {
+        get { return _cursorSFX; }
+        set { _cursorSFX = value; }
+    }
+
+
     /*
     prefabs for vehicles (if any)
 
     sfx:
-    cursor
     ok
     cancel
     error

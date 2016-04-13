@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: System
   m_EditorClassIdentifier: 
   _gameTitle: Unnamed Adventures
-  _versionNumber: 0.1
+  _versionNumber: 0.1a
   _currencyUnit: G
   _windowColour: {fileID: 21300000, guid: e898287da18e1574fb74dd64ce22bef3, type: 3}
   _titleMusic: {fileID: 0}
@@ -20,3 +20,4 @@ MonoBehaviour:
   _bossMusic: {fileID: 0}
   _victoryMusic: {fileID: 0}
   _gameOverMusic: {fileID: 0}
+  _cursorSFX: {fileID: 8300000, guid: 3282fe0bca81477449806d1581fa57b4, type: 3}

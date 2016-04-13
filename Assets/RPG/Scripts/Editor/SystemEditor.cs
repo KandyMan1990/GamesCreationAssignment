@@ -33,7 +33,7 @@ public partial class DatabaseEditor : EditorWindow
 
         GUILayout.BeginHorizontal(GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
         SystemMainSection();
-        SystemMusicSection();
+        SystemMusicSection();SystemSfxSection();
         GUILayout.EndHorizontal();
 
         GUILayout.EndScrollView();
@@ -50,7 +50,7 @@ public partial class DatabaseEditor : EditorWindow
         System_DB.GameTitle = EditorGUILayout.TextField(System_DB.GameTitle, GUILayout.Width(200));
 
         EditorGUILayout.LabelField("Game Version:");
-        System_DB.VersionNumber = EditorGUILayout.FloatField(System_DB.VersionNumber, GUILayout.Width(100));
+        System_DB.VersionNumber = EditorGUILayout.TextField(System_DB.VersionNumber, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Game Currency:");
         System_DB.CurrencyUnit = EditorGUILayout.TextField(System_DB.CurrencyUnit, GUILayout.Width(100));
@@ -108,6 +108,14 @@ public partial class DatabaseEditor : EditorWindow
 
     void SystemSfxSection()
     {
+        GUILayout.BeginVertical("Box", GUILayout.Height(160), GUILayout.Width(120));
 
+        EditorGUILayout.LabelField("Sound Effects Section:", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+
+        EditorGUILayout.LabelField("Cursor Sound:");
+        System_DB.CursorSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.CursorSFX, typeof(AudioClip), true);
+
+        GUILayout.EndVertical();
     }
 }
