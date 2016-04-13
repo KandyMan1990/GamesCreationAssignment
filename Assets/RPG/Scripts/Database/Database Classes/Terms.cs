@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor;
 
 [System.Serializable]
 public class Terms : ScriptableObject
@@ -21,22 +22,22 @@ public class Terms : ScriptableObject
     public string NewGame
     {
         get { return _newGame; }
-        set { _newGame = value; }
+        set { _newGame = value; EditorUtility.SetDirty(this); }
     }
     public string LoadGame
     {
         get { return _loadGame; }
-        set { _loadGame = value; }
+        set { _loadGame = value; EditorUtility.SetDirty(this); }
     }
     public string Quit
     {
         get { return _quit; }
-        set { _quit = value; }
+        set { _quit = value; EditorUtility.SetDirty(this); }
     }
     public string Cancel
     {
         get { return _cancel; }
-        set { _cancel = value; }
+        set { _cancel = value; EditorUtility.SetDirty(this); }
     }
 
     //menus
@@ -62,32 +63,32 @@ public class Terms : ScriptableObject
     public string Weapons
     {
         get { return _weapons; }
-        set { _weapons = value; }
+        set { _weapons = value; EditorUtility.SetDirty(this); }
     }
     public string Armours
     {
         get { return _armours; }
-        set { _armours = value; }
+        set { _armours = value; EditorUtility.SetDirty(this); }
     }
     public string Items
     {
         get { return _items; }
-        set { _items = value; }
+        set { _items = value; EditorUtility.SetDirty(this); }
     }
     public string Equip
     {
         get { return _equip; }
-        set { _equip = value; }
+        set { _equip = value; EditorUtility.SetDirty(this); }
     }
     public string AutoEquip
     {
         get { return _autoEquip; }
-        set { _autoEquip = value; }
+        set { _autoEquip = value; EditorUtility.SetDirty(this); }
     }
     public string Clear
     {
         get { return _clear; }
-        set { _clear = value; }
+        set { _clear = value; EditorUtility.SetDirty(this); }
     }
 
     //commands
@@ -110,27 +111,27 @@ public class Terms : ScriptableObject
     public string Fight
     {
         get { return _fight; }
-        set { _fight = value; }
+        set { _fight = value; EditorUtility.SetDirty(this); }
     }
     public string Escape
     {
         get { return _escape; }
-        set { _escape = value; }
+        set { _escape = value; EditorUtility.SetDirty(this); }
     }
     public string Skills
     {
         get { return _skills; }
-        set { _skills = value; }
+        set { _skills = value; EditorUtility.SetDirty(this); }
     }
     public string Status
     {
         get { return _status; }
-        set { _status = value; }
+        set { _status = value; EditorUtility.SetDirty(this); }
     }
     public string Save
     {
         get { return _save; }
-        set { _save = value; }
+        set { _save = value; EditorUtility.SetDirty(this); }
     }
 
     //equipment types
@@ -147,17 +148,17 @@ public class Terms : ScriptableObject
     public string Weapon
     {
         get { return _weapon; }
-        set { _weapon = value; }
+        set { _weapon = value; EditorUtility.SetDirty(this); }
     }
     public string Armour
     {
         get { return _armour; }
-        set { _armour = value; }
+        set { _armour = value; EditorUtility.SetDirty(this); }
     }
     public string Accessory
     {
         get { return _accessory; }
-        set { _accessory = value; }
+        set { _accessory = value; EditorUtility.SetDirty(this); }
     }
 
     //basic status
@@ -174,17 +175,17 @@ public class Terms : ScriptableObject
     public string Level
     {
         get { return _level; }
-        set { _level = value; }
+        set { _level = value; EditorUtility.SetDirty(this); }
     }
     public string LevelShort
     {
         get { return _levelShort; }
-        set { _levelShort = value; }
+        set { _levelShort = value; EditorUtility.SetDirty(this); }
     }
     public string HP
     {
         get { return _hp; }
-        set { _hp = value; }
+        set { _hp = value; EditorUtility.SetDirty(this); }
     }
 
     //parameters
@@ -207,27 +208,27 @@ public class Terms : ScriptableObject
     public string MaxHP
     {
         get { return _maxHP; }
-        set { _maxHP = value; }
+        set { _maxHP = value; EditorUtility.SetDirty(this); }
     }
     public string StatPhysicalAttack
     {
         get { return _statPhysicalAttack; }
-        set { _statPhysicalAttack = value; }
+        set { _statPhysicalAttack = value; EditorUtility.SetDirty(this); }
     }
     public string StatPhysicalDefence
     {
         get { return _statPhysicalDefence; }
-        set { _statPhysicalDefence = value; }
+        set { _statPhysicalDefence = value; EditorUtility.SetDirty(this); }
     }
     public string StatMagicalAttack
     {
         get { return _statMagicalAttack; }
-        set { _statMagicalAttack = value; }
+        set { _statMagicalAttack = value; EditorUtility.SetDirty(this); }
     }
     public string StatMagicalDefence
     {
         get { return _statMagicalDefence; }
-        set { _statMagicalDefence = value; }
+        set { _statMagicalDefence = value; EditorUtility.SetDirty(this); }
     }
 
     //list of types

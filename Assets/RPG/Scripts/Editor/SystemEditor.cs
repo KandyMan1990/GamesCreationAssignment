@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
 
 public partial class DatabaseEditor : EditorWindow
 {
@@ -16,7 +15,11 @@ public partial class DatabaseEditor : EditorWindow
             {
                 currentEditorState = EditorState.SYSTEM;
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
-                window.minSize = new Vector2(1126, 560);
+                if (!window.maximized)
+                {
+                    window.maxSize = new Vector2(900, 380);
+                    window.minSize = window.maxSize;
+                }
                 GUIUtility.keyboardControl = 0;
             }
         }
@@ -33,7 +36,8 @@ public partial class DatabaseEditor : EditorWindow
 
         GUILayout.BeginHorizontal(GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
         SystemMainSection();
-        SystemMusicSection();SystemSfxSection();
+        SystemMusicSection();
+        SystemSfxSection();
         GUILayout.EndHorizontal();
 
         GUILayout.EndScrollView();
@@ -61,14 +65,14 @@ public partial class DatabaseEditor : EditorWindow
         else
             selectedTexture = null;
 
-        if(GUILayout.Button(selectedTexture, GUILayout.Width(75), GUILayout.Height(75)))
+        if (GUILayout.Button(selectedTexture, GUILayout.Width(75), GUILayout.Height(75)))
         {
             int controllerID = EditorGUIUtility.GetControlID(FocusType.Passive);
             EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, controllerID);
         }
 
         string commandName = Event.current.commandName;
-        if(commandName == "ObjectSelectorUpdated")
+        if (commandName == "ObjectSelectorUpdated")
         {
             System_DB.WindowColour = (Sprite)EditorGUIUtility.GetObjectPickerObject();
             Repaint();
@@ -99,23 +103,70 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.LabelField("Game Over Music:");
         System_DB.GameOverMusic = (IntroloopAudio)EditorGUILayout.ObjectField(System_DB.GameOverMusic, typeof(IntroloopAudio), true);
 
-        //keep working
-        //set dirty will be removed in future versions, look for alternatives
-        //should set dirty when losing focus of window instead of when closing window
-
         GUILayout.EndVertical();
     }
 
     void SystemSfxSection()
     {
-        GUILayout.BeginVertical("Box", GUILayout.Height(160), GUILayout.Width(120));
+        GUILayout.BeginHorizontal("Box");
+        GUILayout.BeginVertical();
 
         EditorGUILayout.LabelField("Sound Effects Section:", EditorStyles.boldLabel);
         EditorGUILayout.Space();
 
+        SystemSFXMain();
+        GUILayout.EndVertical();
+
+        GUILayout.BeginVertical();
+        EditorGUILayout.LabelField("", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+        SystemSFXBattle();
+        GUILayout.EndVertical();
+
+        GUILayout.EndHorizontal();
+    }
+
+    void SystemSFXMain()
+    {
         EditorGUILayout.LabelField("Cursor Sound:");
         System_DB.CursorSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.CursorSFX, typeof(AudioClip), true);
 
-        GUILayout.EndVertical();
+        EditorGUILayout.LabelField("OK Sound:");
+        System_DB.OkSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.OkSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Cancel Sound:");
+        System_DB.CancelSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.CancelSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Error Sound:");
+        System_DB.ErrorSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.ErrorSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Equip Sound:");
+        System_DB.EquipSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.EquipSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Save Sound:");
+        System_DB.SaveSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.SaveSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Load Sound:");
+        System_DB.LoadSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.LoadSFX, typeof(AudioClip), true);
     }
+
+    void SystemSFXBattle()
+    {
+        EditorGUILayout.LabelField("Battle Start Sound:");
+        System_DB.BattleStartSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.BattleStartSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Boss Start Sound:");
+        System_DB.BossStartSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.BossStartSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Escape Sound:");
+        System_DB.EscapeSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.EscapeSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Physical Miss Sound:");
+        System_DB.PhysicalMissSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.PhysicalMissSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Magical Miss Sound:");
+        System_DB.MagicMissSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.MagicMissSFX, typeof(AudioClip), true);
+    }
+
+    //set dirty will be removed in future versions, look for alternatives
 }

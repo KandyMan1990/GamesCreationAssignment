@@ -21,3 +21,14 @@ MonoBehaviour:
   _victoryMusic: {fileID: 0}
   _gameOverMusic: {fileID: 0}
   _cursorSFX: {fileID: 8300000, guid: 3282fe0bca81477449806d1581fa57b4, type: 3}
+  _okSFX: {fileID: 0}
+  _cancelSFX: {fileID: 0}
+  _errorSFX: {fileID: 0}
+  _equipSFX: {fileID: 0}
+  _saveSFX: {fileID: 0}
+  _loadSFX: {fileID: 0}
+  _battleStartSFX: {fileID: 0}
+  _bossStartSFX: {fileID: 0}
+  _escapeSFX: {fileID: 0}
+  _physicalMissSFX: {fileID: 0}
+  _magicMissSFX: {fileID: 0}

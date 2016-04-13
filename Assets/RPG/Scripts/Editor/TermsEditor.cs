@@ -15,7 +15,11 @@ public partial class DatabaseEditor : EditorWindow
             {
                 currentEditorState = EditorState.TERMS;
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
-                window.minSize = new Vector2(1126, 560);
+                if (!window.maximized)
+                {
+                    window.maxSize = new Vector2(1126, 560);
+                    window.minSize = window.maxSize;
+                }
                 GUIUtility.keyboardControl = 0;
             }
         }

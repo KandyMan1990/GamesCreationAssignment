@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEditor;
-using System.Collections.Generic;
 
 public partial class DatabaseEditor : EditorWindow
 {
@@ -28,7 +27,7 @@ public partial class DatabaseEditor : EditorWindow
         DETAILS
     }
 
-    const string DATABASE_FOLDER_NAME = @"RPG/Databases";
+    const string DATABASE_FOLDER_NAME = @"Resources/Databases";
 
     EditorState currentEditorState;
     DetailsState currentDetailsState;
@@ -42,14 +41,18 @@ public partial class DatabaseEditor : EditorWindow
     //int selectedIndex = -1;
 
     //details scroll view
-    Vector2 detailsScrollPos = Vector2.zero;
+    //Vector2 detailsScrollPos = Vector2.zero;
 
     [MenuItem("Window/Database Editor")]
     public static void Init()
     {
         DatabaseEditor window = GetWindow<DatabaseEditor>();
         window.titleContent = new GUIContent("RPG Database");
-        window.minSize = new Vector2(950, 250);
+        if (!window.maximized)
+        {
+            window.maxSize = new Vector2(950, 250);
+            window.minSize = window.maxSize;
+        }
         window.Show();
     }
 
@@ -59,10 +62,11 @@ public partial class DatabaseEditor : EditorWindow
         currentDetailsState = DetailsState.NONE;
     }
 
+
     void OnDestroy()
     {
-        EditorUtility.SetDirty(Terms_DB);
-        EditorUtility.SetDirty(System_DB);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
     void OnGUI()
@@ -85,6 +89,9 @@ public partial class DatabaseEditor : EditorWindow
         //DeleteButton();
         GUILayout.EndHorizontal();
 
+        if (currentEditorState != EditorState.HOME)
+            GUILayout.Button("Apply");
+        //DatabaseEditor window = GetWindow<DatabaseEditor>();
         //EditorGUILayout.LabelField(window.position.width.ToString() + " / " + window.position.height.ToString());
     }
 
@@ -119,7 +126,11 @@ public partial class DatabaseEditor : EditorWindow
             {
                 currentEditorState = EditorState.HOME;
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
-                window.minSize = new Vector2(950, 250);
+                if (!window.maximized)
+                {
+                    window.maxSize = new Vector2(950, 250);
+                    window.minSize = window.maxSize;
+                }
             }
         }
     }
