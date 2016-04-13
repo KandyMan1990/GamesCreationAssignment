@@ -60,22 +60,20 @@ public class AppData : MonoBehaviour
     public bool ATB_Mode_Active = false;
     //amount of exp to level up
     public int EXP_To_Level_Up;
-    //music used for normal battles
-    public AudioClip BattleMusic;
-    //music used for boss battles, add additional audio clips for other scenarios if necessary
-    public AudioClip BossMusic;
 
     /*
     
-    list of each type of magic in order to set the base power value
+    list of each type of magic in order to set the base power value (baseMagic class with string and value to replace Terms:Elements)
     list of regions in the game (either by scene or by trigger volume.  Scene will probably be easiest and make more sense)
-    list of monster groups in the game  (each region would contain monster groups that appear in that region. monsters could be prefab or scriptable object, who knows atm)
 
     for random encounters:
     list of scenes that can be battled in. has a list of monsters with a max amount next to it. also under has a max number for amount of monsters in battle
-    randomly choose how many monsters than randomly choose from the list while not exceeding the max amount of that monster.  probably be the most random way to do it
+    randomly choose how many monsters then randomly choose from the list while not exceeding the max amount of that monster.  probably be the most random way to do it
     
     */
+
+        //eventually delete app data and create saveData class.  Use this to store player progress inc. character exp, position, quests completed etc.
+        //will allow current data to be flushed periodically to an autosave
 
     //characters whose stats need to be kept up to date (current experiene, stat bonuses.  these are the characters that will be saved)
     //custom inspectors need creating for characters, appdata, and no doubt all other rpg classes

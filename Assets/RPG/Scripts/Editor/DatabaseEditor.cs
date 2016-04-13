@@ -89,8 +89,6 @@ public partial class DatabaseEditor : EditorWindow
         //DeleteButton();
         GUILayout.EndHorizontal();
 
-        if (currentEditorState != EditorState.HOME)
-            GUILayout.Button("Apply");
         //DatabaseEditor window = GetWindow<DatabaseEditor>();
         //EditorGUILayout.LabelField(window.position.width.ToString() + " / " + window.position.height.ToString());
     }

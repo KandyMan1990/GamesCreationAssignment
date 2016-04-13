@@ -114,19 +114,19 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.LabelField("Sound Effects Section:", EditorStyles.boldLabel);
         EditorGUILayout.Space();
 
-        SystemSFXMain();
+        SystemSFXSection1();
         GUILayout.EndVertical();
 
         GUILayout.BeginVertical();
         EditorGUILayout.LabelField("", EditorStyles.boldLabel);
         EditorGUILayout.Space();
-        SystemSFXBattle();
+        SystemSFXSection2();
         GUILayout.EndVertical();
 
         GUILayout.EndHorizontal();
     }
 
-    void SystemSFXMain()
+    void SystemSFXSection1()
     {
         EditorGUILayout.LabelField("Cursor Sound:");
         System_DB.CursorSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.CursorSFX, typeof(AudioClip), true);
@@ -150,8 +150,11 @@ public partial class DatabaseEditor : EditorWindow
         System_DB.LoadSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.LoadSFX, typeof(AudioClip), true);
     }
 
-    void SystemSFXBattle()
+    void SystemSFXSection2()
     {
+        EditorGUILayout.LabelField("New Game Sound:");
+        System_DB.NewGameSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.NewGameSFX, typeof(AudioClip), true);
+
         EditorGUILayout.LabelField("Battle Start Sound:");
         System_DB.BattleStartSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.BattleStartSFX, typeof(AudioClip), true);
 
