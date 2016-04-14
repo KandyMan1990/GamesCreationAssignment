@@ -11,3 +11,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a63d3ef9f73cd8c4596379649b64ecb3, type: 3}
   m_Name: Elements
   m_EditorClassIdentifier: 
+  database:
+  - _name: Physical
+    _value: 20
+  - _name: Absorb
+    _value: 14
+  - _name: Fire
+    _value: 18
+  - _name: Ice
+    _value: 18
+  - _name: Thunder
+    _value: 18
+  - _name: Water
+    _value: 26
+  - _name: Earth
+    _value: 40
+  - _name: Wind
+    _value: 22
+  - _name: Holy
+    _value: 48
+  - _name: Dark
+    _value: 80

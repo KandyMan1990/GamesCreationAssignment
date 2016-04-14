@@ -185,6 +185,7 @@ GameObject:
   - 92: {fileID: 54423224}
   - 124: {fileID: 54423223}
   - 81: {fileID: 54423222}
+  - 114: {fileID: 54423227}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -259,6 +260,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &54423227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 54423221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea33aab89bdfd24bb98dc2d609c6ff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &221263277
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,9 +809,6 @@ MonoBehaviour:
   ActionButton: {fileID: 144842, guid: 1ad2ec45865942c4e9f8062b917b5300, type: 2}
   MagicButton: {fileID: 144842, guid: 0218c4de65774be4d947fef1d2788255, type: 2}
   ActionButtons: []
-  ButtonHighlightSound: {fileID: 8300000, guid: 3282fe0bca81477449806d1581fa57b4,
-    type: 3}
-  BackgroundMusic: {fileID: 11400000, guid: 22f0b2864ea48c64e836396c6f577ed8, type: 2}
 --- !u!4 &1176690582
 Transform:
   m_ObjectHideFlags: 0

@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     private static SystemDB _system_DB;
     private static Terms _terms_DB;
 
-    public GameObject Camera;
-
     public static GameManager Instance
     {
         get
@@ -71,7 +69,7 @@ public class GameManager : MonoBehaviour
         }
 
         //DontDestroyOnLoad(gameObject);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
-        Destroy(Camera);
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
     }
 }
