@@ -62,6 +62,7 @@ public class BattleStateMachine : MonoBehaviour
         EnemyButtons();
         Audio = GetComponent<AudioSource>();
 
+        Audio.PlayOneShot(GameManager.Instance.System_DB.BattleStartSFX);
         IntroloopPlayer.Instance.Play(GameManager.Instance.System_DB.BattleMusic);
     }
 
