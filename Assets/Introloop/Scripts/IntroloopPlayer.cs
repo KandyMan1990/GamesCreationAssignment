@@ -68,7 +68,7 @@ public class IntroloopPlayer : MonoBehaviour
 			}
 		}
 
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
         introloopSettings = gameObject.GetComponent<IntroloopSettings>();
         if(introloopSettings == null)

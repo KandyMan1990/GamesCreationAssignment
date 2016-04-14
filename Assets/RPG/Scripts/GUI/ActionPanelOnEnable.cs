@@ -3,10 +3,8 @@ using System.Collections;
 
 public class ActionPanelOnEnable : MonoBehaviour
 {
-    public AudioClip clip;
-
     void OnEnable()
     {
-        GameObject.Find("BattleManager").GetComponent<BattleStateMachine>().PlaySound(clip);
+        GameObject.Find("BattleManager").GetComponent<BattleStateMachine>().PlaySound(GameManager.Instance.System_DB.CharacterTurnSFX);
     }
 }

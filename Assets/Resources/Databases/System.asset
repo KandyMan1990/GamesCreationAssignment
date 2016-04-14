@@ -28,6 +28,7 @@ MonoBehaviour:
   _saveSFX: {fileID: 8300000, guid: 630c7b88181fe6d4d8ecd228efaf0613, type: 3}
   _loadSFX: {fileID: 8300000, guid: 91135f8074f6d2f4cb80795dc1f434a7, type: 3}
   _newGameSFX: {fileID: 8300000, guid: 07ab91b152296a04ea4d6c39a89e83ab, type: 3}
+  _characterTurnSFX: {fileID: 8300000, guid: f17e3e20595e23b418899fe7153856b4, type: 3}
   _battleStartSFX: {fileID: 8300000, guid: 4a700cd240447a14aba774c02af820f1, type: 3}
   _bossStartSFX: {fileID: 0}
   _escapeSFX: {fileID: 8300000, guid: 39d7bb30cc3445349833154b8ee40abe, type: 3}

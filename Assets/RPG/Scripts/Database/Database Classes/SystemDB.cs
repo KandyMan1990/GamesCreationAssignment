@@ -59,6 +59,9 @@ public class SystemDB : ScriptableObject
     AudioClip _newGameSFX;
     [HideInInspector]
     [SerializeField]
+    AudioClip _characterTurnSFX;
+    [HideInInspector]
+    [SerializeField]
     AudioClip _battleStartSFX;
     [HideInInspector]
     [SerializeField]
@@ -159,6 +162,11 @@ public class SystemDB : ScriptableObject
     {
         get { return _newGameSFX; }
         set { _newGameSFX = value; EditorUtility.SetDirty(this); }
+    }
+    public AudioClip CharacterTurnSFX
+    {
+        get { return _characterTurnSFX; }
+        set { _characterTurnSFX = value; EditorUtility.SetDirty(this); }
     }
     public AudioClip BattleStartSFX
     {

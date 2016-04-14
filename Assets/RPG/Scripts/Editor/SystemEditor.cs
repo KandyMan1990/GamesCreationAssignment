@@ -155,6 +155,9 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.LabelField("New Game Sound:");
         System_DB.NewGameSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.NewGameSFX, typeof(AudioClip), true);
 
+        EditorGUILayout.LabelField("Character Select Sound:");
+        System_DB.CharacterTurnSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.CharacterTurnSFX, typeof(AudioClip), true);
+
         EditorGUILayout.LabelField("Battle Start Sound:");
         System_DB.BattleStartSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.BattleStartSFX, typeof(AudioClip), true);
 

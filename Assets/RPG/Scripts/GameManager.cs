@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     void Awake()
     {
         //Check for duplicates in the scene
@@ -68,8 +67,6 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        //DontDestroyOnLoad(gameObject);
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Additive);
+        DontDestroyOnLoad(gameObject);
     }
 }

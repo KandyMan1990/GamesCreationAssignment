@@ -29,8 +29,7 @@ public class TitleScreen : MonoBehaviour
     public void NewGameButton()
     {
         int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadScene(nextScene, LoadSceneMode.Additive);
-        SceneManager.UnloadScene(gameObject.scene.name);
+        SceneManager.LoadSceneAsync(nextScene);
     }
 
 }
