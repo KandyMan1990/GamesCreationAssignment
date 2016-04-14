@@ -22,6 +22,8 @@ public class TitleScreen : MonoBehaviour
         Version.text = "Version " + GameManager.Instance.System_DB.VersionNumber;
 
         LoadGame.interactable = false;
+
+        IntroloopPlayer.Instance.Play(GameManager.Instance.System_DB.TitleMusic);
     }
 
     public void NewGameButton()
