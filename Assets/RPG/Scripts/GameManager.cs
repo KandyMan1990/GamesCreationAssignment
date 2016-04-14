@@ -31,25 +31,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public static SystemDB System_DB
+    public SystemDB System_DB
     {
         get
         {
             if(_system_DB == null)
             {
-                _system_DB = (SystemDB)Resources.Load("Databases", typeof(SystemDB));
+                _system_DB = Resources.Load("Databases/System", typeof(SystemDB)) as SystemDB;
             }
 
             return _system_DB;
         }
     }
-    public static Terms Terms_DB
+    public Terms Terms_DB
     {
         get
         {
             if (_terms_DB == null)
             {
-                _terms_DB = (Terms)Resources.Load("Databases", typeof(Terms));
+                _terms_DB = Resources.Load("Databases/Terms", typeof(Terms)) as Terms;
             }
 
             return _terms_DB;

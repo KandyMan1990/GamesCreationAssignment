@@ -17,7 +17,7 @@ public partial class DatabaseEditor : EditorWindow
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
                 if (!window.maximized)
                 {
-                    window.maxSize = new Vector2(1126, 560);
+                    window.maxSize = new Vector2(1134, 560);
                     window.minSize = window.maxSize;
                 }
                 GUIUtility.keyboardControl = 0;
@@ -53,7 +53,7 @@ public partial class DatabaseEditor : EditorWindow
         GUILayout.EndVertical();
 
         GUILayout.BeginVertical();
-        TermsListType("Elements", Terms_DB.ElementTypes, "Element");
+        TermsListElements();
         TermsListType("Weapon Types", Terms_DB.WeaponTypes, "Weapon");
         GUILayout.EndVertical();
 
@@ -219,7 +219,7 @@ public partial class DatabaseEditor : EditorWindow
         {
             GUILayout.BeginHorizontal();
             list[i] = EditorGUILayout.TextField(list[i]);
-            if (GUILayout.Button("X"))
+            if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(15)))
             {
                 list.RemoveAt(i);
                 Selection.activeInstanceID = 0;
@@ -230,6 +230,54 @@ public partial class DatabaseEditor : EditorWindow
         if (GUILayout.Button("Add " + type))
         {
             list.Add("New " + type);
+            Selection.activeInstanceID = 0;
+        }
+
+        GUILayout.EndVertical();
+    }
+
+    void TermsListElements()
+    {
+        GUILayout.BeginVertical("Box");
+
+        EditorGUILayout.LabelField("Elements:", EditorStyles.boldLabel);
+        EditorGUILayout.Space();
+
+        GUILayout.BeginHorizontal(GUILayout.Width(200));
+
+        GUILayout.BeginVertical();
+        EditorGUILayout.LabelField("Name:", EditorStyles.boldLabel, GUILayout.Width(100));
+        for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
+        {
+            Terms_DB.ElementTypes[i].Name = EditorGUILayout.TextField(Terms_DB.ElementTypes[i].Name);
+        }
+        GUILayout.EndVertical();
+
+        GUILayout.BeginVertical();
+        EditorGUILayout.LabelField("Base Value:", EditorStyles.boldLabel, GUILayout.Width(80));
+        for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
+        {
+            Terms_DB.ElementTypes[i].BaseValue = EditorGUILayout.IntField(Terms_DB.ElementTypes[i].BaseValue, GUILayout.Width(30));
+        }
+        GUILayout.EndVertical();
+
+        GUILayout.BeginVertical();
+        EditorGUILayout.LabelField("", EditorStyles.boldLabel, GUILayout.Width(25));
+        for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
+        {
+            if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(15)))
+            {
+                Terms_DB.ElementTypes.RemoveAt(i);
+                Selection.activeInstanceID = 0;
+            }
+        }
+        GUILayout.EndVertical();
+
+        GUILayout.EndHorizontal();
+
+        if (GUILayout.Button("Add Element"))
+        {
+            Terms_DB.ElementTypes.Add(BaseMagic.CreateInstance("New Element", 1));
             Selection.activeInstanceID = 0;
         }
 

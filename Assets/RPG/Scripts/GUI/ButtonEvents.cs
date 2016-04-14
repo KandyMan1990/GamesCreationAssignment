@@ -16,12 +16,12 @@ public class ButtonEvents : MonoBehaviour, IPointerEnterHandler, ISelectHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(btn.IsInteractable())
-            BSM.PlaySound(BSM.ButtonHighlightSound);
+            BSM.PlaySound(GameManager.Instance.System_DB.CursorSFX);
     }
 
     public void OnSelect(BaseEventData eventData)
     {
         if (btn.IsInteractable())
-            BSM.PlaySound(BSM.ButtonHighlightSound);
+            BSM.PlaySound(GameManager.Instance.System_DB.CursorSFX);
     }
 }

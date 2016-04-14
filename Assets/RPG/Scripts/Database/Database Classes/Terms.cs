@@ -243,7 +243,7 @@ public class Terms : ScriptableObject
     List<string> _skillTypes = new List<string>();
     [HideInInspector]
     [SerializeField]
-    List<string> _elementTypes = new List<string>();
+    List<BaseMagic> _elementTypes = new List<BaseMagic>();
 
     public List<string> WeaponTypes
     {
@@ -257,7 +257,7 @@ public class Terms : ScriptableObject
     {
         get { return _skillTypes; }
     }
-    public List<string> ElementTypes
+    public List<BaseMagic> ElementTypes
     {
         get { return _elementTypes; }
     }

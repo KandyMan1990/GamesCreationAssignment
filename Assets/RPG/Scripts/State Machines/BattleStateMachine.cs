@@ -10,7 +10,10 @@ public class BattleStateMachine : MonoBehaviour
     {
         WAIT,
         TAKEACTION,
-        PERFORMACTION
+        PERFORMACTION,
+        CHECKALIVE,
+        WIN,
+        LOSE
     }
 
     public enum HeroGUI
@@ -38,8 +41,6 @@ public class BattleStateMachine : MonoBehaviour
     public GameObject ActionButton;
     public GameObject MagicButton;
     public List<GameObject> ActionButtons = new List<GameObject>();
-    public AudioClip ButtonHighlightSound;
-    public IntroloopAudio BackgroundMusic;
 
     private HandleTurn HerosChoice;
     private AudioSource Audio;
@@ -61,7 +62,7 @@ public class BattleStateMachine : MonoBehaviour
         EnemyButtons();
         Audio = GetComponent<AudioSource>();
 
-        IntroloopPlayer.Instance.Play(BackgroundMusic);
+        IntroloopPlayer.Instance.Play(GameManager.Instance.System_DB.BattleMusic);
     }
 
     // Update is called once per frame
@@ -108,6 +109,27 @@ public class BattleStateMachine : MonoBehaviour
                 break;
             case PerformAction.PERFORMACTION:
                 //idle
+                break;
+            case PerformAction.CHECKALIVE:
+                if(HerosInBattle.Count < 1)
+                {
+                    BattleState = PerformAction.LOSE;
+                }
+                else if(EnemiesInBattle.Count < 1)
+                {
+                    BattleState = PerformAction.WIN;
+                }
+                else
+                {
+                    ClearAttackPanel();
+                    HeroInput = HeroGUI.ACTIVATE;
+                }
+                break;
+            case PerformAction.WIN:
+
+                break;
+            case PerformAction.LOSE:
+
                 break;
         }
 
@@ -197,15 +219,24 @@ public class BattleStateMachine : MonoBehaviour
     void HeroInputDone()
     {
         PerformList.Add(HerosChoice);
+
+        ClearAttackPanel();
+
+        HerosToManage[0].transform.FindChild("Selector").gameObject.SetActive(false);
+        HerosToManage.RemoveAt(0);
+        HeroInput = HeroGUI.ACTIVATE;
+    }
+
+    void ClearAttackPanel()
+    {
         EnemySelectPanel.SetActive(false);
+        ActionPanel.SetActive(false);
+        MagicPanel.SetActive(false);
         foreach (GameObject btn in ActionButtons)
         {
             Destroy(btn);
         }
         ActionButtons.Clear();
-        HerosToManage[0].transform.FindChild("Selector").gameObject.SetActive(false);
-        HerosToManage.RemoveAt(0);
-        HeroInput = HeroGUI.ACTIVATE;
     }
 
     void CreateActionButtons()
@@ -245,7 +276,7 @@ public class BattleStateMachine : MonoBehaviour
 
     public void PlaySound(AudioClip sfx)
     {
-        if (sfx == ButtonHighlightSound && !canPlayHighlightSound)
+        if (sfx == GameManager.Instance.System_DB.CursorSFX && !canPlayHighlightSound)
             return;
 
         //if (sfx == ButtonHighlightSound && canPlayHighlightSound)

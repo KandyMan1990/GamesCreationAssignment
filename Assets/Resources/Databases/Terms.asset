@@ -55,13 +55,13 @@ MonoBehaviour:
   - Special
   - Magic
   _elementTypes:
-  - Physical
-  - Absorb
-  - Fire
-  - Ice
-  - Thunder
-  - Water
-  - Earth
-  - Wind
-  - Holy
-  - Dark
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

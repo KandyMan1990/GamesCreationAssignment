@@ -75,7 +75,7 @@ public class HeroStateMachine : MonoBehaviour
                             BSM.PerformList.Remove(BSM.PerformList[i]);
                     }
                     gameObject.GetComponent<MeshRenderer>().material.color = new Color(0.4f, 0.4f, 0.4f, 1f);       //change colour / play animation
-                    BSM.HeroInput = BattleStateMachine.HeroGUI.ACTIVATE;                                            //reset input
+                    BSM.BattleState = BattleStateMachine.PerformAction.CHECKALIVE;                                            //reset input
 
                     isAlive = false;
                 }
