@@ -5,7 +5,9 @@ using System.Collections.Generic;
 public partial class DatabaseEditor : EditorWindow
 {
     const string DATABASE_TERMS_NAME = @"Terms.asset";
+    const string DATABASE_ELEMENTS_NAME = @"Elements.asset";
     Terms Terms_DB;
+    ElementDB _elementDB;
 
     void TermsButton()
     {
@@ -30,6 +32,11 @@ public partial class DatabaseEditor : EditorWindow
         if (Terms_DB == null)
         {
             Terms_DB = ScriptableObjectDatabase<Terms>.GetDatabase<Terms>(DATABASE_FOLDER_NAME, DATABASE_TERMS_NAME);
+        }
+
+        if (_elementDB == null)
+        {
+            _elementDB = ScriptableObjectDatabase<ElementDB>.GetDatabase<ElementDB>(DATABASE_FOLDER_NAME, DATABASE_ELEMENTS_NAME);
         }
 
         scrollPos = GUILayout.BeginScrollView(scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
@@ -245,45 +252,48 @@ public partial class DatabaseEditor : EditorWindow
 
         GUILayout.BeginHorizontal(GUILayout.Width(200));
 
-        //if(Terms_DB.ElementTypes.Count > 0)
-        //{
-        //    GUILayout.BeginVertical();
-        //    EditorGUILayout.LabelField("Name:", EditorStyles.boldLabel, GUILayout.Width(100));
-        //    for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
-        //    {
-        //        Terms_DB.ElementTypes[i].Name = EditorGUILayout.TextField(Terms_DB.ElementTypes[i].Name);
-        //    }
-        //    GUILayout.EndVertical();
+        if (_elementDB.Count > 0)
+        {
+            GUILayout.BeginVertical();
+            EditorGUILayout.LabelField("Name:", EditorStyles.boldLabel, GUILayout.Width(100));
+            for (int i = 0; i < _elementDB.Count; i++)
+            {
+                _elementDB.Get(i).Name = EditorGUILayout.TextField(_elementDB.Get(i).Name);
+            }
+            GUILayout.EndVertical();
 
-        //    GUILayout.BeginVertical();
-        //    EditorGUILayout.LabelField("Base Value:", EditorStyles.boldLabel, GUILayout.Width(80));
-        //    for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
-        //    {
-        //        Terms_DB.ElementTypes[i].BaseValue = EditorGUILayout.IntField(Terms_DB.ElementTypes[i].BaseValue, GUILayout.Width(30));
-        //    }
-        //    GUILayout.EndVertical();
+            GUILayout.BeginVertical();
+            EditorGUILayout.LabelField("Base Value:", EditorStyles.boldLabel, GUILayout.Width(80));
+            for (int i = 0; i < _elementDB.Count; i++)
+            {
+                _elementDB.Get(i).BaseValue = EditorGUILayout.IntField(_elementDB.Get(i).BaseValue, GUILayout.Width(30));
+            }
+            GUILayout.EndVertical();
 
-        //    GUILayout.BeginVertical();
-        //    EditorGUILayout.LabelField("", EditorStyles.boldLabel, GUILayout.Width(25));
-        //    for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
-        //    {
-        //        if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(15)))
-        //        {
-        //            Terms_DB.ElementTypes.RemoveAt(i);
-        //            Selection.activeInstanceID = 0;
-        //        }
-        //    }
-        //    GUILayout.EndVertical();
-        //}
+            GUILayout.BeginVertical();
+            EditorGUILayout.LabelField("", EditorStyles.boldLabel, GUILayout.Width(25));
+            for (int i = 0; i < _elementDB.Count; i++)
+            {
+                if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(15)))
+                {
+                    _elementDB.Remove(i);
+                    Selection.activeInstanceID = 0;
+                }
+            }
+            GUILayout.EndVertical();
+        }
 
         GUILayout.EndHorizontal();
 
         if (GUILayout.Button("Add Element"))
         {
-            Terms_DB.ElementTypes.Add(BaseMagic.CreateInstance("New Element", 1));
+            _elementDB.Add(new Element("New Element", 1));
             Selection.activeInstanceID = 0;
         }
-
+        for(int i = 0; i < _elementDB.Count; i++)
+        {
+            Debug.Log(_elementDB.Get(i).Name + ", " + _elementDB.Get(i).BaseValue);
+        }
         GUILayout.EndVertical();
     }
 }

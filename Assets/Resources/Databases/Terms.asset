@@ -54,14 +54,3 @@ MonoBehaviour:
   _skillTypes:
   - Special
   - Magic
-  _elementTypes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
