@@ -132,14 +132,6 @@ public partial class DatabaseEditor : EditorWindow
             }
         }
     }
-    void CharactersButton()
-    {
-        if (currentEditorState != EditorState.CHARACTERS)
-        {
-            if (GUILayout.Button("Characters"))
-                currentEditorState = EditorState.CHARACTERS;
-        }
-    }
     void ClassesButton()
     {
         if (currentEditorState != EditorState.CLASSES)
@@ -225,50 +217,53 @@ public partial class DatabaseEditor : EditorWindow
     #region Editor Tabs
     void DisplayState()
     {
-        switch (currentEditorState)
+        if (currentDetailsState == DetailsState.NONE)
         {
-            case EditorState.HOME:
-                HomeTab();
-                break;
-            case EditorState.CHARACTERS:
-                CharactersTab();
-                break;
-            case EditorState.CLASSES:
-                ClassesTab();
-                break;
-            case EditorState.SKILLS:
-                SkillsTab();
-                break;
-            case EditorState.ITEMS:
-                ItemsTab();
-                break;
-            case EditorState.WEAPONS:
-                WeaponsTab();
-                break;
-            case EditorState.ARMOURS:
-                ArmoursTab();
-                break;
-            case EditorState.ACCESSORIES:
-                AccessoriesTab();
-                break;
-            case EditorState.ENEMIES:
-                EnemiesTab();
-                break;
-            case EditorState.ENEMYGROUPS:
-                EnemyGroupsTab();
-                break;
-            case EditorState.STATES:
-                StatesTab();
-                break;
-            case EditorState.QUESTS:
-                QuestsTab();
-                break;
-            case EditorState.SYSTEM:
-                SystemTab();
-                break;
-            case EditorState.TERMS:
-                TermsTab();
-                break;
+            switch (currentEditorState)
+            {
+                case EditorState.HOME:
+                    HomeTab();
+                    break;
+                case EditorState.CHARACTERS:
+                    CharactersTab();
+                    break;
+                case EditorState.CLASSES:
+                    ClassesTab();
+                    break;
+                case EditorState.SKILLS:
+                    SkillsTab();
+                    break;
+                case EditorState.ITEMS:
+                    ItemsTab();
+                    break;
+                case EditorState.WEAPONS:
+                    WeaponsTab();
+                    break;
+                case EditorState.ARMOURS:
+                    ArmoursTab();
+                    break;
+                case EditorState.ACCESSORIES:
+                    AccessoriesTab();
+                    break;
+                case EditorState.ENEMIES:
+                    EnemiesTab();
+                    break;
+                case EditorState.ENEMYGROUPS:
+                    EnemyGroupsTab();
+                    break;
+                case EditorState.STATES:
+                    StatesTab();
+                    break;
+                case EditorState.QUESTS:
+                    QuestsTab();
+                    break;
+                case EditorState.SYSTEM:
+                    SystemTab();
+                    break;
+                case EditorState.TERMS:
+                    TermsTab();
+                    break;
+            }
         }
     }
 
@@ -276,30 +271,7 @@ public partial class DatabaseEditor : EditorWindow
     {
 
     }
-    void CharactersTab()
-    {
-        /*
-                if (charDatabase == null)
-        {
-            charDatabase = ScriptableObjectUtility.GetDatabase<CharacterDatabase>(DATABASE_FOLDER_NAME, "Characters Database.asset");
-        }
-        scrollPos = GUILayout.BeginScrollView(scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.Width(listViewWidth));
 
-        for (int i = 0; i < charDatabase.Count; i++)
-        {
-            if (GUILayout.Button(charDatabase.Get(i).Name, GUILayout.Width(listViewButtonWidth), GUILayout.Height(listViewButtonHeight)))
-            {
-                selectedIndex = i;
-                tempCharacter = new BaseCharacter();
-                tempCharacter.Clone(charDatabase.Get(i));
-                currentDetailsState = DetailsState.DETAILS;
-                GUI.FocusControl("SaveButton");
-            }
-        }
-
-        GUILayout.EndScrollView();
-        */
-    }
     void ClassesTab()
     {
 
@@ -346,9 +318,9 @@ public partial class DatabaseEditor : EditorWindow
     {
         if (currentDetailsState == DetailsState.DETAILS)
         {
-            GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
+            GUILayout.BeginVertical();
             ObjectDetails();
-            GUILayout.EndHorizontal();
+            GUILayout.EndVertical();
         }
     }
 
@@ -386,24 +358,6 @@ public partial class DatabaseEditor : EditorWindow
             case EditorState.TERMS:
                 break;
         }
-    }
-
-    void CharacterDetails()
-    {
-        /*
-                EditorGUILayout.BeginScrollView(detailsScrollPos);
-
-        tempCharacter.Name = EditorGUILayout.TextField("Name: ", tempCharacter.Name);
-        tempCharacter.StartingLevel = EditorGUILayout.IntSlider("Starting Level: ", tempCharacter.StartingLevel, 1, 100);
-        tempCharacter.HealthCurve = EditorGUILayout.CurveField("Health Curve: ", tempCharacter.HealthCurve);
-        tempCharacter.PhysicalAttackCurve = EditorGUILayout.CurveField("Physical Attack Curve: ", tempCharacter.PhysicalAttackCurve);
-        tempCharacter.PhysicalDefenceCurve = EditorGUILayout.CurveField("Physical Defece Curve: ", tempCharacter.PhysicalDefenceCurve);
-        tempCharacter.MagicalAttackCurve = EditorGUILayout.CurveField("Magical Attack Curve: ", tempCharacter.MagicalAttackCurve);
-        tempCharacter.MagicalDefenceCurve = EditorGUILayout.CurveField("Magical Defence Curve: ", tempCharacter.MagicalDefenceCurve);
-        tempCharacter.EvasionCurve = EditorGUILayout.CurveField("Evasion Curve: ", tempCharacter.EvasionCurve);
-
-        EditorGUILayout.EndScrollView();
-    */
     }
 
     //TODO: remember to set window min size per tab

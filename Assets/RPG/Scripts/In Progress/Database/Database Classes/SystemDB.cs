@@ -15,6 +15,9 @@ public class SystemDB : ScriptableObject
     string _currencyUnit;
     [HideInInspector]
     [SerializeField]
+    int _expToLevelUp;
+    [HideInInspector]
+    [SerializeField]
     Sprite _windowColour;
 
     [HideInInspector]
@@ -90,6 +93,11 @@ public class SystemDB : ScriptableObject
     {
         get { return _currencyUnit; }
         set { _currencyUnit = value; EditorUtility.SetDirty(this); }
+    }
+    public int ExpToLevelUp
+    {
+        get { return _expToLevelUp; }
+        set { _expToLevelUp = value; }
     }
     public Sprite WindowColour
     {

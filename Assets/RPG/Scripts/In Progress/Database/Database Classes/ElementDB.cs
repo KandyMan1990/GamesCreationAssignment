@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class ElementDB : ScriptableObjectDatabase<Element>
+﻿public class ElementDB : ScriptableObjectDatabase<Element>
 {
 
 }

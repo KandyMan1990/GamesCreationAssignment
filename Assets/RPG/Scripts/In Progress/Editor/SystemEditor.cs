@@ -59,6 +59,9 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.LabelField("Game Currency:");
         System_DB.CurrencyUnit = EditorGUILayout.TextField(System_DB.CurrencyUnit, GUILayout.Width(100));
 
+        EditorGUILayout.LabelField("EXP to Next Level:");
+        System_DB.ExpToLevelUp = EditorGUILayout.IntField(System_DB.ExpToLevelUp, GUILayout.Width(100));
+
         EditorGUILayout.LabelField("Game Window:");
         if (System_DB.WindowColour)
             selectedTexture = System_DB.WindowColour.texture;
