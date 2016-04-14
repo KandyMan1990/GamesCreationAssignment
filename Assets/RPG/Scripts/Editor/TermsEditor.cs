@@ -245,33 +245,36 @@ public partial class DatabaseEditor : EditorWindow
 
         GUILayout.BeginHorizontal(GUILayout.Width(200));
 
-        GUILayout.BeginVertical();
-        EditorGUILayout.LabelField("Name:", EditorStyles.boldLabel, GUILayout.Width(100));
-        for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
-        {
-            Terms_DB.ElementTypes[i].Name = EditorGUILayout.TextField(Terms_DB.ElementTypes[i].Name);
-        }
-        GUILayout.EndVertical();
+        //if(Terms_DB.ElementTypes.Count > 0)
+        //{
+        //    GUILayout.BeginVertical();
+        //    EditorGUILayout.LabelField("Name:", EditorStyles.boldLabel, GUILayout.Width(100));
+        //    for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
+        //    {
+        //        Terms_DB.ElementTypes[i].Name = EditorGUILayout.TextField(Terms_DB.ElementTypes[i].Name);
+        //    }
+        //    GUILayout.EndVertical();
 
-        GUILayout.BeginVertical();
-        EditorGUILayout.LabelField("Base Value:", EditorStyles.boldLabel, GUILayout.Width(80));
-        for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
-        {
-            Terms_DB.ElementTypes[i].BaseValue = EditorGUILayout.IntField(Terms_DB.ElementTypes[i].BaseValue, GUILayout.Width(30));
-        }
-        GUILayout.EndVertical();
+        //    GUILayout.BeginVertical();
+        //    EditorGUILayout.LabelField("Base Value:", EditorStyles.boldLabel, GUILayout.Width(80));
+        //    for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
+        //    {
+        //        Terms_DB.ElementTypes[i].BaseValue = EditorGUILayout.IntField(Terms_DB.ElementTypes[i].BaseValue, GUILayout.Width(30));
+        //    }
+        //    GUILayout.EndVertical();
 
-        GUILayout.BeginVertical();
-        EditorGUILayout.LabelField("", EditorStyles.boldLabel, GUILayout.Width(25));
-        for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
-        {
-            if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(15)))
-            {
-                Terms_DB.ElementTypes.RemoveAt(i);
-                Selection.activeInstanceID = 0;
-            }
-        }
-        GUILayout.EndVertical();
+        //    GUILayout.BeginVertical();
+        //    EditorGUILayout.LabelField("", EditorStyles.boldLabel, GUILayout.Width(25));
+        //    for (int i = 0; i < Terms_DB.ElementTypes.Count; i++)
+        //    {
+        //        if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(15)))
+        //        {
+        //            Terms_DB.ElementTypes.RemoveAt(i);
+        //            Selection.activeInstanceID = 0;
+        //        }
+        //    }
+        //    GUILayout.EndVertical();
+        //}
 
         GUILayout.EndHorizontal();
 

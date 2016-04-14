@@ -24,7 +24,7 @@ MonoBehaviour:
   _fight: Attack
   _escape: Run
   _skills: Skills
-  _status: Starus
+  _status: Status
   _save: Save
   _weapon: Weapon
   _armour: Armour
