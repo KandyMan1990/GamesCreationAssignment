@@ -1,6 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum CharacterClass
+{
+    NONE,
+    PLAYER,
+    PARTY,
+    ENEMY,
+    BOSS
+}
+
 [System.Serializable]
 public class Character
 {
@@ -14,8 +23,10 @@ public class Character
     Sprite _portrait;
     [SerializeField]
     GameObject _model;
-    //class
-    //weapon
+    [SerializeField]
+    CharacterClass _class;
+    [SerializeField]
+    Weapon _weapon;
     //armour
     //4 accessories
     //hp curve
@@ -52,8 +63,17 @@ public class Character
         get { return _model; }
         set { _model = value; }
     }
-    //class
-    //weapon
+    public CharacterClass Class
+    {
+        get { return _class; }
+        set { _class = value; }
+    }
+    public Weapon Wep
+    {
+        get { return _weapon; }
+        set { _weapon = value; }
+    }
+    public int WeaponIndex;
     //armour
     //4 accessories
     //hp curve

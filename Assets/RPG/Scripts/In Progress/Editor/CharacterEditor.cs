@@ -49,7 +49,7 @@ public partial class DatabaseEditor : EditorWindow
             GUILayout.BeginVertical();
             for (int i = 0; i < Character_DB.Count; i++)
             {
-                if (GUILayout.Button(Character_DB.Get(i).Name, "Box", GUILayout.Width(160)))
+                if (GUILayout.Button(Character_DB.Get(i).Name, "Box", GUILayout.Width(160), GUILayout.Height(20)))
                 {
                     SelectedCharacter = i;
                     currentDetailsState = DetailsState.DETAILS;
@@ -62,7 +62,7 @@ public partial class DatabaseEditor : EditorWindow
 
             for (int i = 0; i < Character_DB.Count; i++)
             {
-                if (GUILayout.Button("X", "MiniButton", GUILayout.Width(25), GUILayout.Height(15)))
+                if (GUILayout.Button("X", "Box", GUILayout.Width(20), GUILayout.Height(20)))
                 {
                     Character_DB.Remove(i);
                     Selection.activeInstanceID = 0;
@@ -90,22 +90,59 @@ public partial class DatabaseEditor : EditorWindow
             EditorGUILayout.LabelField("Name:");
             Character_DB.Get(SelectedCharacter).Name = EditorGUILayout.TextField(Character_DB.Get(SelectedCharacter).Name, GUILayout.Width(250));
 
+            EditorGUILayout.LabelField("Class:");
+            Character_DB.Get(SelectedCharacter).Class = (CharacterClass)EditorGUILayout.EnumPopup(Character_DB.Get(SelectedCharacter).Class, GUILayout.Width(250));
+
             EditorGUILayout.LabelField("Level:");
             Character_DB.Get(SelectedCharacter).Level = EditorGUILayout.IntSlider(Character_DB.Get(SelectedCharacter).Level, 1, 100, GUILayout.Width(250));
 
             EditorGUILayout.LabelField("Description:");
-            Character_DB.Get(SelectedCharacter).Description = EditorGUILayout.TextArea(Character_DB.Get(SelectedCharacter).Description, GUILayout.Width(250), GUILayout.Height(250));
+            Character_DB.Get(SelectedCharacter).Description = EditorGUILayout.TextField(Character_DB.Get(SelectedCharacter).Description, GUILayout.ExpandWidth(true), GUILayout.Height(100));
 
             EditorGUILayout.LabelField("Portrait:");
-
+            GUILayout.BeginHorizontal();
             Character_DB.Get(SelectedCharacter).Portrait = EditorGUILayout.ObjectField(Character_DB.Get(SelectedCharacter).Portrait, typeof(Sprite), true) as Sprite;
+            if (Character_DB.Get(SelectedCharacter).Portrait != null)
+            {
+                GUILayout.Box(Character_DB.Get(SelectedCharacter).Portrait.texture, GUILayout.Width(100), GUILayout.Height(100));
+            }
+            else
+            {
+                GUILayout.Box("NONE", GUILayout.Width(100), GUILayout.Height(100));
+            }
+            GUILayout.EndHorizontal();
 
             EditorGUILayout.LabelField("Model:");
+            GUILayout.BeginHorizontal();
             Character_DB.Get(SelectedCharacter).Model = EditorGUILayout.ObjectField(Character_DB.Get(SelectedCharacter).Model, typeof(GameObject), true) as GameObject;
+            if (Character_DB.Get(SelectedCharacter).Model != null)
+            {
+                GUILayout.Box(AssetPreview.GetAssetPreview(Character_DB.Get(SelectedCharacter).Model), GUILayout.Width(100), GUILayout.Height(100));
+            }
+            else
+            {
+                GUILayout.Box("NONE", GUILayout.Width(100), GUILayout.Height(100));
+            }
+            GUILayout.EndHorizontal();
 
+            EditorGUILayout.LabelField("Starting Weapon");
+            string[] Weapons = new string[Weapon_DB.Count];
+            for(int i = 0; i < Weapon_DB.Count; i++)
+            {
+                Weapons[i] = Weapon_DB.Get(i).Name;
+            }
+            Character_DB.Get(SelectedCharacter).WeaponIndex = EditorGUILayout.Popup(Character_DB.Get(SelectedCharacter).WeaponIndex, Weapons);
+            Character_DB.Get(SelectedCharacter).Wep = Weapon_DB.Get(Character_DB.Get(SelectedCharacter).WeaponIndex);
 
-            //    public GameObject Model (what type is model? just game object or specific mesh type?)
+            EditorGUILayout.LabelField("Starting Armour");
 
+            EditorGUILayout.LabelField("Starting Accessory 1");
+
+            EditorGUILayout.LabelField("Starting Accessory 2");
+
+            EditorGUILayout.LabelField("Starting Accessory 3");
+
+            EditorGUILayout.LabelField("Starting Accessory 4");
 
             //    /*
 

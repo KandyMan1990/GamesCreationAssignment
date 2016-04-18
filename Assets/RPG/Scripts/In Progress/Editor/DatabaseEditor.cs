@@ -157,14 +157,6 @@ public partial class DatabaseEditor : EditorWindow
                 currentEditorState = EditorState.ITEMS;
         }
     }
-    void WeaponsButton()
-    {
-        if (currentEditorState != EditorState.WEAPONS)
-        {
-            if (GUILayout.Button("Weapons"))
-                currentEditorState = EditorState.WEAPONS;
-        }
-    }
     void ArmoursButton()
     {
         if (currentEditorState != EditorState.ARMOURS)
@@ -285,10 +277,6 @@ public partial class DatabaseEditor : EditorWindow
     {
 
     }
-    void WeaponsTab()
-    {
-
-    }
     void ArmoursTab()
     {
 
@@ -341,6 +329,7 @@ public partial class DatabaseEditor : EditorWindow
             case EditorState.ITEMS:
                 break;
             case EditorState.WEAPONS:
+                WeaponDetails();
                 break;
             case EditorState.ARMOURS:
                 break;

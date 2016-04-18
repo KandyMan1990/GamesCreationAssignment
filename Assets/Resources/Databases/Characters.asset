@@ -13,7 +13,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database:
   - _name: Jim
-    _level: 1
-    _description: Enter a character description here.
+    _level: 24
+    _description: The main character the user plays as.
     _portrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     _model: {fileID: 100168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
+    _class: 1
+    _weapon:
+      _name: Gun
+      _icon: {fileID: 0}
+      _description: 
+      _wepType: Gun
+      _cost: 0
+      _model: {fileID: 0}
+      WeaponTypeIndex: 7
+    WeaponIndex: 1
+  - _name: Dave
+    _level: 7
+    _description: The first party character the player encounters.
+    _portrait: {fileID: 0}
+    _model: {fileID: 0}
+    _class: 2
+    _weapon:
+      _name: Long Sword
+      _icon: {fileID: 0}
+      _description: 
+      _wepType: Sword
+      _cost: 0
+      _model: {fileID: 0}
+      WeaponTypeIndex: 3
+    WeaponIndex: 0
