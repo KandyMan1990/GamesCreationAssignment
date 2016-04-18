@@ -71,7 +71,8 @@ public partial class DatabaseEditor : EditorWindow
 
     void OnGUI()
     {
-        TopBar();
+        if(currentDetailsState != DetailsState.DETAILS)
+            TopBar();
 
         GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
         EditorGUILayout.LabelField(currentEditorState.ToString());

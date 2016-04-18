@@ -5,7 +5,6 @@ public partial class DatabaseEditor : EditorWindow
 {
     const string DATABASE_CHARACTERS_NAME = @"Characters.asset";
     CharacterDB Character_DB;
-    Texture2D TempPortrait;
     int SelectedCharacter = -1;
 
     void CharactersButton()
@@ -50,7 +49,7 @@ public partial class DatabaseEditor : EditorWindow
             GUILayout.BeginVertical();
             for (int i = 0; i < Character_DB.Count; i++)
             {
-                if (GUILayout.Button(Character_DB.Get(i).Name, "MiniButton", GUILayout.Width(160)))
+                if (GUILayout.Button(Character_DB.Get(i).Name, "Box", GUILayout.Width(160)))
                 {
                     SelectedCharacter = i;
                     currentDetailsState = DetailsState.DETAILS;
@@ -88,33 +87,22 @@ public partial class DatabaseEditor : EditorWindow
 
         if (SelectedCharacter > -1)
         {
-                EditorGUILayout.LabelField("Name:");
-                Character_DB.Get(SelectedCharacter).Name = EditorGUILayout.TextField(Character_DB.Get(SelectedCharacter).Name, GUILayout.Width(250));
+            EditorGUILayout.LabelField("Name:");
+            Character_DB.Get(SelectedCharacter).Name = EditorGUILayout.TextField(Character_DB.Get(SelectedCharacter).Name, GUILayout.Width(250));
 
-                EditorGUILayout.LabelField("Level:");
+            EditorGUILayout.LabelField("Level:");
             Character_DB.Get(SelectedCharacter).Level = EditorGUILayout.IntSlider(Character_DB.Get(SelectedCharacter).Level, 1, 100, GUILayout.Width(250));
 
             EditorGUILayout.LabelField("Description:");
             Character_DB.Get(SelectedCharacter).Description = EditorGUILayout.TextArea(Character_DB.Get(SelectedCharacter).Description, GUILayout.Width(250), GUILayout.Height(250));
 
-                EditorGUILayout.LabelField("Portrait:");
-            if (Character_DB.Get(SelectedCharacter).Portrait)
-                TempPortrait = Character_DB.Get(SelectedCharacter).Portrait.texture;
-            else
-                TempPortrait = null;
+            EditorGUILayout.LabelField("Portrait:");
 
-            if (GUILayout.Button(TempPortrait, GUILayout.Width(75), GUILayout.Height(75)))
-            {
-                int controllerID = EditorGUIUtility.GetControlID(FocusType.Passive);
-                EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, controllerID);
-            }
+            Character_DB.Get(SelectedCharacter).Portrait = EditorGUILayout.ObjectField(Character_DB.Get(SelectedCharacter).Portrait, typeof(Sprite), true) as Sprite;
 
-            string commandName = Event.current.commandName;
-            if (commandName == "ObjectSelectorUpdated")
-            {
-                Character_DB.Get(SelectedCharacter).Portrait = (Sprite)EditorGUIUtility.GetObjectPickerObject();
-                Repaint();
-            }
+            EditorGUILayout.LabelField("Model:");
+            Character_DB.Get(SelectedCharacter).Model = EditorGUILayout.ObjectField(Character_DB.Get(SelectedCharacter).Model, typeof(GameObject), true) as GameObject;
+
 
             //    public GameObject Model (what type is model? just game object or specific mesh type?)
 

@@ -17,7 +17,7 @@ public partial class DatabaseEditor : EditorWindow
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
                 if (!window.maximized)
                 {
-                    window.maxSize = new Vector2(900, 380);
+                    window.maxSize = new Vector2(900, 400);
                     window.minSize = window.maxSize;
                 }
                 GUIUtility.keyboardControl = 0;
@@ -38,6 +38,10 @@ public partial class DatabaseEditor : EditorWindow
         SystemMainSection();
         SystemMusicSection();
         SystemSfxSection();
+        GUILayout.EndHorizontal();
+
+        GUILayout.BeginHorizontal(GUILayout.ExpandHeight(true), GUILayout.Width(120));
+        SystemInitialParty();
         GUILayout.EndHorizontal();
 
         GUILayout.EndScrollView();
@@ -175,6 +179,13 @@ public partial class DatabaseEditor : EditorWindow
 
         EditorGUILayout.LabelField("Magical Miss Sound:");
         System_DB.MagicMissSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.MagicMissSFX, typeof(AudioClip), true);
+    }
+
+    void SystemInitialParty()
+    {
+        GUILayout.BeginVertical("Box");
+        EditorGUILayout.LabelField("Current party goes here");
+        GUILayout.EndVertical();
     }
 
     //set dirty will be removed in future versions, look for alternatives
