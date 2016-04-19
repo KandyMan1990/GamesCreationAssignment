@@ -155,3 +155,7 @@ public class EnemyStateMachine : MonoBehaviour
         }
     }
 }
+
+//selector icon stays above head on win if player was selected
+//action panel opens multiple times if enemy dies when selecting an enemy
+//error if player is about to attack an enemy that just died
