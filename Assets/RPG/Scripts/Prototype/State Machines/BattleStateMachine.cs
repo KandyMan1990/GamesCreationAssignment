@@ -59,7 +59,7 @@ public class BattleStateMachine : MonoBehaviour
         EnemySelectPanel.SetActive(false);
         MagicPanel.SetActive(false);
 
-        EnemyButtons();
+       // EnemyButtons();
         Audio = GetComponent<AudioSource>();
 
         Audio.PlayOneShot(GameManager.Instance.System_DB.BattleStartSFX);
@@ -168,6 +168,11 @@ public class BattleStateMachine : MonoBehaviour
 
     void EnemyButtons()
     {
+        foreach (Transform child in EnemySelectSpacer.transform)
+        {
+            Destroy(child.gameObject);
+        }
+        
         foreach (GameObject enemy in EnemiesInBattle)
         {
             GameObject newButton = Instantiate(enemyButton) as GameObject;
@@ -186,6 +191,7 @@ public class BattleStateMachine : MonoBehaviour
 
     public void Input1()//attack button
     {
+        EnemyButtons();
         HerosChoice.Attacker = HerosToManage[0].name;
         HerosChoice.AttackerGameObject = HerosToManage[0];
         HerosChoice.Type = "Hero";
@@ -208,6 +214,8 @@ public class BattleStateMachine : MonoBehaviour
 
     public void Input4(BaseAttack chosenMagic)//chosen magic attack
     {
+
+        EnemyButtons();
         HerosChoice.Attacker = HerosToManage[0].name;
         HerosChoice.AttackerGameObject = HerosToManage[0];
         HerosChoice.Type = "Hero";
@@ -289,5 +297,10 @@ public class BattleStateMachine : MonoBehaviour
         canPlayHighlightSound = !canPlayHighlightSound;
         yield return highlightWaitTime;
         canPlayHighlightSound = !canPlayHighlightSound;
+    }
+
+    public void RemoveEnemyFromList(GameObject Enemy)
+    {
+        EnemiesInBattle.Remove(Enemy);
     }
 }

@@ -150,6 +150,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (Enemy.currentHP <= 0)
         {
             Enemy.currentHP = 0;
+            BSM.RemoveEnemyFromList(gameObject);
             currentTurnState = TurnState.DEAD;
         }
     }
