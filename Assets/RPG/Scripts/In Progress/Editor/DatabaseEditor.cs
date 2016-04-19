@@ -278,9 +278,9 @@ public partial class DatabaseEditor : EditorWindow
     {
         if (currentDetailsState == DetailsState.DETAILS)
         {
-            GUILayout.BeginVertical();
+            scrollPos = GUILayout.BeginScrollView(scrollPos);
             ObjectDetails();
-            GUILayout.EndVertical();
+            GUILayout.EndScrollView();
         }
     }
 

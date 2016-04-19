@@ -17,8 +17,8 @@ public partial class DatabaseEditor : EditorWindow
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
                 if (!window.maximized)
                 {
-                    window.maxSize = new Vector2(900, 900);
-                    window.minSize = window.maxSize;
+                    window.maxSize = new Vector2(900, 600);
+                    window.minSize = window.maxSize;//scroll view
                 }
                 GUIUtility.keyboardControl = 0;
             }

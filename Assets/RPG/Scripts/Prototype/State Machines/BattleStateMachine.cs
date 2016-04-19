@@ -280,10 +280,6 @@ public class BattleStateMachine : MonoBehaviour
         if (sfx == GameManager.Instance.System_DB.CursorSFX && !canPlayHighlightSound)
             return;
 
-        //if (sfx == ButtonHighlightSound && canPlayHighlightSound)
-        //{
-        //    StartCoroutine(ToggleCanPlayHighlightSound());
-        //}
         StartCoroutine(ToggleCanPlayHighlightSound());
         Audio.PlayOneShot(sfx);
     }
