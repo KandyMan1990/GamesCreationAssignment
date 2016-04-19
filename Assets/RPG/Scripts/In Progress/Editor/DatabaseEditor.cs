@@ -59,6 +59,26 @@ public partial class DatabaseEditor : EditorWindow
     {
         currentEditorState = EditorState.TERMS;
         currentDetailsState = DetailsState.NONE;
+        if (Character_DB == null)
+        {
+            Character_DB = ScriptableObjectDatabase<CharacterDB>.GetDatabase<CharacterDB>(DATABASE_FOLDER_NAME, DATABASE_CHARACTERS_NAME);
+        }
+        if (Terms_DB == null)
+        {
+            Terms_DB = ScriptableObjectDatabase<Terms>.GetDatabase<Terms>(DATABASE_FOLDER_NAME, DATABASE_TERMS_NAME);
+        }
+        if (_elementDB == null)
+        {
+            _elementDB = ScriptableObjectDatabase<ElementDB>.GetDatabase<ElementDB>(DATABASE_FOLDER_NAME, DATABASE_ELEMENTS_NAME);
+        }
+        if (Weapon_DB == null)
+        {
+            Weapon_DB = ScriptableObjectDatabase<WeaponDB>.GetDatabase<WeaponDB>(DATABASE_FOLDER_NAME, DATABASE_WEAPONS_NAME);
+        }
+        if (System_DB == null)
+        {
+            System_DB = ScriptableObjectDatabase<SystemDB>.GetDatabase<SystemDB>(DATABASE_FOLDER_NAME, DATABASE_SYSTEM_NAME);
+        }
     }
 
 
