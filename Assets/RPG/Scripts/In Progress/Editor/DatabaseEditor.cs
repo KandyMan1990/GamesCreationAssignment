@@ -5,7 +5,6 @@ public partial class DatabaseEditor : EditorWindow
 {
     enum EditorState
     {
-        HOME,       //default/blank state for editor
         CHARACTERS, //characters in game
         CLASSES,    //classes in game (protagonist/party member/enemy?/boss?/final boss???)
         SKILLS,     //list of attacks, magics
@@ -50,7 +49,7 @@ public partial class DatabaseEditor : EditorWindow
         window.titleContent = new GUIContent("RPG Database");
         if (!window.maximized)
         {
-            window.maxSize = new Vector2(950, 250);
+            window.maxSize = new Vector2(1134, 560);
             window.minSize = window.maxSize;
         }
         window.Show();
@@ -58,7 +57,7 @@ public partial class DatabaseEditor : EditorWindow
 
     void OnEnable()
     {
-        currentEditorState = EditorState.HOME;
+        currentEditorState = EditorState.TERMS;
         currentDetailsState = DetailsState.NONE;
     }
 
@@ -83,11 +82,8 @@ public partial class DatabaseEditor : EditorWindow
         DisplayDetails();
         GUILayout.EndHorizontal();
 
-        //AddButton();
-
         GUILayout.BeginHorizontal();
-        //CancelButton();
-        //DeleteButton();
+
         GUILayout.EndHorizontal();
 
         //DatabaseEditor window = GetWindow<DatabaseEditor>();
@@ -99,7 +95,6 @@ public partial class DatabaseEditor : EditorWindow
     {
         GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
 
-        HomeButton();
         CharactersButton();
         ClassesButton();
         SkillsButton();
@@ -117,22 +112,6 @@ public partial class DatabaseEditor : EditorWindow
         GUILayout.EndHorizontal();
     }
 
-    void HomeButton()
-    {
-        if (currentEditorState != EditorState.HOME)
-        {
-            if (GUILayout.Button("Home"))
-            {
-                currentEditorState = EditorState.HOME;
-                DatabaseEditor window = GetWindow<DatabaseEditor>();
-                if (!window.maximized)
-                {
-                    window.maxSize = new Vector2(950, 250);
-                    window.minSize = window.maxSize;
-                }
-            }
-        }
-    }
     void ClassesButton()
     {
         if (currentEditorState != EditorState.CLASSES)
@@ -214,9 +193,6 @@ public partial class DatabaseEditor : EditorWindow
         {
             switch (currentEditorState)
             {
-                case EditorState.HOME:
-                    HomeTab();
-                    break;
                 case EditorState.CHARACTERS:
                     CharactersTab();
                     break;
@@ -258,11 +234,6 @@ public partial class DatabaseEditor : EditorWindow
                     break;
             }
         }
-    }
-
-    void HomeTab()
-    {
-
     }
 
     void ClassesTab()
@@ -317,8 +288,6 @@ public partial class DatabaseEditor : EditorWindow
     {
         switch (currentEditorState)
         {
-            case EditorState.HOME:
-                break;
             case EditorState.CHARACTERS:
                 CharacterDetails();
                 break;

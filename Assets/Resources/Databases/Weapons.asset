@@ -13,16 +13,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database:
   - _name: Long Sword
-    _icon: {fileID: 0}
-    _description: 
+    _icon: {fileID: 21300000, guid: ea5873cfd9158664f89459f0c9e1d853, type: 3}
+    _description: A sword of the long variety
     _wepType: Sword
-    _cost: 0
-    _model: {fileID: 0}
+    _cost: 50
+    _model: {fileID: 100000, guid: d05d496cb4f43c14e80630addd23652e, type: 3}
     WeaponTypeIndex: 3
   - _name: Gun
-    _icon: {fileID: 0}
-    _description: 
+    _icon: {fileID: 21300000, guid: c675bb8df3eadaa48b475b34796eb602, type: 3}
+    _description: A gun
     _wepType: Gun
-    _cost: 0
-    _model: {fileID: 0}
+    _cost: 20
+    _model: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
     WeaponTypeIndex: 7

@@ -125,7 +125,7 @@ public partial class DatabaseEditor : EditorWindow
             }
             GUILayout.EndHorizontal();
 
-            EditorGUILayout.LabelField("Starting Weapon");
+            EditorGUILayout.LabelField("Starting Weapon:");
             string[] Weapons = new string[Weapon_DB.Count];
             for(int i = 0; i < Weapon_DB.Count; i++)
             {
