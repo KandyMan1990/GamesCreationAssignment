@@ -299,8 +299,10 @@ public class BattleStateMachine : MonoBehaviour
         canPlayHighlightSound = !canPlayHighlightSound;
     }
 
-    public void RemoveEnemyFromList(GameObject Enemy)
+    public void RemoveEnemyFromBattle(GameObject Enemy)
     {
         EnemiesInBattle.Remove(Enemy);
+        Destroy(Enemy);
+        EnemyButtons();
     }
 }
