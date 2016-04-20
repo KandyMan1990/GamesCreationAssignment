@@ -1,5 +1,7 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 [System.Serializable]
 public class SystemDB : ScriptableObject
@@ -82,124 +84,268 @@ public class SystemDB : ScriptableObject
     public string GameTitle
     {
         get { return _gameTitle; }
-        set { _gameTitle = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _gameTitle = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public string VersionNumber
     {
         get { return _versionNumber; }
-        set { _versionNumber = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _versionNumber = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public string CurrencyUnit
     {
         get { return _currencyUnit; }
-        set { _currencyUnit = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _currencyUnit = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public int ExpToLevelUp
     {
         get { return _expToLevelUp; }
-        set { _expToLevelUp = value; }
+        set
+        {
+            _expToLevelUp = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public Sprite WindowColour
     {
         get { return _windowColour; }
-        set { _windowColour = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _windowColour = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
 
     public IntroloopAudio TitleMusic
     {
         get { return _titleMusic; }
-        set { _titleMusic = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _titleMusic = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public IntroloopAudio BattleMusic
     {
         get { return _battleMusic; }
-        set { _battleMusic = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _battleMusic = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public IntroloopAudio BossMusic
     {
         get { return _bossMusic; }
-        set { _bossMusic = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _bossMusic = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public IntroloopAudio VictoryMusic
     {
         get { return _victoryMusic; }
-        set { _victoryMusic = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _victoryMusic = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public IntroloopAudio GameOverMusic
     {
         get { return _gameOverMusic; }
-        set { _gameOverMusic = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _gameOverMusic = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
 
     public AudioClip CursorSFX
     {
         get { return _cursorSFX; }
-        set { _cursorSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _cursorSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip OkSFX
     {
         get { return _okSFX; }
-        set { _okSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _okSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip CancelSFX
     {
         get { return _cancelSFX; }
-        set { _cancelSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _cancelSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip ErrorSFX
     {
         get { return _errorSFX; }
-        set { _errorSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _errorSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip EquipSFX
     {
         get { return _equipSFX; }
-        set { _equipSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _equipSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip SaveSFX
     {
         get { return _saveSFX; }
-        set { _saveSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _saveSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip LoadSFX
     {
         get { return _loadSFX; }
-        set { _loadSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _loadSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip NewGameSFX
     {
         get { return _newGameSFX; }
-        set { _newGameSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _newGameSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip CharacterTurnSFX
     {
         get { return _characterTurnSFX; }
-        set { _characterTurnSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _characterTurnSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip BattleStartSFX
     {
         get { return _battleStartSFX; }
-        set { _battleStartSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _battleStartSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip BossStartSFX
     {
         get { return _bossStartSFX; }
-        set { _bossStartSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _bossStartSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip EscapeSFX
     {
         get { return _escapeSFX; }
-        set { _escapeSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _escapeSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip PhysicalMissSFX
     {
         get { return _physicalMissSFX; }
-        set { _physicalMissSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _physicalMissSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
     public AudioClip MagicMissSFX
     {
         get { return _magicMissSFX; }
-        set { _magicMissSFX = value; EditorUtility.SetDirty(this); }
+        set
+        {
+            _magicMissSFX = value;
+#if UNITY_EDITOR
+            EditorUtility.SetDirty(this);
+#endif
+        }
     }
 
     /*

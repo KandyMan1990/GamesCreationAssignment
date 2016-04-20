@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ScriptableObjectDatabase<T> : ScriptableObject where T : class
 {
@@ -12,26 +13,34 @@ public class ScriptableObjectDatabase<T> : ScriptableObject where T : class
     public void Add(T type)
     {
         database.Add(type);
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this);
+#endif
     }
 
     public void Insert(int index, T type)
     {
         database.Insert(index, type);
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this);
+#endif
     }
 
     public void Remove(int index)
     {
         database.RemoveAt(index);
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this);
+#endif
     }
 
     public void ClearDatabase()
     {
         database.Clear();
         database.TrimExcess();
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this);
+#endif
     }
 
     public int Count
@@ -47,7 +56,9 @@ public class ScriptableObjectDatabase<T> : ScriptableObject where T : class
     public void Replace(int index, T type)
     {
         database[index] = type;
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this);
+#endif
     }
 
     public T[] ToArray()
@@ -59,6 +70,7 @@ public class ScriptableObjectDatabase<T> : ScriptableObject where T : class
     {
         string dbFullPath = @"Assets/" + dbPath + "/" + dbName;
 
+#if UNITY_EDITOR
         U db = AssetDatabase.LoadAssetAtPath(dbFullPath, typeof(U)) as U;
         if (db == null)
         {
@@ -72,5 +84,10 @@ public class ScriptableObjectDatabase<T> : ScriptableObject where T : class
         }
 
         return db;
+#endif
+        U dbGame = Resources.Load(dbFullPath, typeof(U)) as U;
+
+        return dbGame;
+
     }
 }
