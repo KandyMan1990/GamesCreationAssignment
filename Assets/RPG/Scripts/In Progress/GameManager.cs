@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
 
     private static SystemDB _system_DB;
-    private static Terms _terms_DB;
+    private static TermsDB _terms_DB;
 
     public static GameManager Instance
     {
@@ -41,13 +41,13 @@ public class GameManager : MonoBehaviour
             return _system_DB;
         }
     }
-    public Terms Terms_DB
+    public TermsDB Terms_DB
     {
         get
         {
             if (_terms_DB == null)
             {
-                _terms_DB = Resources.Load("Databases/Terms", typeof(Terms)) as Terms;
+                _terms_DB = Resources.Load("Databases/Terms", typeof(TermsDB)) as TermsDB;
             }
 
             return _terms_DB;

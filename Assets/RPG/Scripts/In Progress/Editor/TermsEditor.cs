@@ -6,7 +6,7 @@ public partial class DatabaseEditor : EditorWindow
 {
     const string DATABASE_TERMS_NAME = @"Terms.asset";
     const string DATABASE_ELEMENTS_NAME = @"Elements.asset";
-    Terms Terms_DB;
+    TermsDB Terms_DB;
     ElementDB _elementDB;
 
     void TermsButton()
@@ -31,7 +31,7 @@ public partial class DatabaseEditor : EditorWindow
     {
         if (Terms_DB == null)
         {
-            Terms_DB = ScriptableObjectDatabase<Terms>.GetDatabase<Terms>(DATABASE_FOLDER_NAME, DATABASE_TERMS_NAME);
+            Terms_DB = ScriptableObjectDatabase<TermsDB>.GetDatabase<TermsDB>(DATABASE_FOLDER_NAME, DATABASE_TERMS_NAME);
         }
 
         if (_elementDB == null)
@@ -83,16 +83,16 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("New Game:");
-        Terms_DB.NewGame = EditorGUILayout.TextField(Terms_DB.NewGame, GUILayout.Width(100));
+        Terms_DB.SetNewGame = EditorGUILayout.TextField(Terms_DB.NewGame, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Load Game:");
-        Terms_DB.LoadGame = EditorGUILayout.TextField(Terms_DB.LoadGame, GUILayout.Width(100));
+        Terms_DB.SetLoadGame = EditorGUILayout.TextField(Terms_DB.LoadGame, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Quit Game:");
-        Terms_DB.Quit = EditorGUILayout.TextField(Terms_DB.Quit, GUILayout.Width(100));
+        Terms_DB.SetQuit = EditorGUILayout.TextField(Terms_DB.Quit, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Cancel:");
-        Terms_DB.Cancel = EditorGUILayout.TextField(Terms_DB.Cancel, GUILayout.Width(100));
+        Terms_DB.SetCancel = EditorGUILayout.TextField(Terms_DB.Cancel, GUILayout.Width(100));
 
         GUILayout.EndVertical();
     }
@@ -105,22 +105,22 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Weapons:");
-        Terms_DB.Weapons = EditorGUILayout.TextField(Terms_DB.Weapons, GUILayout.Width(100));
+        Terms_DB.SetWeapons = EditorGUILayout.TextField(Terms_DB.Weapons, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Armours:");
-        Terms_DB.Armours = EditorGUILayout.TextField(Terms_DB.Armours, GUILayout.Width(100));
+        Terms_DB.SetArmours = EditorGUILayout.TextField(Terms_DB.Armours, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Items:");
-        Terms_DB.Items = EditorGUILayout.TextField(Terms_DB.Items, GUILayout.Width(100));
+        Terms_DB.SetItems = EditorGUILayout.TextField(Terms_DB.Items, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Equip:");
-        Terms_DB.Equip = EditorGUILayout.TextField(Terms_DB.Equip, GUILayout.Width(100));
+        Terms_DB.SetEquip = EditorGUILayout.TextField(Terms_DB.Equip, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Optimize:");
-        Terms_DB.AutoEquip = EditorGUILayout.TextField(Terms_DB.AutoEquip, GUILayout.Width(100));
+        Terms_DB.SetAutoEquip = EditorGUILayout.TextField(Terms_DB.AutoEquip, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Clear:");
-        Terms_DB.Clear = EditorGUILayout.TextField(Terms_DB.Clear, GUILayout.Width(100));
+        Terms_DB.SetClear = EditorGUILayout.TextField(Terms_DB.Clear, GUILayout.Width(100));
 
         GUILayout.EndVertical();
     }
@@ -133,19 +133,19 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Fight:");
-        Terms_DB.Fight = EditorGUILayout.TextField(Terms_DB.Fight, GUILayout.Width(100));
+        Terms_DB.SetFight = EditorGUILayout.TextField(Terms_DB.Fight, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Escape:");
-        Terms_DB.Escape = EditorGUILayout.TextField(Terms_DB.Escape, GUILayout.Width(100));
+        Terms_DB.SetEscape = EditorGUILayout.TextField(Terms_DB.Escape, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Skills:");
-        Terms_DB.Skills = EditorGUILayout.TextField(Terms_DB.Skills, GUILayout.Width(100));
+        Terms_DB.SetSkills = EditorGUILayout.TextField(Terms_DB.Skills, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Status:");
-        Terms_DB.Status = EditorGUILayout.TextField(Terms_DB.Status, GUILayout.Width(100));
+        Terms_DB.SetStatus = EditorGUILayout.TextField(Terms_DB.Status, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Save:");
-        Terms_DB.Save = EditorGUILayout.TextField(Terms_DB.Save, GUILayout.Width(100));
+        Terms_DB.SetSave = EditorGUILayout.TextField(Terms_DB.Save, GUILayout.Width(100));
 
         GUILayout.EndVertical();
 
@@ -160,13 +160,13 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Weapon:");
-        Terms_DB.Weapon = EditorGUILayout.TextField(Terms_DB.Weapon, GUILayout.Width(100));
+        Terms_DB.SetWeapon = EditorGUILayout.TextField(Terms_DB.Weapon, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Armour:");
-        Terms_DB.Armour = EditorGUILayout.TextField(Terms_DB.Armour, GUILayout.Width(100));
+        Terms_DB.SetArmour = EditorGUILayout.TextField(Terms_DB.Armour, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Accessory:");
-        Terms_DB.Accessory = EditorGUILayout.TextField(Terms_DB.Accessory, GUILayout.Width(100));
+        Terms_DB.SetAccessory = EditorGUILayout.TextField(Terms_DB.Accessory, GUILayout.Width(100));
 
         GUILayout.EndVertical();
     }
@@ -179,13 +179,13 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Level:");
-        Terms_DB.Level = EditorGUILayout.TextField(Terms_DB.Level, GUILayout.Width(100));
+        Terms_DB.SetLevel = EditorGUILayout.TextField(Terms_DB.Level, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Level (Short):");
-        Terms_DB.LevelShort = EditorGUILayout.TextField(Terms_DB.LevelShort, GUILayout.Width(100));
+        Terms_DB.SetLevelShort = EditorGUILayout.TextField(Terms_DB.LevelShort, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Health Points:");
-        Terms_DB.HP = EditorGUILayout.TextField(Terms_DB.HP, GUILayout.Width(100));
+        Terms_DB.SetHP = EditorGUILayout.TextField(Terms_DB.HP, GUILayout.Width(100));
 
         GUILayout.EndVertical();
     }
@@ -198,19 +198,19 @@ public partial class DatabaseEditor : EditorWindow
         EditorGUILayout.Space();
 
         EditorGUILayout.LabelField("Maximum Health Points:");
-        Terms_DB.MaxHP = EditorGUILayout.TextField(Terms_DB.MaxHP, GUILayout.Width(100));
+        Terms_DB.SetMaxHP = EditorGUILayout.TextField(Terms_DB.MaxHP, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Physical Attack:");
-        Terms_DB.StatPhysicalAttack = EditorGUILayout.TextField(Terms_DB.StatPhysicalAttack, GUILayout.Width(100));
+        Terms_DB.SetStatPhysicalAttack = EditorGUILayout.TextField(Terms_DB.StatPhysicalAttack, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Physical Defence:");
-        Terms_DB.StatPhysicalDefence = EditorGUILayout.TextField(Terms_DB.StatPhysicalDefence, GUILayout.Width(100));
+        Terms_DB.SetStatPhysicalDefence = EditorGUILayout.TextField(Terms_DB.StatPhysicalDefence, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Magical Attack:");
-        Terms_DB.StatMagicalAttack = EditorGUILayout.TextField(Terms_DB.StatMagicalAttack, GUILayout.Width(100));
+        Terms_DB.SetStatMagicalAttack = EditorGUILayout.TextField(Terms_DB.StatMagicalAttack, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Magical Defence:");
-        Terms_DB.StatMagicalDefence = EditorGUILayout.TextField(Terms_DB.StatMagicalDefence, GUILayout.Width(100));
+        Terms_DB.SetStatMagicalDefence = EditorGUILayout.TextField(Terms_DB.StatMagicalDefence, GUILayout.Width(100));
 
         GUILayout.EndVertical();
     }
