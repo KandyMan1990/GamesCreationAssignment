@@ -18,7 +18,7 @@ public partial class DatabaseEditor : EditorWindow
                 if (!window.maximized)
                 {
                     window.maxSize = new Vector2(900, 600);
-                    window.minSize = window.maxSize;//scroll view
+                    window.minSize = window.maxSize;
                 }
                 GUIUtility.keyboardControl = 0;
             }
@@ -125,6 +125,27 @@ public partial class DatabaseEditor : EditorWindow
             }
             GUILayout.EndHorizontal();
 
+            EditorGUILayout.LabelField("Health Curve:");
+            Character_DB.Get(SelectedCharacter).HpCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).HpCurve);
+
+            EditorGUILayout.LabelField("Physical Attack Curve:");
+            Character_DB.Get(SelectedCharacter).PhyAtkCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).PhyAtkCurve);
+
+            EditorGUILayout.LabelField("Physical Defence Curve:");
+            Character_DB.Get(SelectedCharacter).PhyDefCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).PhyDefCurve);
+
+            EditorGUILayout.LabelField("Magical Attack Curve:");
+            Character_DB.Get(SelectedCharacter).MagAtkCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).MagAtkCurve);
+
+            EditorGUILayout.LabelField("Magical Defence Curve:");
+            Character_DB.Get(SelectedCharacter).MagDefCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).MagDefCurve);
+
+            EditorGUILayout.LabelField("Speed Curve:");
+            Character_DB.Get(SelectedCharacter).SpeedCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).SpeedCurve);
+
+            EditorGUILayout.LabelField("Luck Curve:");
+            Character_DB.Get(SelectedCharacter).LuckCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).LuckCurve);
+
             EditorGUILayout.LabelField("Starting Weapon:");
             string[] Weapons = new string[Weapon_DB.Count];
             for(int i = 0; i < Weapon_DB.Count; i++)
@@ -148,7 +169,6 @@ public partial class DatabaseEditor : EditorWindow
 
             //    tempCharacter.Name = EditorGUILayout.TextField("Name: ", tempCharacter.Name);
             //    tempCharacter.StartingLevel = EditorGUILayout.IntSlider("Starting Level: ", tempCharacter.StartingLevel, 1, 100);
-            //    tempCharacter.HealthCurve = EditorGUILayout.CurveField("Health Curve: ", tempCharacter.HealthCurve);
             //    tempCharacter.PhysicalAttackCurve = EditorGUILayout.CurveField("Physical Attack Curve: ", tempCharacter.PhysicalAttackCurve);
             //    tempCharacter.PhysicalDefenceCurve = EditorGUILayout.CurveField("Physical Defece Curve: ", tempCharacter.PhysicalDefenceCurve);
             //    tempCharacter.MagicalAttackCurve = EditorGUILayout.CurveField("Magical Attack Curve: ", tempCharacter.MagicalAttackCurve);

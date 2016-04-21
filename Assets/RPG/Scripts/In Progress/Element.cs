@@ -26,4 +26,9 @@ public class Element
         _name = Name;
         _value = BaseValue;
     }
+
+    public override string ToString()
+    {
+        return _name;
+    }
 }

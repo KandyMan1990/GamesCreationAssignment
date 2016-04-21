@@ -7,7 +7,7 @@ public partial class DatabaseEditor : EditorWindow
     const string DATABASE_TERMS_NAME = @"Terms.asset";
     const string DATABASE_ELEMENTS_NAME = @"Elements.asset";
     TermsDB Terms_DB;
-    ElementDB _elementDB;
+    ElementDB Element_DB;
 
     void TermsButton()
     {
@@ -34,9 +34,9 @@ public partial class DatabaseEditor : EditorWindow
             Terms_DB = ScriptableObjectDatabase<TermsDB>.GetDatabase<TermsDB>(DATABASE_FOLDER_NAME, DATABASE_TERMS_NAME);
         }
 
-        if (_elementDB == null)
+        if (Element_DB == null)
         {
-            _elementDB = ScriptableObjectDatabase<ElementDB>.GetDatabase<ElementDB>(DATABASE_FOLDER_NAME, DATABASE_ELEMENTS_NAME);
+            Element_DB = ScriptableObjectDatabase<ElementDB>.GetDatabase<ElementDB>(DATABASE_FOLDER_NAME, DATABASE_ELEMENTS_NAME);
         }
 
         scrollPos = GUILayout.BeginScrollView(scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
@@ -252,31 +252,31 @@ public partial class DatabaseEditor : EditorWindow
 
         GUILayout.BeginHorizontal(GUILayout.Width(200));
 
-        if (_elementDB.Count > 0)
+        if (Element_DB.Count > 0)
         {
             GUILayout.BeginVertical();
             EditorGUILayout.LabelField("Name:", GUILayout.Width(100));
-            for (int i = 0; i < _elementDB.Count; i++)
+            for (int i = 0; i < Element_DB.Count; i++)
             {
-                _elementDB.Get(i).Name = EditorGUILayout.TextField(_elementDB.Get(i).Name);
+                Element_DB.Get(i).Name = EditorGUILayout.TextField(Element_DB.Get(i).Name);
             }
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical();
             EditorGUILayout.LabelField("Base Value:", GUILayout.Width(80));
-            for (int i = 0; i < _elementDB.Count; i++)
+            for (int i = 0; i < Element_DB.Count; i++)
             {
-                _elementDB.Get(i).BaseValue = EditorGUILayout.IntField(_elementDB.Get(i).BaseValue, GUILayout.Width(30));
+                Element_DB.Get(i).BaseValue = EditorGUILayout.IntField(Element_DB.Get(i).BaseValue, GUILayout.Width(30));
             }
             GUILayout.EndVertical();
 
             GUILayout.BeginVertical();
             EditorGUILayout.LabelField("", EditorStyles.boldLabel, GUILayout.Width(25));
-            for (int i = 0; i < _elementDB.Count; i++)
+            for (int i = 0; i < Element_DB.Count; i++)
             {
                 if (GUILayout.Button("X", GUILayout.Width(25), GUILayout.Height(15)))
                 {
-                    _elementDB.Remove(i);
+                    Element_DB.Remove(i);
                     Selection.activeInstanceID = 0;
                 }
             }
@@ -287,7 +287,7 @@ public partial class DatabaseEditor : EditorWindow
 
         if (GUILayout.Button("Add Element"))
         {
-            _elementDB.Add(new Element("New Element", 1));
+            Element_DB.Add(new Element("New Element", 1));
             Selection.activeInstanceID = 0;
         }
         GUILayout.EndVertical();

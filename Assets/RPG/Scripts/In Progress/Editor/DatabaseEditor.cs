@@ -67,9 +67,9 @@ public partial class DatabaseEditor : EditorWindow
         {
             Terms_DB = ScriptableObjectDatabase<TermsDB>.GetDatabase<TermsDB>(DATABASE_FOLDER_NAME, DATABASE_TERMS_NAME);
         }
-        if (_elementDB == null)
+        if (Element_DB == null)
         {
-            _elementDB = ScriptableObjectDatabase<ElementDB>.GetDatabase<ElementDB>(DATABASE_FOLDER_NAME, DATABASE_ELEMENTS_NAME);
+            Element_DB = ScriptableObjectDatabase<ElementDB>.GetDatabase<ElementDB>(DATABASE_FOLDER_NAME, DATABASE_ELEMENTS_NAME);
         }
         if (Weapon_DB == null)
         {

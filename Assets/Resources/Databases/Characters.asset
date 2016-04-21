@@ -19,13 +19,131 @@ MonoBehaviour:
     _model: {fileID: 100168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
     _class: 1
     _weapon:
-      _name: Gun
+      _name: Dark Gun
       _icon: {fileID: 21300000, guid: c675bb8df3eadaa48b475b34796eb602, type: 3}
-      _description: A gun
+      _description: An emo gun
       _wepType: Gun
       _cost: 20
       _model: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
+      _damageType:
+        _name: Dark
+        _value: 80
+      _physicalAttack: 0
+      _magicalAttack: 25
       WeaponTypeIndex: 7
+      WeaponDamageTypeIndex: 9
+    _hpCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 1
+        value: 100
+        inSlope: 89.89899
+        outSlope: 89.89899
+        tangentMode: 10
+      - time: 100
+        value: 9000
+        inSlope: 89.89899
+        outSlope: 89.89899
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _phyAtkCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 1
+        value: 5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 100
+        value: 98
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _phyDefCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 1
+        value: 4
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+      - time: 100
+        value: 94
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _magAtkCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 1
+        value: 3
+        inSlope: 0.8484849
+        outSlope: 0.8484849
+        tangentMode: 10
+      - time: 100
+        value: 87
+        inSlope: 0.8484849
+        outSlope: 0.8484849
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _magDefCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 1
+        value: 2
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 100
+        value: 77
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _speedCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 1
+        value: 4
+        inSlope: 0.5959596
+        outSlope: 0.5959596
+        tangentMode: 10
+      - time: 100
+        value: 63
+        inSlope: 0.5959596
+        outSlope: 0.5959596
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _luckCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 1
+        value: 3
+        inSlope: 0.4949495
+        outSlope: 0.4949495
+        tangentMode: 10
+      - time: 100
+        value: 52
+        inSlope: 0.4949495
+        outSlope: 0.4949495
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     WeaponIndex: 1
   - _name: Dave
     _level: 7
@@ -40,5 +158,53 @@ MonoBehaviour:
       _wepType: Sword
       _cost: 50
       _model: {fileID: 100000, guid: d05d496cb4f43c14e80630addd23652e, type: 3}
+      _damageType:
+        _name: 
+        _value: 0
+      _physicalAttack: 0
+      _magicalAttack: 0
       WeaponTypeIndex: 3
+      WeaponDamageTypeIndex: 0
+    _hpCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _phyAtkCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _phyDefCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _magAtkCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _magDefCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _speedCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _luckCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     WeaponIndex: 0

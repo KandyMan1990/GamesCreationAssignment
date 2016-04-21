@@ -29,14 +29,24 @@ public class Character
     Weapon _weapon;
     //armour
     //4 accessories
-    //hp curve
-    //phyAtk curve
-    //phyDef curve
-    //magAtk curve
-    //magDef curve
-    //speed curve
-    //luck curve
+    [SerializeField]
+    AnimationCurve _hpCurve;
+    [SerializeField]
+    AnimationCurve _phyAtkCurve;
+    [SerializeField]
+    AnimationCurve _phyDefCurve;
+    [SerializeField]
+    AnimationCurve _magAtkCurve;
+    [SerializeField]
+    AnimationCurve _magDefCurve;
+    [SerializeField]
+    AnimationCurve _speedCurve;
+    [SerializeField]
+    AnimationCurve _luckCurve;
     //skills
+
+    //base stats
+    //on level value change, update base stats to reflect curve
 
     public string Name
     {
@@ -76,13 +86,84 @@ public class Character
     public int WeaponIndex;
     //armour
     //4 accessories
-    //hp curve
-    //phyAtk curve
-    //phyDef curve
-    //magAtk curve
-    //magDef curve
-    //speed curve
-    //luck curve
+    public AnimationCurve HpCurve
+    {
+        get
+        {
+            if (_hpCurve == null)
+                _hpCurve = new AnimationCurve();
+
+            return _hpCurve;
+        }
+        set { _hpCurve = value; }
+    }
+    public AnimationCurve PhyAtkCurve
+    {
+        get
+        {
+            if (_phyAtkCurve == null)
+                _phyAtkCurve = new AnimationCurve();
+
+            return _phyAtkCurve;
+        }
+        set { _phyAtkCurve = value; }
+    }
+    public AnimationCurve PhyDefCurve
+    {
+        get
+        {
+            if (_phyDefCurve == null)
+                _phyDefCurve = new AnimationCurve();
+
+            return _phyDefCurve;
+        }
+        set { _phyDefCurve = value; }
+    }
+    public AnimationCurve MagAtkCurve
+    {
+        get
+        {
+            if (_magAtkCurve == null)
+                _magAtkCurve = new AnimationCurve();
+
+            return _magAtkCurve;
+        }
+        set { _magAtkCurve = value; }
+    }
+    public AnimationCurve MagDefCurve
+    {
+        get
+        {
+            if (_magDefCurve == null)
+                _magDefCurve = new AnimationCurve();
+
+            return _magDefCurve;
+        }
+        set { _magDefCurve = value; }
+    }
+    public AnimationCurve SpeedCurve
+    {
+        get
+        {
+            if (_speedCurve == null)
+                _speedCurve = new AnimationCurve();
+
+            return _speedCurve;
+        }
+        set { _speedCurve = value; }
+    }
+    public AnimationCurve LuckCurve
+    {
+        get
+        {
+            if (_luckCurve == null)
+                _luckCurve = new AnimationCurve();
+
+            return _luckCurve;
+        }
+        set { _luckCurve = value; }
+    }
+
     //skills
 
     public Character()

@@ -102,6 +102,16 @@ public partial class DatabaseEditor : EditorWindow
             Weapon_DB.Get(SelectedWeapon).WeaponTypeIndex = EditorGUILayout.Popup(Weapon_DB.Get(SelectedWeapon).WeaponTypeIndex, Terms_DB.WeaponTypes.ToArray());
             Weapon_DB.Get(SelectedWeapon).WepType = Terms_DB.WeaponTypes[Weapon_DB.Get(SelectedWeapon).WeaponTypeIndex];
 
+            EditorGUILayout.LabelField("Damage Type:");
+            Weapon_DB.Get(SelectedWeapon).WeaponDamageTypeIndex = EditorGUILayout.Popup(Weapon_DB.Get(SelectedWeapon).WeaponDamageTypeIndex, Element_DB.ToStringArray());
+            Weapon_DB.Get(SelectedWeapon).DamageType = Element_DB.Get(Weapon_DB.Get(SelectedWeapon).WeaponDamageTypeIndex);
+
+            EditorGUILayout.LabelField("Physical Attack:");
+            Weapon_DB.Get(SelectedWeapon).PhysicalAttack = EditorGUILayout.IntField(Weapon_DB.Get(SelectedWeapon).PhysicalAttack, GUILayout.Width(200));
+
+            EditorGUILayout.LabelField("Magical Attack:");
+            Weapon_DB.Get(SelectedWeapon).MagicalAttack = EditorGUILayout.IntField(Weapon_DB.Get(SelectedWeapon).MagicalAttack, GUILayout.Width(200));
+
             EditorGUILayout.LabelField("Icon:");
             GUILayout.BeginHorizontal();
             Weapon_DB.Get(SelectedWeapon).Icon = EditorGUILayout.ObjectField(Weapon_DB.Get(SelectedWeapon).Icon, typeof(Sprite), true) as Sprite;

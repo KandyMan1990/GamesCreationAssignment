@@ -66,6 +66,16 @@ public class ScriptableObjectDatabase<T> : ScriptableObject where T : class
         return database.ToArray();
     }
 
+    public string[] ToStringArray()
+    {
+        string[] temp = new string[database.Count];
+        for (int i = 0; i < database.Count; i++)
+        {
+            temp[i] = database[i].ToString();
+        }
+        return temp;
+    }
+
     public static U GetDatabase<U>(string dbPath, string dbName) where U : ScriptableObject
     {
         string dbFullPath = @"Assets/" + dbPath + "/" + dbName;

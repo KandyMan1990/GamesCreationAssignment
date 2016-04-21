@@ -17,8 +17,12 @@ public class Weapon
     [SerializeField]
     GameObject _model;
 
-    //list of stats (can be + or -)
-    //element (physical, physical and fire etc)
+    [SerializeField]
+    Element _damageType;
+    [SerializeField]
+    int _physicalAttack;
+    [SerializeField]
+    int _magicalAttack;
 
     public Weapon()
     {
@@ -55,5 +59,23 @@ public class Weapon
         get { return _model; }
         set { _model = value; }
     }
+
+    public Element DamageType
+    {
+        get { return _damageType; }
+        set { _damageType = value; }
+    }
+    public int PhysicalAttack
+    {
+        get { return _physicalAttack; }
+        set { _physicalAttack = value; }
+    }
+    public int MagicalAttack
+    {
+        get { return _magicalAttack; }
+        set { _magicalAttack = value; }
+    }
+
     public int WeaponTypeIndex;
+    public int WeaponDamageTypeIndex;
 }

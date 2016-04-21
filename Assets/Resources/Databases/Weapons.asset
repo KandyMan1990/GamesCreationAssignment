@@ -18,11 +18,23 @@ MonoBehaviour:
     _wepType: Sword
     _cost: 50
     _model: {fileID: 100000, guid: d05d496cb4f43c14e80630addd23652e, type: 3}
+    _damageType:
+      _name: Physical
+      _value: 20
+    _physicalAttack: 10
+    _magicalAttack: 0
     WeaponTypeIndex: 3
-  - _name: Gun
+    WeaponDamageTypeIndex: 0
+  - _name: Dark Gun
     _icon: {fileID: 21300000, guid: c675bb8df3eadaa48b475b34796eb602, type: 3}
-    _description: A gun
+    _description: An emo gun
     _wepType: Gun
     _cost: 20
     _model: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
+    _damageType:
+      _name: Dark
+      _value: 80
+    _physicalAttack: 0
+    _magicalAttack: 25
     WeaponTypeIndex: 7
+    WeaponDamageTypeIndex: 9
