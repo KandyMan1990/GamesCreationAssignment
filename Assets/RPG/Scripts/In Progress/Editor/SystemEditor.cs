@@ -5,7 +5,6 @@ public partial class DatabaseEditor : EditorWindow
 {
     const string DATABASE_SYSTEM_NAME = @"System.asset";
     SystemDB System_DB;
-   // Texture2D selectedTexture;
 
     void SystemButton()
     {
@@ -67,23 +66,6 @@ public partial class DatabaseEditor : EditorWindow
         System_DB.SetExpToLevelUp = EditorGUILayout.IntField(System_DB.ExpToLevelUp, GUILayout.Width(100));
 
         EditorGUILayout.LabelField("Game Window:");
-        //if (System_DB.WindowColour)
-        //    selectedTexture = System_DB.WindowColour.texture;
-        //else
-        //    selectedTexture = null;
-
-        //if (GUILayout.Button(selectedTexture, GUILayout.Width(75), GUILayout.Height(75)))
-        //{
-        //    int controllerID = EditorGUIUtility.GetControlID(FocusType.Passive);
-        //    EditorGUIUtility.ShowObjectPicker<Sprite>(null, true, null, controllerID);
-        //}
-
-        //string commandName = Event.current.commandName;
-        //if (commandName == "ObjectSelectorUpdated")
-        //{
-        //    System_DB.SetWindowColour = (Sprite)EditorGUIUtility.GetObjectPickerObject();
-        //    Repaint();
-        //}
         System_DB.SetWindowColour = EditorGUILayout.ObjectField(System_DB.WindowColour, typeof(Sprite), true) as Sprite;
         if (System_DB.WindowColour != null)
         {
