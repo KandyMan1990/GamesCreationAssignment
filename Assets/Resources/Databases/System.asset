@@ -16,7 +16,7 @@ MonoBehaviour:
   _currencyUnit: G
   _expToLevelUp: 1000
   _windowColour: {fileID: 21300000, guid: e898287da18e1574fb74dd64ce22bef3, type: 3}
-  _titleMusic: {fileID: 11400000, guid: c41746d8d44eb9f4faf865944bf78cbf, type: 2}
+  _titleMusic: {fileID: 11400000, guid: b2dc5888c6adcf248a49858d7a4b140f, type: 2}
   _battleMusic: {fileID: 11400000, guid: 72c14bc4bd8535a4a8265e7a33d22cc4, type: 2}
   _bossMusic: {fileID: 11400000, guid: 47a26506fd1afce49810c85924fb78ec, type: 2}
   _victoryMusic: {fileID: 11400000, guid: 8143f22365d21de4c800b51bba2c28c6, type: 2}
