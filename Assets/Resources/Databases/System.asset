@@ -19,7 +19,7 @@ MonoBehaviour:
   _titleMusic: {fileID: 11400000, guid: b2dc5888c6adcf248a49858d7a4b140f, type: 2}
   _battleMusic: {fileID: 11400000, guid: 72c14bc4bd8535a4a8265e7a33d22cc4, type: 2}
   _bossMusic: {fileID: 11400000, guid: 47a26506fd1afce49810c85924fb78ec, type: 2}
-  _victoryMusic: {fileID: 11400000, guid: 8143f22365d21de4c800b51bba2c28c6, type: 2}
+  _victoryMusic: {fileID: 11400000, guid: 9bd9c9b8ce9d37d4aa11e13d68407162, type: 2}
   _gameOverMusic: {fileID: 11400000, guid: 6c68200e073264d4393095c943f2a701, type: 2}
   _cursorSFX: {fileID: 8300000, guid: 3282fe0bca81477449806d1581fa57b4, type: 3}
   _okSFX: {fileID: 8300000, guid: 3282fe0bca81477449806d1581fa57b4, type: 3}
