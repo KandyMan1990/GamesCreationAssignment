@@ -222,18 +222,6 @@ public partial class DatabaseEditor : EditorWindow
 
             EditorGUILayout.LabelField("Starting Accessory 4");
 
-            //    /*
-
-            //    tempCharacter.Name = EditorGUILayout.TextField("Name: ", tempCharacter.Name);
-            //    tempCharacter.StartingLevel = EditorGUILayout.IntSlider("Starting Level: ", tempCharacter.StartingLevel, 1, 100);
-            //    tempCharacter.PhysicalAttackCurve = EditorGUILayout.CurveField("Physical Attack Curve: ", tempCharacter.PhysicalAttackCurve);
-            //    tempCharacter.PhysicalDefenceCurve = EditorGUILayout.CurveField("Physical Defece Curve: ", tempCharacter.PhysicalDefenceCurve);
-            //    tempCharacter.MagicalAttackCurve = EditorGUILayout.CurveField("Magical Attack Curve: ", tempCharacter.MagicalAttackCurve);
-            //    tempCharacter.MagicalDefenceCurve = EditorGUILayout.CurveField("Magical Defence Curve: ", tempCharacter.MagicalDefenceCurve);
-            //    tempCharacter.EvasionCurve = EditorGUILayout.CurveField("Evasion Curve: ", tempCharacter.EvasionCurve);
-
-            //*/
-
             GUILayout.EndVertical();
 
             if (GUILayout.Button("Done"))
