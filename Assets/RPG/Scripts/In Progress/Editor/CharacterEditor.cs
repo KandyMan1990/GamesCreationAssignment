@@ -100,7 +100,7 @@ public partial class DatabaseEditor : EditorWindow
             {
                 WeaponTypes[i] = Terms_DB.WeaponTypes[i];
             }
-            Character_DB.Get(SelectedCharacter).WeaponTypeIndex = EditorGUILayout.Popup(Character_DB.Get(SelectedCharacter).WeaponTypeIndex, WeaponTypes);
+            Character_DB.Get(SelectedCharacter).WeaponTypeIndex = EditorGUILayout.Popup(Character_DB.Get(SelectedCharacter).WeaponTypeIndex, WeaponTypes, GUILayout.Width(250));
             Character_DB.Get(SelectedCharacter).WeaponType = Terms_DB.WeaponTypes[Character_DB.Get(SelectedCharacter).WeaponTypeIndex];
 
             EditorGUILayout.LabelField("Level:");

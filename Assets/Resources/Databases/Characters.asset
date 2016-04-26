@@ -20,16 +20,16 @@ MonoBehaviour:
     _class: 1
     _wepType: Sword
     _weapon:
-      _name: Long Sword
-      _icon: {fileID: 21300000, guid: ea5873cfd9158664f89459f0c9e1d853, type: 3}
-      _description: A sword of the long variety
+      _name: Gunblade
+      _icon: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+      _description: A sword with a gun for the handle.
       _wepType: Sword
-      _cost: 50
-      _model: {fileID: 100000, guid: d05d496cb4f43c14e80630addd23652e, type: 3}
+      _cost: 150
+      _model: {fileID: 100000, guid: 103612e5e1ff43a4e896c567a2cb3ae1, type: 3}
       _damageType:
         _name: Physical
         _value: 20
-      _physicalAttack: 10
+      _physicalAttack: 20
       _magicalAttack: 0
       WeaponTypeIndex: 3
       WeaponDamageTypeIndex: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
       _modifiedValue: 0
       _battleValue: 0
     WeaponTypeIndex: 3
-    WeaponIndex: 0
+    WeaponIndex: 1
   - _name: Dave
     _level: 4
     _description: A character that helps the Player in their time of need.
