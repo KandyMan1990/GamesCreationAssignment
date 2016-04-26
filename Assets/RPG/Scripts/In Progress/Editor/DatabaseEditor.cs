@@ -70,6 +70,10 @@ public partial class DatabaseEditor : EditorWindow
         {
             System_DB = ScriptableObjectDatabase<SystemDB>.GetDatabase<SystemDB>(DATABASE_FOLDER_NAME, DATABASE_SYSTEM_NAME);
         }
+        if (Armour_DB == null)
+        {
+            Armour_DB = ScriptableObjectDatabase<ArmourDB>.GetDatabase<ArmourDB>(DATABASE_FOLDER_NAME, DATABASE_ARMOURS_NAME);
+        }
     }
 
 
@@ -136,14 +140,6 @@ public partial class DatabaseEditor : EditorWindow
         {
             if (GUILayout.Button("Items"))
                 currentEditorState = EditorState.ITEMS;
-        }
-    }
-    void ArmoursButton()
-    {
-        if (currentEditorState != EditorState.ARMOURS)
-        {
-            if (GUILayout.Button("Armours"))
-                currentEditorState = EditorState.ARMOURS;
         }
     }
     void AccessoriesButton()
@@ -243,10 +239,6 @@ public partial class DatabaseEditor : EditorWindow
     {
 
     }
-    void ArmoursTab()
-    {
-
-    }
     void AccessoriesTab()
     {
 
@@ -294,6 +286,7 @@ public partial class DatabaseEditor : EditorWindow
                 WeaponDetails();
                 break;
             case EditorState.ARMOURS:
+                ArmourDetails();
                 break;
             case EditorState.ACCESSORIES:
                 break;

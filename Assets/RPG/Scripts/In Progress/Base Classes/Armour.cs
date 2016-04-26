@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 [System.Serializable]
 public class Armour
@@ -63,7 +62,7 @@ public class Armour
         get { return _physicalDefence; }
         set { _physicalDefence = value; }
     }
-    public int MagicalAttack
+    public int MagicalDefence
     {
         get { return _magicalDefence; }
         set { _magicalDefence = value; }

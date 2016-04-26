@@ -27,6 +27,8 @@ public class Character
     [SerializeField]
     Weapon _weapon;
     [SerializeField]
+    string _armType;
+    [SerializeField]
     Armour _armour;
     //4 accessories
     //skills
@@ -85,6 +87,12 @@ public class Character
     }
     public int WeaponTypeIndex;
     public int WeaponIndex;
+
+    public string ArmourType
+    {
+        get { return _armType; }
+        set { _armType = value; }
+    }
 
     public Armour EquippedArmour
     {
