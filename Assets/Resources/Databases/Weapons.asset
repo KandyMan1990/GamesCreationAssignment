@@ -38,3 +38,81 @@ MonoBehaviour:
     _magicalAttack: 25
     WeaponTypeIndex: 7
     WeaponDamageTypeIndex: 9
+  - _name: Simple Staff
+    _icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    _description: A simple staff for simple people.
+    _wepType: Staff
+    _cost: 10
+    _model: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
+    _damageType:
+      _name: Physical
+      _value: 20
+    _physicalAttack: 5
+    _magicalAttack: 0
+    WeaponTypeIndex: 6
+    WeaponDamageTypeIndex: 0
+  - _name: Short Dagger
+    _icon: {fileID: 21300000, guid: 9d7c6e4896067aa4fa512a00f692ac1c, type: 3}
+    _description: A dagger that is quite short.
+    _wepType: Dagger
+    _cost: 15
+    _model: {fileID: 100000, guid: 6aab193b7693b5e4c9741f1917d2987c, type: 3}
+    _damageType:
+      _name: Physical
+      _value: 20
+    _physicalAttack: 25
+    _magicalAttack: 0
+    WeaponTypeIndex: 5
+    WeaponDamageTypeIndex: 0
+  - _name: Long Bow
+    _icon: {fileID: 21300000, guid: 9866a92691696b346901281f2b329034, type: 3}
+    _description: A bow.  It's quite long.
+    _wepType: Bow
+    _cost: 15
+    _model: {fileID: 100000, guid: a5be31db3f71b0642af74fe491b4bc89, type: 2}
+    _damageType:
+      _name: Physical
+      _value: 20
+    _physicalAttack: 8
+    _magicalAttack: 0
+    WeaponTypeIndex: 4
+    WeaponDamageTypeIndex: 0
+  - _name: Spear
+    _icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    _description: No one can Spear like Edge.
+    _wepType: Spear
+    _cost: 50
+    _model: {fileID: 100000, guid: 103612e5e1ff43a4e896c567a2cb3ae1, type: 3}
+    _damageType:
+      _name: Physical
+      _value: 20
+    _physicalAttack: 12
+    _magicalAttack: 0
+    WeaponTypeIndex: 2
+    WeaponDamageTypeIndex: 0
+  - _name: Claw
+    _icon: {fileID: 21300000, guid: a94c9a7eb94ceec4a8d67a1890e22e51, type: 3}
+    _description: It is our master.
+    _wepType: Claw
+    _cost: 10
+    _model: {fileID: 100004, guid: d027af1092f6b434090f040565e7e656, type: 3}
+    _damageType:
+      _name: Physical
+      _value: 20
+    _physicalAttack: 6
+    _magicalAttack: 0
+    WeaponTypeIndex: 1
+    WeaponDamageTypeIndex: 0
+  - _name: Axe
+    _icon: {fileID: 21300000, guid: e4f1fee3de32377429fd1348fae62b10, type: 3}
+    _description: What Londoners say instead of ask.
+    _wepType: Axe
+    _cost: 20
+    _model: {fileID: 100000, guid: 6aab193b7693b5e4c9741f1917d2987c, type: 3}
+    _damageType:
+      _name: Physical
+      _value: 20
+    _physicalAttack: 3
+    _magicalAttack: 0
+    WeaponTypeIndex: 0
+    WeaponDamageTypeIndex: 0

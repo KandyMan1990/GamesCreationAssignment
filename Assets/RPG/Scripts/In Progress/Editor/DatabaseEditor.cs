@@ -338,6 +338,4 @@ public partial class DatabaseEditor : EditorWindow
                 break;
         }
     }
-
-    //TODO: remember to set window min size per tab
 }

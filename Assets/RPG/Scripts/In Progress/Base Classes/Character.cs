@@ -26,27 +26,24 @@ public class Character
     [SerializeField]
     CharacterClass _class;
     [SerializeField]
+    string _wepType;
+    [SerializeField]
     Weapon _weapon;
     //armour
     //4 accessories
-    [SerializeField]
-    AnimationCurve _hpCurve;
-    [SerializeField]
-    AnimationCurve _phyAtkCurve;
-    [SerializeField]
-    AnimationCurve _phyDefCurve;
-    [SerializeField]
-    AnimationCurve _magAtkCurve;
-    [SerializeField]
-    AnimationCurve _magDefCurve;
-    [SerializeField]
-    AnimationCurve _speedCurve;
-    [SerializeField]
-    AnimationCurve _luckCurve;
     //skills
 
     //base stats
-    //on level value change, update base stats to reflect curve
+    [SerializeField]
+    BaseStat _healthStat = new BaseStat("Represents the health of the character.", BaseStat.StatTypes.HEALTH);
+    [SerializeField]
+    BaseStat _phyAtkStat = new BaseStat("Represents the Physical Attack of the character.", BaseStat.StatTypes.PHYATK);
+    [SerializeField]
+    BaseStat _phyDefStat = new BaseStat("Represents the Physical Defence of the character.", BaseStat.StatTypes.PHYDEF);
+    [SerializeField]
+    BaseStat _magAtkStat = new BaseStat("Represents the Magical Attack of the character.", BaseStat.StatTypes.MAGATK);
+    [SerializeField]
+    BaseStat _magDefStat = new BaseStat("Represents the Magical Defence of the character.", BaseStat.StatTypes.MAGDEF);    //on level value change, update base stats to reflect curve
 
     public string Name
     {
@@ -78,92 +75,46 @@ public class Character
         get { return _class; }
         set { _class = value; }
     }
+    public string WeaponType
+    {
+        get { return _wepType; }
+        set { _wepType = value; }
+    }
     public Weapon Wep
     {
         get { return _weapon; }
         set { _weapon = value; }
     }
+    public int WeaponTypeIndex;
     public int WeaponIndex;
     //armour
     //4 accessories
-    public AnimationCurve HpCurve
+
+    public BaseStat HealthStat
     {
-        get
-        {
-            if (_hpCurve == null)
-                _hpCurve = new AnimationCurve();
-
-            return _hpCurve;
-        }
-        set { _hpCurve = value; }
+        get { return _healthStat; }
+        set { _healthStat = value; }
     }
-    public AnimationCurve PhyAtkCurve
+    public BaseStat PhyAtkStat
     {
-        get
-        {
-            if (_phyAtkCurve == null)
-                _phyAtkCurve = new AnimationCurve();
-
-            return _phyAtkCurve;
-        }
-        set { _phyAtkCurve = value; }
+        get { return _phyAtkStat; }
+        set { _phyAtkStat = value; }
     }
-    public AnimationCurve PhyDefCurve
+    public BaseStat PhyDefStat
     {
-        get
-        {
-            if (_phyDefCurve == null)
-                _phyDefCurve = new AnimationCurve();
-
-            return _phyDefCurve;
-        }
-        set { _phyDefCurve = value; }
+        get { return _phyDefStat; }
+        set { _phyDefStat = value; }
     }
-    public AnimationCurve MagAtkCurve
+    public BaseStat MagAtkStat
     {
-        get
-        {
-            if (_magAtkCurve == null)
-                _magAtkCurve = new AnimationCurve();
-
-            return _magAtkCurve;
-        }
-        set { _magAtkCurve = value; }
+        get { return _magAtkStat; }
+        set { _magAtkStat = value; }
     }
-    public AnimationCurve MagDefCurve
+    public BaseStat MagDefStat
     {
-        get
-        {
-            if (_magDefCurve == null)
-                _magDefCurve = new AnimationCurve();
-
-            return _magDefCurve;
-        }
-        set { _magDefCurve = value; }
+        get { return _magDefStat; }
+        set { _magDefStat = value; }
     }
-    public AnimationCurve SpeedCurve
-    {
-        get
-        {
-            if (_speedCurve == null)
-                _speedCurve = new AnimationCurve();
-
-            return _speedCurve;
-        }
-        set { _speedCurve = value; }
-    }
-    public AnimationCurve LuckCurve
-    {
-        get
-        {
-            if (_luckCurve == null)
-                _luckCurve = new AnimationCurve();
-
-            return _luckCurve;
-        }
-        set { _luckCurve = value; }
-    }
-
     //skills
 
     public Character()

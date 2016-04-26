@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using System.Collections.Generic;
 
 public partial class DatabaseEditor : EditorWindow
 {
@@ -93,6 +94,15 @@ public partial class DatabaseEditor : EditorWindow
             EditorGUILayout.LabelField("Class:");
             Character_DB.Get(SelectedCharacter).Class = (CharacterClass)EditorGUILayout.EnumPopup(Character_DB.Get(SelectedCharacter).Class, GUILayout.Width(250));
 
+            EditorGUILayout.LabelField("Weapon Type:");
+            string[] WeaponTypes = new string[Terms_DB.WeaponTypes.Count];
+            for (int i = 0; i < Terms_DB.WeaponTypes.Count; i++)
+            {
+                WeaponTypes[i] = Terms_DB.WeaponTypes[i];
+            }
+            Character_DB.Get(SelectedCharacter).WeaponTypeIndex = EditorGUILayout.Popup(Character_DB.Get(SelectedCharacter).WeaponTypeIndex, WeaponTypes);
+            Character_DB.Get(SelectedCharacter).WeaponType = Terms_DB.WeaponTypes[Character_DB.Get(SelectedCharacter).WeaponTypeIndex];
+
             EditorGUILayout.LabelField("Level:");
             Character_DB.Get(SelectedCharacter).Level = EditorGUILayout.IntSlider(Character_DB.Get(SelectedCharacter).Level, 1, 100, GUILayout.Width(250));
 
@@ -125,35 +135,82 @@ public partial class DatabaseEditor : EditorWindow
             }
             GUILayout.EndHorizontal();
 
-            EditorGUILayout.LabelField("Health Curve:");
-            Character_DB.Get(SelectedCharacter).HpCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).HpCurve);
+            EditorGUILayout.LabelField("Health Stat:");
+            GUILayout.BeginHorizontal(GUILayout.Width(200));
 
-            EditorGUILayout.LabelField("Physical Attack Curve:");
-            Character_DB.Get(SelectedCharacter).PhyAtkCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).PhyAtkCurve);
+            EditorGUILayout.LabelField("Level 1:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).HealthStat.LvlOneValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).HealthStat.LvlOneValue);
+            EditorGUILayout.LabelField("Level 20:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).HealthStat.LvlTwentyValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).HealthStat.LvlTwentyValue);
+            EditorGUILayout.LabelField("Level 100:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).HealthStat.LvlOneHundredValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).HealthStat.LvlOneHundredValue);
 
-            EditorGUILayout.LabelField("Physical Defence Curve:");
-            Character_DB.Get(SelectedCharacter).PhyDefCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).PhyDefCurve);
+            GUILayout.EndHorizontal();
 
-            EditorGUILayout.LabelField("Magical Attack Curve:");
-            Character_DB.Get(SelectedCharacter).MagAtkCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).MagAtkCurve);
+            EditorGUILayout.LabelField("Physical Attack Stat:");
+            GUILayout.BeginHorizontal(GUILayout.Width(200));
 
-            EditorGUILayout.LabelField("Magical Defence Curve:");
-            Character_DB.Get(SelectedCharacter).MagDefCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).MagDefCurve);
+            EditorGUILayout.LabelField("Level 1:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).PhyAtkStat.LvlOneValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).PhyAtkStat.LvlOneValue);
+            EditorGUILayout.LabelField("Level 20:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).PhyAtkStat.LvlTwentyValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).PhyAtkStat.LvlTwentyValue);
+            EditorGUILayout.LabelField("Level 100:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).PhyAtkStat.LvlOneHundredValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).PhyAtkStat.LvlOneHundredValue);
 
-            EditorGUILayout.LabelField("Speed Curve:");
-            Character_DB.Get(SelectedCharacter).SpeedCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).SpeedCurve);
+            GUILayout.EndHorizontal();
 
-            EditorGUILayout.LabelField("Luck Curve:");
-            Character_DB.Get(SelectedCharacter).LuckCurve = EditorGUILayout.CurveField(Character_DB.Get(SelectedCharacter).LuckCurve);
+            EditorGUILayout.LabelField("Physical Defence Stat:");
+            GUILayout.BeginHorizontal(GUILayout.Width(200));
+
+            EditorGUILayout.LabelField("Level 1:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).PhyDefStat.LvlOneValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).PhyDefStat.LvlOneValue);
+            EditorGUILayout.LabelField("Level 20:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).PhyDefStat.LvlTwentyValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).PhyDefStat.LvlTwentyValue);
+            EditorGUILayout.LabelField("Level 100:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).PhyDefStat.LvlOneHundredValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).PhyDefStat.LvlOneHundredValue);
+
+            GUILayout.EndHorizontal();
+
+            EditorGUILayout.LabelField("Magical Attack Stat:");
+            GUILayout.BeginHorizontal(GUILayout.Width(200));
+
+            EditorGUILayout.LabelField("Level 1:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).MagAtkStat.LvlOneValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).MagAtkStat.LvlOneValue);
+            EditorGUILayout.LabelField("Level 20:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).MagAtkStat.LvlTwentyValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).MagAtkStat.LvlTwentyValue);
+            EditorGUILayout.LabelField("Level 100:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).MagAtkStat.LvlOneHundredValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).MagAtkStat.LvlOneHundredValue);
+
+            GUILayout.EndHorizontal();
+
+            EditorGUILayout.LabelField("Magical Defence Stat:");
+            GUILayout.BeginHorizontal(GUILayout.Width(200));
+
+            EditorGUILayout.LabelField("Level 1:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).MagDefStat.LvlOneValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).MagDefStat.LvlOneValue);
+            EditorGUILayout.LabelField("Level 20:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).MagDefStat.LvlTwentyValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).MagDefStat.LvlTwentyValue);
+            EditorGUILayout.LabelField("Level 100:", GUILayout.Width(70));
+            Character_DB.Get(SelectedCharacter).MagDefStat.LvlOneHundredValue = EditorGUILayout.IntField(Character_DB.Get(SelectedCharacter).MagDefStat.LvlOneHundredValue);
+
+            GUILayout.EndHorizontal();
 
             EditorGUILayout.LabelField("Starting Weapon:");
-            string[] Weapons = new string[Weapon_DB.Count];
-            for(int i = 0; i < Weapon_DB.Count; i++)
+            List<Weapon> CharWepTypes = new List<Weapon>();
+            foreach (Weapon wep in Weapon_DB.ReadDatabase)
             {
-                Weapons[i] = Weapon_DB.Get(i).Name;
+                if (wep.WepType == Character_DB.Get(SelectedCharacter).WeaponType)
+                {
+                    CharWepTypes.Add(wep);
+                }
+            }
+            string[] Weapons = new string[CharWepTypes.Count];
+            for (int i = 0; i < CharWepTypes.Count; i++)
+            {
+                Weapons[i] = CharWepTypes[i].Name;
             }
             Character_DB.Get(SelectedCharacter).WeaponIndex = EditorGUILayout.Popup(Character_DB.Get(SelectedCharacter).WeaponIndex, Weapons);
-            Character_DB.Get(SelectedCharacter).Wep = Weapon_DB.Get(Character_DB.Get(SelectedCharacter).WeaponIndex);
+            Character_DB.Get(SelectedCharacter).Wep = CharWepTypes[Character_DB.Get(SelectedCharacter).WeaponIndex];
 
             EditorGUILayout.LabelField("Starting Armour");
 
@@ -183,6 +240,7 @@ public partial class DatabaseEditor : EditorWindow
             {
                 currentDetailsState = DetailsState.NONE;
                 SelectedCharacter = -1;
+                GUIUtility.keyboardControl = 0;
                 EditorUtility.SetDirty(Character_DB);
             }
         }

@@ -98,6 +98,10 @@ public class ScriptableObjectDatabase<T> : ScriptableObject where T : class
         U dbGame = Resources.Load(dbFullPath, typeof(U)) as U;
 
         return dbGame;
+    }
 
+    public IList<T> ReadDatabase
+    {
+        get { return database.AsReadOnly(); }
     }
 }

@@ -13,144 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database:
   - _name: Jim
-    _level: 24
-    _description: The main character the user plays as.
-    _portrait: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+    _level: 9
+    _description: The main character of the game.
+    _portrait: {fileID: 21300000, guid: 9d7c6e4896067aa4fa512a00f692ac1c, type: 3}
     _model: {fileID: 100168, guid: b235179bd2a63d1468dd430670338c55, type: 3}
     _class: 1
-    _weapon:
-      _name: Dark Gun
-      _icon: {fileID: 21300000, guid: c675bb8df3eadaa48b475b34796eb602, type: 3}
-      _description: An emo gun
-      _wepType: Gun
-      _cost: 20
-      _model: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
-      _damageType:
-        _name: Dark
-        _value: 80
-      _physicalAttack: 0
-      _magicalAttack: 25
-      WeaponTypeIndex: 7
-      WeaponDamageTypeIndex: 9
-    _hpCurve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 1
-        value: 100
-        inSlope: 89.89899
-        outSlope: 89.89899
-        tangentMode: 10
-      - time: 100
-        value: 9000
-        inSlope: 89.89899
-        outSlope: 89.89899
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _phyAtkCurve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 1
-        value: 5
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 100
-        value: 98
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _phyDefCurve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 1
-        value: 4
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-      - time: 100
-        value: 94
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _magAtkCurve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 1
-        value: 3
-        inSlope: 0.8484849
-        outSlope: 0.8484849
-        tangentMode: 10
-      - time: 100
-        value: 87
-        inSlope: 0.8484849
-        outSlope: 0.8484849
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _magDefCurve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 1
-        value: 2
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-      - time: 100
-        value: 77
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _speedCurve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 1
-        value: 4
-        inSlope: 0.5959596
-        outSlope: 0.5959596
-        tangentMode: 10
-      - time: 100
-        value: 63
-        inSlope: 0.5959596
-        outSlope: 0.5959596
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _luckCurve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 1
-        value: 3
-        inSlope: 0.4949495
-        outSlope: 0.4949495
-        tangentMode: 10
-      - time: 100
-        value: 52
-        inSlope: 0.4949495
-        outSlope: 0.4949495
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    WeaponIndex: 1
-  - _name: Dave
-    _level: 7
-    _description: The first party character the player encounters.
-    _portrait: {fileID: 0}
-    _model: {fileID: 0}
-    _class: 2
+    _wepType: Sword
     _weapon:
       _name: Long Sword
       _icon: {fileID: 21300000, guid: ea5873cfd9158664f89459f0c9e1d853, type: 3}
@@ -159,52 +27,124 @@ MonoBehaviour:
       _cost: 50
       _model: {fileID: 100000, guid: d05d496cb4f43c14e80630addd23652e, type: 3}
       _damageType:
-        _name: 
-        _value: 0
-      _physicalAttack: 0
+        _name: Physical
+        _value: 20
+      _physicalAttack: 10
       _magicalAttack: 0
       WeaponTypeIndex: 3
       WeaponDamageTypeIndex: 0
-    _hpCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _phyAtkCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _phyDefCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _magAtkCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _magDefCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _speedCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _luckCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
+    _healthStat:
+      _description: Represents the health of the character.
+      _type: 0
+      _lvlOneValue: 100
+      _lvlTwentyValue: 1500
+      _lvlOneHundredValue: 9000
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    _phyAtkStat:
+      _description: Represents the Physical Attack of the character.
+      _type: 1
+      _lvlOneValue: 5
+      _lvlTwentyValue: 20
+      _lvlOneHundredValue: 90
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    _phyDefStat:
+      _description: Represents the Physical Defence of the character.
+      _type: 2
+      _lvlOneValue: 3
+      _lvlTwentyValue: 15
+      _lvlOneHundredValue: 85
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    _magAtkStat:
+      _description: Represents the Magical Attack of the character.
+      _type: 3
+      _lvlOneValue: 2
+      _lvlTwentyValue: 12
+      _lvlOneHundredValue: 74
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    _magDefStat:
+      _description: Represents the Magical Defence of the character.
+      _type: 4
+      _lvlOneValue: 2
+      _lvlTwentyValue: 11
+      _lvlOneHundredValue: 66
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    WeaponTypeIndex: 3
+    WeaponIndex: 0
+  - _name: Dave
+    _level: 4
+    _description: A character that helps the Player in their time of need.
+    _portrait: {fileID: 21300000, guid: a94c9a7eb94ceec4a8d67a1890e22e51, type: 3}
+    _model: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
+    _class: 2
+    _wepType: Staff
+    _weapon:
+      _name: Simple Staff
+      _icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+      _description: A simple staff for simple people.
+      _wepType: Staff
+      _cost: 10
+      _model: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
+      _damageType:
+        _name: Physical
+        _value: 20
+      _physicalAttack: 5
+      _magicalAttack: 0
+      WeaponTypeIndex: 6
+      WeaponDamageTypeIndex: 0
+    _healthStat:
+      _description: Represents the health of the character.
+      _type: 0
+      _lvlOneValue: 80
+      _lvlTwentyValue: 1200
+      _lvlOneHundredValue: 8500
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    _phyAtkStat:
+      _description: Represents the Physical Attack of the character.
+      _type: 1
+      _lvlOneValue: 4
+      _lvlTwentyValue: 18
+      _lvlOneHundredValue: 65
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    _phyDefStat:
+      _description: Represents the Physical Defence of the character.
+      _type: 2
+      _lvlOneValue: 4
+      _lvlTwentyValue: 19
+      _lvlOneHundredValue: 62
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    _magAtkStat:
+      _description: Represents the Magical Attack of the character.
+      _type: 3
+      _lvlOneValue: 6
+      _lvlTwentyValue: 22
+      _lvlOneHundredValue: 88
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    _magDefStat:
+      _description: Represents the Magical Defence of the character.
+      _type: 4
+      _lvlOneValue: 5
+      _lvlTwentyValue: 20
+      _lvlOneHundredValue: 85
+      _baseValue: 0
+      _modifiedValue: 0
+      _battleValue: 0
+    WeaponTypeIndex: 6
     WeaponIndex: 0
