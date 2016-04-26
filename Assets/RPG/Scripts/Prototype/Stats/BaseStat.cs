@@ -120,17 +120,17 @@ public class BaseStat
         switch(StatType)
         {
             case StatTypes.HEALTH:
-                //check if armour and/or accessories raise health, if so, add to modified stat
+                //check if accessories raise health, if so, add to modified stat
                 break;
             case StatTypes.MAGATK:
-                _modifiedValue += ch.Wep.MagicalAttack;
+                _modifiedValue += ch.EquippedWeapon.MagicalAttack;
                 //check if armour and/or accessories raise magic attack, if so, add to modified stat
                 break;
             case StatTypes.MAGDEF:
                 //check if armour and/or accessories raise magic defence, if so, add to modified stat
                 break;
             case StatTypes.PHYATK:
-                _modifiedValue += ch.Wep.PhysicalAttack;
+                _modifiedValue += ch.EquippedWeapon.PhysicalAttack;
                 //check if armour and/or accessories raise physical attack, if so, add to modified stat
                 break;
             case StatTypes.PHYDEF:

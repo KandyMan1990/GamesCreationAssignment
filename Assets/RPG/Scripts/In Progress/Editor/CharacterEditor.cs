@@ -210,7 +210,7 @@ public partial class DatabaseEditor : EditorWindow
                 Weapons[i] = CharWepTypes[i].Name;
             }
             Character_DB.Get(SelectedCharacter).WeaponIndex = EditorGUILayout.Popup(Character_DB.Get(SelectedCharacter).WeaponIndex, Weapons);
-            Character_DB.Get(SelectedCharacter).Wep = CharWepTypes[Character_DB.Get(SelectedCharacter).WeaponIndex];
+            Character_DB.Get(SelectedCharacter).EquippedWeapon = CharWepTypes[Character_DB.Get(SelectedCharacter).WeaponIndex];
 
             EditorGUILayout.LabelField("Starting Armour");
 

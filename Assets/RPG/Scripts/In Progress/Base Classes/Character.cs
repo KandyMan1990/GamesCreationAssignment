@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public enum CharacterClass
 {
@@ -27,7 +26,8 @@ public class Character
     string _wepType;
     [SerializeField]
     Weapon _weapon;
-    //armour
+    [SerializeField]
+    Armour _armour;
     //4 accessories
     //skills
 
@@ -78,14 +78,19 @@ public class Character
         get { return _wepType; }
         set { _wepType = value; }
     }
-    public Weapon Wep
+    public Weapon EquippedWeapon
     {
         get { return _weapon; }
         set { _weapon = value; }
     }
     public int WeaponTypeIndex;
     public int WeaponIndex;
-    //armour
+
+    public Armour EquippedArmour
+    {
+        get { return _armour; }
+        set { _armour = value; }
+    }
     //4 accessories
 
     public BaseStat HealthStat
