@@ -6,7 +6,6 @@ public partial class DatabaseEditor : EditorWindow
     enum EditorState
     {
         CHARACTERS, //characters in game
-        CLASSES,    //classes in game (protagonist/party member/enemy?/boss?/final boss???)
         SKILLS,     //list of attacks, magics
         ITEMS,      //list of items in game
         WEAPONS,    //list of weapons in game
@@ -33,14 +32,6 @@ public partial class DatabaseEditor : EditorWindow
 
     //Buttons scroll view
     Vector2 scrollPos = Vector2.zero;
-    //int listViewWidth = 150;
-    //int listViewButtonWidth = 142;
-    //int listViewButtonHeight = 25;
-
-    //int selectedIndex = -1;
-
-    //details scroll view
-    //Vector2 detailsScrollPos = Vector2.zero;
 
     [MenuItem("Window/Database Editor")]
     public static void Init()
@@ -116,7 +107,6 @@ public partial class DatabaseEditor : EditorWindow
         GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
 
         CharactersButton();
-        ClassesButton();
         SkillsButton();
         ItemsButton();
         WeaponsButton();
@@ -132,14 +122,6 @@ public partial class DatabaseEditor : EditorWindow
         GUILayout.EndHorizontal();
     }
 
-    void ClassesButton()
-    {
-        if (currentEditorState != EditorState.CLASSES)
-        {
-            if (GUILayout.Button("Classes"))
-                currentEditorState = EditorState.CLASSES;
-        }
-    }
     void SkillsButton()
     {
         if (currentEditorState != EditorState.SKILLS)
@@ -216,9 +198,6 @@ public partial class DatabaseEditor : EditorWindow
                 case EditorState.CHARACTERS:
                     CharactersTab();
                     break;
-                case EditorState.CLASSES:
-                    ClassesTab();
-                    break;
                 case EditorState.SKILLS:
                     SkillsTab();
                     break;
@@ -256,10 +235,6 @@ public partial class DatabaseEditor : EditorWindow
         }
     }
 
-    void ClassesTab()
-    {
-
-    }
     void SkillsTab()
     {
 
@@ -310,8 +285,6 @@ public partial class DatabaseEditor : EditorWindow
         {
             case EditorState.CHARACTERS:
                 CharacterDetails();
-                break;
-            case EditorState.CLASSES:
                 break;
             case EditorState.SKILLS:
                 break;

@@ -3,11 +3,9 @@ using System.Collections;
 
 public enum CharacterClass
 {
-    NONE,
-    PLAYER,
     PARTY,
-    ENEMY,
-    BOSS
+    PLAYER,
+    ENEMY
 }
 
 [System.Serializable]
