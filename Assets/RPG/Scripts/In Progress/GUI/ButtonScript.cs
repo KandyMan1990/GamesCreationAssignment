@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
-public class ButtonScript : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPointerDownHandler
+public class ButtonScript : MonoBehaviour, IPointerEnterHandler
 {
     public bool IsCancelButton = false;
     public bool IsNewGameButton = false;
@@ -23,22 +23,18 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, ISelectHandler,
             audioSource.PlayOneShot(GameManager.Instance.System_DB.CursorSFX);
     }
 
-    public void OnSelect(BaseEventData eventData)
+    public void OnClick()
     {
         if (btn.IsInteractable())
         {
-            if(IsNewGameButton)
+            if (IsNewGameButton)
                 audioSource.PlayOneShot(GameManager.Instance.System_DB.NewGameSFX);
             else if (IsCancelButton)
                 audioSource.PlayOneShot(GameManager.Instance.System_DB.CancelSFX);
             else
                 audioSource.PlayOneShot(GameManager.Instance.System_DB.OkSFX);
         }
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (!btn.IsInteractable())
+        else if (!btn.IsInteractable())
             audioSource.PlayOneShot(GameManager.Instance.System_DB.ErrorSFX);
     }
 }

@@ -132,10 +132,14 @@ public partial class DatabaseEditor : EditorWindow
             }
             GUILayout.EndHorizontal();
 
+            GUILayout.EndVertical();
+
             if (GUILayout.Button("Done"))
             {
                 currentDetailsState = DetailsState.NONE;
                 SelectedArmour = -1;
+                GUIUtility.keyboardControl = 0;
+                scrollPos = Vector2.zero;
                 EditorUtility.SetDirty(Armour_DB);
             }
         }

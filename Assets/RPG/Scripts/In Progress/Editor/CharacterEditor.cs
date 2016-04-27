@@ -229,6 +229,7 @@ public partial class DatabaseEditor : EditorWindow
                 currentDetailsState = DetailsState.NONE;
                 SelectedCharacter = -1;
                 GUIUtility.keyboardControl = 0;
+                scrollPos = Vector2.zero;
                 EditorUtility.SetDirty(Character_DB);
             }
         }

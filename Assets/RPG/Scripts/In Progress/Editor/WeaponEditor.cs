@@ -144,6 +144,8 @@ public partial class DatabaseEditor : EditorWindow
             {
                 currentDetailsState = DetailsState.NONE;
                 SelectedWeapon = -1;
+                GUIUtility.keyboardControl = 0;
+                scrollPos = Vector2.zero;
                 EditorUtility.SetDirty(Weapon_DB);
             }
         }
