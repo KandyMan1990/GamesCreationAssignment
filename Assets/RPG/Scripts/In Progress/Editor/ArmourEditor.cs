@@ -21,7 +21,6 @@ public partial class DatabaseEditor : EditorWindow
                     window.minSize = window.maxSize;
                 }
                 GUIUtility.keyboardControl = 0;
-
             }
         }
     }

@@ -103,7 +103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 964c92815bf7630468b5eef6343d8c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 5
+  RotateSpeed: 2
 --- !u!154 &15415096
 TerrainCollider:
   m_ObjectHideFlags: 1

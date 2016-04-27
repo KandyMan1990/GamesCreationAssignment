@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
 
     private static SystemDB _system_DB;
     private static TermsDB _terms_DB;
+    private static WeaponDB _weapons_DB;
+    private static ElementDB _elements_DB;
+    private static CharacterDB _characters_DB;
+    private static ArmourDB _armours_DB;
 
     public static GameManager Instance
     {
@@ -51,6 +55,54 @@ public class GameManager : MonoBehaviour
             }
 
             return _terms_DB;
+        }
+    }
+    public WeaponDB Weapon_DB
+    {
+        get
+        {
+            if (_weapons_DB == null)
+            {
+                _weapons_DB = Resources.Load("Databases/Weapons", typeof(WeaponDB)) as WeaponDB;
+            }
+
+            return _weapons_DB;
+        }
+    }
+    public ElementDB Elements_DB
+    {
+        get
+        {
+            if (_elements_DB == null)
+            {
+                _elements_DB = Resources.Load("Databases/Elements", typeof(ElementDB)) as ElementDB;
+            }
+
+            return _elements_DB;
+        }
+    }
+    public CharacterDB Characters_DB
+    {
+        get
+        {
+            if (_characters_DB == null)
+            {
+                _characters_DB = Resources.Load("Databases/Characters", typeof(CharacterDB)) as CharacterDB;
+            }
+
+            return _characters_DB;
+        }
+    }
+    public ArmourDB Armours_DB
+    {
+        get
+        {
+            if (_armours_DB == null)
+            {
+                _armours_DB = Resources.Load("Databases/Armours", typeof(ArmourDB)) as ArmourDB;
+            }
+
+            return _armours_DB;
         }
     }
 

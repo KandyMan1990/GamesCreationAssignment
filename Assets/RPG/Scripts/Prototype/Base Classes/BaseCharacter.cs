@@ -16,17 +16,6 @@ public abstract class BaseCharacter
     public int magicalAttack;
     public int magicalDefence;
 
-    //example of using equip attributes
-    public int BaseAttack;
-    public int ModifiedAttack;
-    public EquipAttribute Attribute = new EquipAttribute(BaseStat.StatTypes.PHYATK, EquipAttribute.ModifyType.ADD, 5);
-
-    void calcStats()
-    {
-        //modified attack = base attack + all equip attributes of type phyatk in weapon, armour and accessory
-        ModifiedAttack = BaseAttack + Attribute.GetAttributeValue(this);
-    }
-
 
     //public int evasion;
     /*
