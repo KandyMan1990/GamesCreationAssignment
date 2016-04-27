@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class TitleScreen : MonoBehaviour
 {
@@ -9,6 +10,19 @@ public class TitleScreen : MonoBehaviour
     public Button LoadGame;
     public Button QuitGame;
     public Text Version;
+    public CanvasGroup Canvas;
+    public Image BlackFadeImage;
+
+    private bool _titleScreenLoaded;
+
+    void Awake()
+    {
+        BlackFadeImage.color = new Color(0, 0, 0, 1);
+        _titleScreenLoaded = false;
+        Canvas.interactable = false;
+        Canvas.blocksRaycasts = false;
+        Canvas.alpha = 0;
+    }
 
     // Use this for initialization
     void Start()
@@ -23,13 +37,57 @@ public class TitleScreen : MonoBehaviour
 
         LoadGame.interactable = false;
 
-        IntroloopPlayer.Instance.Play(GameManager.Instance.System_DB.TitleMusic);
+        IntroloopPlayer.Instance.PlayFade(GameManager.Instance.System_DB.TitleMusic, 4f);
+
+        StartCoroutine(FadeTitleScreen());
+    }
+
+    IEnumerator FadeTitleScreen()
+    {
+        float alpha;
+        //starting game
+        if(!_titleScreenLoaded)
+        {
+            alpha = 1f;
+            yield return new WaitForSeconds(2f);
+            while(Canvas.alpha < 1)
+            {
+                alpha -= 0.5f * Time.deltaTime;
+                BlackFadeImage.color = new Color(0, 0, 0, alpha);
+                Canvas.alpha += 0.5f * Time.deltaTime;
+                yield return 0;
+            }
+            BlackFadeImage.color = new Color(0, 0, 0, 0);
+            Canvas.alpha = 1;
+            Canvas.interactable = true;
+            Canvas.blocksRaycasts = true;
+            _titleScreenLoaded = true;
+        }
+        //loading new game
+        else
+        {
+            Canvas.interactable = false;
+            Canvas.blocksRaycasts = false;
+            _titleScreenLoaded = false;
+            alpha = 0f;
+            IntroloopPlayer.Instance.StopFade(2f);
+            while (Canvas.alpha > 0)
+            {
+                alpha += 0.5f * Time.deltaTime;
+                BlackFadeImage.color = new Color(0, 0, 0, alpha);
+                Canvas.alpha -= 0.5f * Time.deltaTime;
+                yield return 0;
+            }
+            BlackFadeImage.color = new Color(0, 0, 0, 1);
+            Canvas.alpha = 0;
+            int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
+            SceneManager.LoadSceneAsync(nextScene);
+        }
     }
 
     public void NewGameButton()
     {
-        int nextScene = SceneManager.GetActiveScene().buildIndex + 1;
-        SceneManager.LoadSceneAsync(nextScene);
+        StartCoroutine(FadeTitleScreen());
     }
 
     public void QuitGameButton()
