@@ -24,8 +24,9 @@ public class NPC : MonoBehaviour
                     else
                     {
                         Debug.Log("Thank you, now I won't die!");
-                        other.GetComponent<Inventory>().RemoveFromInventory(0);
                         _questComplete = true;
+                        if (!other.GetComponent<Inventory>().CheckInventory())
+                            other.GetComponent<Inventory>().RemoveFromInventory(0);
                     }
                 }
                 else
