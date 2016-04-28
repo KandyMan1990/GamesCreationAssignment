@@ -718,7 +718,6 @@ GameObject:
   - 136: {fileID: 13685842}
   - 114: {fileID: 11451526}
   - 114: {fileID: 11456184}
-  - 114: {fileID: 11438746}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -2007,7 +2006,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 150326}
-  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
+  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2391,159 +2390,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11438746
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40bf287024add7947a4baeae365aaf4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charName: 
-  health: 0
-  physicalAttack: 0
-  physicalDefence: 0
-  magicalAttack: 0
-  magicalDefence: 0
-  evasion: 0
-  level: 0
-  StartingLevel: 2
-  HealthCurve:
-    m_Curve:
-    - time: 0.01
-      value: 100
-      inSlope: 7368.4214
-      outSlope: 7368.4214
-      tangentMode: 10
-    - time: 0.2
-      value: 1500
-      inSlope: 10184.211
-      outSlope: 10184.211
-      tangentMode: 10
-    - time: 0.7
-      value: 8000
-      inSlope: 9750
-      outSlope: 9750
-      tangentMode: 10
-    - time: 1
-      value: 9950
-      inSlope: 6499.9995
-      outSlope: 6499.9995
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  PhysicalAttackCurve:
-    m_Curve:
-    - time: 0.01
-      value: 3
-      inSlope: 115.789474
-      outSlope: 115.789474
-      tangentMode: 10
-    - time: 0.2
-      value: 25
-      inSlope: 97.89474
-      outSlope: 97.89474
-      tangentMode: 10
-    - time: 0.7
-      value: 65
-      inSlope: 65
-      outSlope: 65
-      tangentMode: 10
-    - time: 1
-      value: 80
-      inSlope: 49.999996
-      outSlope: 49.999996
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  PhysicalDefenceCurve:
-    m_Curve:
-    - time: 0.01
-      value: 4
-      inSlope: 73.68421
-      outSlope: 73.68421
-      tangentMode: 10
-    - time: 0.2
-      value: 18
-      inSlope: 82.8421
-      outSlope: 82.8421
-      tangentMode: 10
-    - time: 0.7
-      value: 64
-      inSlope: 81
-      outSlope: 81
-      tangentMode: 10
-    - time: 1
-      value: 85
-      inSlope: 70
-      outSlope: 70
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  MagicalAttackCurve:
-    m_Curve:
-    - time: 0.01
-      value: 5
-      inSlope: 105.26316
-      outSlope: 105.26316
-      tangentMode: 10
-    - time: 0.2
-      value: 25
-      inSlope: 97.63158
-      outSlope: 97.63158
-      tangentMode: 10
-    - time: 0.7
-      value: 70
-      inSlope: 83.33333
-      outSlope: 83.33333
-      tangentMode: 10
-    - time: 1
-      value: 93
-      inSlope: 76.666664
-      outSlope: 76.666664
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  MagicalDefenceCurve:
-    m_Curve:
-    - time: 0.01
-      value: 2
-      inSlope: 63.157894
-      outSlope: 63.157894
-      tangentMode: 10
-    - time: 0.2
-      value: 14
-      inSlope: 70.57895
-      outSlope: 70.57895
-      tangentMode: 10
-    - time: 0.7
-      value: 53
-      inSlope: 79
-      outSlope: 79
-      tangentMode: 10
-    - time: 1
-      value: 77
-      inSlope: 80
-      outSlope: 80
-      tangentMode: 10
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  EvasionCurve:
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  ProgressBarCooldown: 0
-  currentExperience: 0
-  totalExperience: 0
 --- !u!114 &11451526
 MonoBehaviour:
   m_ObjectHideFlags: 1
