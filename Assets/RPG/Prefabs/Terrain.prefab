@@ -17,6 +17,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &177704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 454262}
+  - 182: {fileID: 18258466}
+  m_Layer: 0
+  m_Name: WindZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &178224
 GameObject:
   m_ObjectHideFlags: 0
@@ -46,6 +62,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459606}
   m_RootOrder: 0
+--- !u!4 &454262
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177704}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 459606}
+  m_RootOrder: 1
 --- !u!4 &459606
 Transform:
   m_ObjectHideFlags: 1
@@ -57,6 +85,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 415312}
+  - {fileID: 454262}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!108 &10816996
@@ -114,6 +143,19 @@ TerrainCollider:
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 9b148718e4f4c2b4293d9a15374cfa9f, type: 2}
   m_EnableTreeColliders: 1
+--- !u!182 &18258466
+WindZone:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177704}
+  m_Enabled: 1
+  m_Mode: 0
+  m_Radius: 20
+  m_WindMain: 0.15
+  m_WindTurbulence: 0.01
+  m_WindPulseMagnitude: 0.5
+  m_WindPulseFrequency: 0.01
 --- !u!218 &21804598
 Terrain:
   m_ObjectHideFlags: 1
