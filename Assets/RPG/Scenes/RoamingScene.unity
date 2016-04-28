@@ -129,6 +129,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11435198, guid: 96417ff6eecbaa54fbdf9eceb221914a, type: 2}
+      propertyPath: Name
+      value: Old Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435198, guid: 96417ff6eecbaa54fbdf9eceb221914a, type: 2}
+      propertyPath: QuestText
+      value: Fetch my potion would you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435198, guid: 96417ff6eecbaa54fbdf9eceb221914a, type: 2}
+      propertyPath: InProgressText
+      value: I hope you bring my Potion soon...
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435198, guid: 96417ff6eecbaa54fbdf9eceb221914a, type: 2}
+      propertyPath: CompletionText
+      value: Thank you, now I won't die!
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435198, guid: 96417ff6eecbaa54fbdf9eceb221914a, type: 2}
+      propertyPath: CompletedText
+      value: Thanks again, you're a real hero!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96417ff6eecbaa54fbdf9eceb221914a, type: 2}
   m_IsPrefabParent: 0
@@ -180,6 +200,67 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e4b61104137a19b48afd642bf67edc7a, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &515152045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 515152048}
+  - 114: {fileID: 515152047}
+  - 114: {fileID: 515152046}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &515152046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 515152045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &515152047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 515152045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!4 &515152048
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 515152045}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1001 &692327481
 Prefab:
   m_ObjectHideFlags: 0

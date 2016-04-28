@@ -13,23 +13,10 @@ public class Inventory : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            UseInventoryItem();
-        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             GetInventory();
-        }
-    }
-
-    public void UseInventoryItem()
-    {
-        if (PotionList.Count > 0)
-        {
-            Debug.Log("Inventory item " + PotionList[0] + " has been used");
-            RemoveFromInventory(PotionList[0]);
         }
     }
 
@@ -59,7 +46,7 @@ public class Inventory : MonoBehaviour
     public void AddToInventory(InventoryItem obj)
     {
         PotionList.Add(obj);
-        Debug.Log(obj + " added to inventory.");
+        QuestPopup.Instance.Popup(string.Empty, obj.name + " added to inventory.", 2);
         GetInventory();
     }
 
