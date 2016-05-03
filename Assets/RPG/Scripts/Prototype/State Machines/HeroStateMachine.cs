@@ -168,6 +168,12 @@ public class HeroStateMachine : MonoBehaviour
         //random modifier
         damage = Mathf.FloorToInt(damage * (Random.Range(0, 33) + 240) / 256);
 
+        if (damage < 1)
+            damage = 1;
+        if (damage > 9999) //make a stat in the database
+            damage = 9999;
+
+        //critical hit chance
         float CriticalChance = (Player.luck + 1) / 256 * 100;
         float rand = Random.Range(0, 100);
         if (rand < CriticalChance)
@@ -175,6 +181,7 @@ public class HeroStateMachine : MonoBehaviour
             damage = damage * 2;
             Debug.Log("Players' next hit will critical!");
         }
+
         ESM.TakeDamage(damage);
         Debug.Log("Damage: " + damage);
     }

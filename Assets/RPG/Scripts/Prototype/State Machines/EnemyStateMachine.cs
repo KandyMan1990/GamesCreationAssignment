@@ -139,7 +139,12 @@ public class EnemyStateMachine : MonoBehaviour
 
         //random modifier
         damage = Mathf.FloorToInt(damage * (Random.Range(0, 33) + 240) / 256);
-        
+
+        if (damage < 1)
+            damage = 1;
+        if (damage > 9999) //make a stat in the database
+            damage = 9999;
+
         HSM.TakeDamage(damage);
         Debug.Log("Damage: " + damage);
     }
