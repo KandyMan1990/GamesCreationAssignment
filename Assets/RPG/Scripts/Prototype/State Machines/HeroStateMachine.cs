@@ -170,7 +170,7 @@ public class HeroStateMachine : MonoBehaviour
 
         float CriticalChance = (Player.luck + 1) / 256 * 100;
         float rand = Random.Range(0, 100);
-        if (CriticalChance <= rand)
+        if (rand < CriticalChance)
         {
             damage = damage * 2;
             Debug.Log("Players' next hit will critical!");
