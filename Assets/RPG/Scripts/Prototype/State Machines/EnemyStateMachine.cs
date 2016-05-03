@@ -54,7 +54,7 @@ public class EnemyStateMachine : MonoBehaviour
                 StartCoroutine(TimeForAction());
                 break;
             case TurnState.DEAD:
-
+                BSM.BattleState = BattleStateMachine.PerformAction.CHECKALIVE;
                 break;
         }
     }
@@ -150,6 +150,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (Enemy.currentHP <= 0)
         {
             Enemy.currentHP = 0;
+            BSM.RemoveEnemyFromBattle(gameObject);
             currentTurnState = TurnState.DEAD;
         }
     }

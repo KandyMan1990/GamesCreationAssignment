@@ -117,7 +117,8 @@ public class HeroStateMachine : MonoBehaviour
             yield return null;
         }
 
-        BSM.PerformList.RemoveAt(0);
+        if(BSM.PerformList.Count > 0)
+            BSM.PerformList.RemoveAt(0);
 
         BSM.BattleState = BattleStateMachine.PerformAction.WAIT;
 
