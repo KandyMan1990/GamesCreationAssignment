@@ -155,7 +155,7 @@ public class HeroStateMachine : MonoBehaviour
         if (Attack.IsPhysical)
         {
             damage = Mathf.FloorToInt(Mathf.Pow(Player.physicalAttack, 2) / 16 + Player.physicalAttack);
-            damage = Mathf.FloorToInt(damage * (265 / ESM.Enemy.physicalDefence) / 256);
+            damage = Mathf.FloorToInt(damage * (265 - ESM.Enemy.physicalDefence) / 256);
             damage = Mathf.FloorToInt(damage * Attack.BaseAttackDamage / 16);
         }
         else
@@ -168,7 +168,15 @@ public class HeroStateMachine : MonoBehaviour
         //random modifier
         damage = Mathf.FloorToInt(damage * (Random.Range(0, 33) + 240) / 256);
 
+        float CriticalChance = (Player.luck + 1) / 256 * 100;
+        float rand = Random.Range(0, 100);
+        if (CriticalChance <= rand)
+        {
+            damage = damage * 2;
+            Debug.Log("Players' next hit will critical!");
+        }
         ESM.TakeDamage(damage);
+        Debug.Log("Damage: " + damage);
     }
 
     void CreateHeroPanel()

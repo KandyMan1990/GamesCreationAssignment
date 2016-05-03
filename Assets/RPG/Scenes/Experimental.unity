@@ -1477,6 +1477,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11435800, guid: 4974dffd3a5a0c44a99a327cbc599416,
         type: 2}
+    - target: {fileID: 11451648, guid: c2d5fe90a3899dd469ad8dc28f8a3d8d, type: 2}
+      propertyPath: Player.luck
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2d5fe90a3899dd469ad8dc28f8a3d8d, type: 2}
   m_IsPrefabParent: 0
@@ -1765,6 +1769,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11472198, guid: 167ac19cfcfff04428f3c09d9691cec6,
         type: 2}
+    - target: {fileID: 11451648, guid: c2d5fe90a3899dd469ad8dc28f8a3d8d, type: 2}
+      propertyPath: Player.luck
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2d5fe90a3899dd469ad8dc28f8a3d8d, type: 2}
   m_IsPrefabParent: 0

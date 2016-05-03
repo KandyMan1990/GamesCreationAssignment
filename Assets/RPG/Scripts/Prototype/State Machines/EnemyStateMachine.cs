@@ -141,6 +141,7 @@ public class EnemyStateMachine : MonoBehaviour
         damage = Mathf.FloorToInt(damage * (Random.Range(0, 33) + 240) / 256);
         
         HSM.TakeDamage(damage);
+        Debug.Log("Damage: " + damage);
     }
 
     public void TakeDamage(int damageAmount)
