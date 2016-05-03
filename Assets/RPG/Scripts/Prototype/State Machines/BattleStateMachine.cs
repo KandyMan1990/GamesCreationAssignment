@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class BattleStateMachine : MonoBehaviour
@@ -38,6 +39,7 @@ public class BattleStateMachine : MonoBehaviour
     public GameObject ActionPanel;
     public GameObject EnemySelectPanel;
     public GameObject MagicPanel;
+    public GameObject HeroPanel;
     public GameObject ActionButton;
     public GameObject MagicButton;
     public List<GameObject> ActionButtons = new List<GameObject>();
@@ -69,9 +71,6 @@ public class BattleStateMachine : MonoBehaviour
     void Update()
     {
         Debug.Log(BattleState);
-
-        if (HerosInBattle.Count < 1 || EnemiesInBattle.Count < 1)
-            BattleState = PerformAction.CHECKALIVE;
 
         switch (BattleState)
         {
@@ -145,7 +144,7 @@ public class BattleStateMachine : MonoBehaviour
         switch (HeroInput)
         {
             case HeroGUI.ACTIVATE:
-                if (HerosToManage.Count > 0)
+                if (HerosToManage.Count > 0 && BattleState != PerformAction.WIN)
                 {
                     HerosToManage[0].transform.FindChild("Selector").gameObject.SetActive(true);
                     HerosChoice = new HandleTurn();
@@ -309,8 +308,16 @@ public class BattleStateMachine : MonoBehaviour
     public void RemoveEnemyFromBattle(GameObject Enemy)
     {
         EnemiesInBattle.Remove(Enemy);
+        for(int i = 0; i < PerformList.Count; i++)
+        {
+            if(PerformList[i].AttackerGameObject == Enemy)
+            {
+                PerformList.RemoveAt(i);
+            }
+        }
         Enemy.SetActive(false);
         EnemyButtons();
+        BattleState = PerformAction.CHECKALIVE;
     }
 
     public void WinBattle()
@@ -326,7 +333,9 @@ public class BattleStateMachine : MonoBehaviour
             EnemySelectPanel.SetActive(false);
             ActionPanel.SetActive(false);
             MagicPanel.SetActive(false);
+            HeroPanel.SetActive(false);
             IntroloopPlayer.Instance.Play(GameManager.Instance.System_DB.VictoryMusic);
+            StartCoroutine(Transition());
         }
     }
 
@@ -344,6 +353,13 @@ public class BattleStateMachine : MonoBehaviour
             ActionPanel.SetActive(false);
             MagicPanel.SetActive(false);
             IntroloopPlayer.Instance.Play(GameManager.Instance.System_DB.GameOverMusic);
+            StartCoroutine(Transition());
         }
+    }
+
+    IEnumerator Transition()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadSceneAsync(1);
     }
 }

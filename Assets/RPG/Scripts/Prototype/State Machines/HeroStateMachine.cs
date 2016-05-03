@@ -63,6 +63,7 @@ public class HeroStateMachine : MonoBehaviour
                     return;
                 else
                 {
+                    currentProgress = 0f;
                     gameObject.tag = "DeadHero";                                                                    //change tag
                     BSM.HerosInBattle.Remove(gameObject);                                                           //not attackable
                     BSM.HerosToManage.Remove(gameObject);                                                           //not manageable
@@ -87,7 +88,7 @@ public class HeroStateMachine : MonoBehaviour
     {
         currentProgress += Time.deltaTime;
         ProgressBar.fillAmount = Mathf.Clamp(currentProgress / max_progress, 0f, 1f);
-        if(currentProgress >= max_progress)
+        if (currentProgress >= max_progress)
         {
             currentTurnState = TurnState.ADDTOLIST;
         }

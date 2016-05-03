@@ -795,6 +795,7 @@ MonoBehaviour:
   ActionPanel: {fileID: 1881176823}
   EnemySelectPanel: {fileID: 1248173494}
   MagicPanel: {fileID: 899163762}
+  HeroPanel: {fileID: 1186099495}
   ActionButton: {fileID: 144842, guid: 1ad2ec45865942c4e9f8062b917b5300, type: 2}
   MagicButton: {fileID: 144842, guid: 0218c4de65774be4d947fef1d2788255, type: 2}
   ActionButtons: []
