@@ -7,6 +7,6 @@ public class CameraPoint : MonoBehaviour
     public float ShowLength = 3f;
     public void ShowText()
     {
-        QuestPopup.Instance.Popup("Guide", Text, ShowLength);
+        QuestPopup.Instance.Popup("Unknown Voice", Text, ShowLength, true);
     }
 }

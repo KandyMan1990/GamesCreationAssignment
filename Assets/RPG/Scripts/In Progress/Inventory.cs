@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
     public void AddToInventory(InventoryItem obj)
     {
         PotionList.Add(obj);
-        QuestPopup.Instance.Popup(string.Empty, obj.name + " added to inventory.", 2);
+        QuestPopup.Instance.Popup(string.Empty, obj.name + " added to inventory.", 2, false);
         GetInventory();
     }
 

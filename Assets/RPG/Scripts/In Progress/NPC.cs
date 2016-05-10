@@ -20,16 +20,16 @@ public class NPC : MonoBehaviour
             {
                 if(!_hasGivenQuest)
                 {
-                    QuestPopup.Instance.Popup(Name, QuestText, 3);
+                    QuestPopup.Instance.Popup(Name, QuestText, 3, true);
                     _hasGivenQuest = true;
                 }
                 else if(!_questComplete)
                 {
                     if(!other.GetComponent<Inventory>().CheckInventory())
-                        QuestPopup.Instance.Popup(Name, InProgressText, 3);
+                        QuestPopup.Instance.Popup(Name, InProgressText, 3, true);
                     else
                     {
-                        QuestPopup.Instance.Popup(Name, CompletionText, 3);
+                        QuestPopup.Instance.Popup(Name, CompletionText, 3, true);
                         _questComplete = true;
                         if (!other.GetComponent<Inventory>().CheckInventory())
                             other.GetComponent<Inventory>().RemoveFromInventory(0);
@@ -37,7 +37,7 @@ public class NPC : MonoBehaviour
                 }
                 else
                 {
-                    QuestPopup.Instance.Popup(Name, CompletedText, 3);
+                    QuestPopup.Instance.Popup(Name, CompletedText, 3, true);
                 }
             }
         }

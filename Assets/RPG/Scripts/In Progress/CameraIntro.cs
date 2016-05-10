@@ -42,7 +42,10 @@ public class CameraIntro : MonoBehaviour
                 yield return null;
             }
         }
-
+        while(!QuestPopup.Instance.IsQueueEmpty)
+        {
+            yield return null;
+        }
         IntroloopPlayer.Instance.StopFade(2f);
         yield return new WaitForSeconds(2f);
         SceneManager.LoadSceneAsync("RoamingScene");

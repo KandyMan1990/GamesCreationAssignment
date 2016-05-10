@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91f7936e0f7a8a84898a2dc347cd3d9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CamSpeed: 8
+  CamSpeed: 4
   panel: {fileID: 291573173}
   Music: {fileID: 11400000, guid: a9c835c6fac20604295aec249730639e, type: 2}
 --- !u!1 &608205847
