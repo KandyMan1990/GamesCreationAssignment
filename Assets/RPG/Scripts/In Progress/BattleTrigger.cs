@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class BattleTrigger : MonoBehaviour
 {
     public Camera cam;
-    public UnityStandardAssets.Characters.ThirdPerson.ThirdPersonUserControl control;
+    public GameObject Player;
     // Percentage rate at which random battles will occur
     public float EncounterRate = 0.5f;
 
@@ -19,7 +19,7 @@ public class BattleTrigger : MonoBehaviour
 
     void Start()
     {
-        anim = control.gameObject.GetComponent<Animator>();
+        anim = Player.GetComponent<Animator>();
         canCheckForEncounter = true;
         twirl = cam.GetComponent<UnityStandardAssets.ImageEffects.Twirl>();
         vignette = cam.GetComponent<UnityStandardAssets.ImageEffects.VignetteAndChromaticAberration>();
@@ -35,7 +35,7 @@ public class BattleTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (other.attachedRigidbody.velocity != Vector3.zero)
+            if (anim.GetFloat("speed") > 0)
             {
                 Debug.Log("In trigger zone & moving, potential for encounter");
 
@@ -73,9 +73,9 @@ public class BattleTrigger : MonoBehaviour
 
     IEnumerator TriggerEncounter()
     {
-        control.enabled = false;
-        anim.SetFloat("Forward", 0);
-        anim.SetFloat("Turn", 0);
+        anim.SetFloat("speed", 0);
+        anim.gameObject.GetComponent<overlordcontrol>().enabled = false;
+        
 
         canCheckForEncounter = false;
 
