@@ -54,7 +54,7 @@ public class EnemyStateMachine : MonoBehaviour
                 StartCoroutine(TimeForAction());
                 break;
             case TurnState.DEAD:
-
+                BSM.BattleState = BattleStateMachine.PerformAction.CHECKALIVE;
                 break;
         }
     }
@@ -139,8 +139,14 @@ public class EnemyStateMachine : MonoBehaviour
 
         //random modifier
         damage = Mathf.FloorToInt(damage * (Random.Range(0, 33) + 240) / 256);
-        
+
+        if (damage < 1)
+            damage = 1;
+        if (damage > 9999) //create stat in database
+            damage = 9999;
+
         HSM.TakeDamage(damage);
+        Debug.Log("Damage: " + damage);
     }
 
     public void TakeDamage(int damageAmount)
@@ -150,6 +156,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (Enemy.currentHP <= 0)
         {
             Enemy.currentHP = 0;
+            BSM.RemoveEnemyFromBattle(gameObject);
             currentTurnState = TurnState.DEAD;
         }
     }

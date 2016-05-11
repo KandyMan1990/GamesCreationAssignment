@@ -16,6 +16,7 @@ public abstract class BaseCharacter
     public int magicalAttack;
     public int magicalDefence;
 
+    public int Luck;
 
     //public int evasion;
     /*

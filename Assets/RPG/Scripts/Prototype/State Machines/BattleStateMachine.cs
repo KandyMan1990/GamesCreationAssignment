@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class BattleStateMachine : MonoBehaviour
@@ -38,6 +39,7 @@ public class BattleStateMachine : MonoBehaviour
     public GameObject ActionPanel;
     public GameObject EnemySelectPanel;
     public GameObject MagicPanel;
+    public GameObject HeroPanel;
     public GameObject ActionButton;
     public GameObject MagicButton;
     public List<GameObject> ActionButtons = new List<GameObject>();
@@ -46,6 +48,8 @@ public class BattleStateMachine : MonoBehaviour
     private AudioSource Audio;
     private bool canPlayHighlightSound = true;
     private WaitForSeconds highlightWaitTime = new WaitForSeconds(0.1f);
+    private bool hasWon = false;
+    private bool hasLost = false;
 
     // Use this for initialization
     void Start()
@@ -59,7 +63,7 @@ public class BattleStateMachine : MonoBehaviour
         EnemySelectPanel.SetActive(false);
         MagicPanel.SetActive(false);
 
-        EnemyButtons();
+        //EnemyButtons();
         Audio = GetComponent<AudioSource>();
     }
 
@@ -76,65 +80,69 @@ public class BattleStateMachine : MonoBehaviour
                 break;
             case PerformAction.TAKEACTION:
                 GameObject performer = GameObject.Find(PerformList[0].Attacker);
-                if (PerformList[0].Type == "Enemy")
+
+                if (PerformList[0].AttackerGameObject != null)
                 {
-                    EnemyStateMachine ESM = performer.GetComponent<EnemyStateMachine>();
-                    for (int i = 0; i < HerosInBattle.Count; i++)
+                    if (PerformList[0].Type == "Enemy")
                     {
-                        if (PerformList[0].TargetGameObject == HerosInBattle[i])
+                        EnemyStateMachine ESM = performer.GetComponent<EnemyStateMachine>();
+                        for (int i = 0; i < HerosInBattle.Count; i++)
                         {
-                            ESM.heroToAttack = PerformList[0].TargetGameObject;
-                            ESM.currentTurnState = EnemyStateMachine.TurnState.ACTION;
-                            break;
-                        }
-                        else
-                        {
-                            PerformList[0].TargetGameObject = HerosInBattle[Random.Range(0, HerosInBattle.Count)];
-                            ESM.heroToAttack = PerformList[0].TargetGameObject;
-                            ESM.currentTurnState = EnemyStateMachine.TurnState.ACTION;
+                            if (PerformList[0].TargetGameObject == HerosInBattle[i])
+                            {
+                                ESM.heroToAttack = PerformList[0].TargetGameObject;
+                                ESM.currentTurnState = EnemyStateMachine.TurnState.ACTION;
+                                break;
+                            }
+                            else
+                            {
+                                PerformList[0].TargetGameObject = HerosInBattle[Random.Range(0, HerosInBattle.Count)];
+                                ESM.heroToAttack = PerformList[0].TargetGameObject;
+                                ESM.currentTurnState = EnemyStateMachine.TurnState.ACTION;
+                            }
                         }
                     }
-                }
 
-                if (PerformList[0].Type == "Hero")
-                {
-                    HeroStateMachine HSM = performer.GetComponent<HeroStateMachine>();
-                    HSM.EnemyToAttack = PerformList[0].TargetGameObject;
-                    HSM.currentTurnState = HeroStateMachine.TurnState.ACTION;
+                    if (PerformList[0].Type == "Hero")
+                    {
+                        HeroStateMachine HSM = performer.GetComponent<HeroStateMachine>();
+                        HSM.EnemyToAttack = PerformList[0].TargetGameObject;
+                        HSM.currentTurnState = HeroStateMachine.TurnState.ACTION;
+                    }
                 }
-
                 BattleState = PerformAction.PERFORMACTION;
                 break;
             case PerformAction.PERFORMACTION:
                 //idle
                 break;
             case PerformAction.CHECKALIVE:
-                if(HerosInBattle.Count < 1)
+                if (HerosInBattle.Count < 1)
                 {
                     BattleState = PerformAction.LOSE;
                 }
-                else if(EnemiesInBattle.Count < 1)
+                else if (EnemiesInBattle.Count < 1)
                 {
                     BattleState = PerformAction.WIN;
                 }
                 else
                 {
                     ClearAttackPanel();
-                    HeroInput = HeroGUI.ACTIVATE;
+                    BattleState = PerformAction.WAIT;
+                    //HeroInput = HeroGUI.ACTIVATE;
                 }
                 break;
             case PerformAction.WIN:
-
+                WinBattle();
                 break;
             case PerformAction.LOSE:
-
+                LoseBattle();
                 break;
         }
 
         switch (HeroInput)
         {
             case HeroGUI.ACTIVATE:
-                if (HerosToManage.Count > 0)
+                if (HerosToManage.Count > 0 && BattleState != PerformAction.WIN)
                 {
                     HerosToManage[0].transform.FindChild("Selector").gameObject.SetActive(true);
                     HerosChoice = new HandleTurn();
@@ -165,6 +173,11 @@ public class BattleStateMachine : MonoBehaviour
 
     void EnemyButtons()
     {
+        foreach (Transform child in EnemySelectSpacer.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         foreach (GameObject enemy in EnemiesInBattle)
         {
             GameObject newButton = Instantiate(enemyButton) as GameObject;
@@ -183,6 +196,7 @@ public class BattleStateMachine : MonoBehaviour
 
     public void Input1()//attack button
     {
+        EnemyButtons();
         HerosChoice.Attacker = HerosToManage[0].name;
         HerosChoice.AttackerGameObject = HerosToManage[0];
         HerosChoice.Type = "Hero";
@@ -205,6 +219,7 @@ public class BattleStateMachine : MonoBehaviour
 
     public void Input4(BaseAttack chosenMagic)//chosen magic attack
     {
+        EnemyButtons();
         HerosChoice.Attacker = HerosToManage[0].name;
         HerosChoice.AttackerGameObject = HerosToManage[0];
         HerosChoice.Type = "Hero";
@@ -286,5 +301,63 @@ public class BattleStateMachine : MonoBehaviour
         canPlayHighlightSound = !canPlayHighlightSound;
         yield return highlightWaitTime;
         canPlayHighlightSound = !canPlayHighlightSound;
+    }
+
+    public void RemoveEnemyFromBattle(GameObject Enemy)
+    {
+        EnemiesInBattle.Remove(Enemy);
+        for (int i = 0; i < PerformList.Count; i++)
+        {
+            if (PerformList[i].AttackerGameObject == Enemy)
+            {
+                PerformList.RemoveAt(i);
+            }
+        }
+        Enemy.SetActive(false);
+        EnemyButtons();
+        BattleState = PerformAction.CHECKALIVE;
+    }
+
+    public void WinBattle()
+    {
+        if (hasWon == false)
+        {
+            hasWon = true;
+            PerformList.Clear();
+            for (int i = 0; i < HerosToManage.Count; i++)
+            {
+                HerosToManage[i].GetComponent<HeroStateMachine>().currentTurnState = HeroStateMachine.TurnState.WAITING;
+            }
+            EnemySelectPanel.SetActive(false);
+            ActionPanel.SetActive(false);
+            MagicPanel.SetActive(false);
+            HeroPanel.SetActive(false);
+            IntroloopPlayer.Instance.Play(GameManager.Instance.System_DB.VictoryMusic);
+            StartCoroutine(Transition("RoamingScene"));
+        }
+    }
+
+    public void LoseBattle()
+    {
+        if (hasLost == false)
+        {
+            hasLost = true;
+            PerformList.Clear();
+            for (int i = 0; i < EnemiesInBattle.Count; i++)
+            {
+                EnemiesInBattle[i].GetComponent<EnemyStateMachine>().currentTurnState = EnemyStateMachine.TurnState.WAITING;
+            }
+            EnemySelectPanel.SetActive(false);
+            ActionPanel.SetActive(false);
+            MagicPanel.SetActive(false);
+            IntroloopPlayer.Instance.Play(GameManager.Instance.System_DB.GameOverMusic);
+            StartCoroutine(Transition("TitleScene"));
+        }
+    }
+
+    IEnumerator Transition(string scene)
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadSceneAsync(scene);
     }
 }

@@ -352,6 +352,7 @@ MonoBehaviour:
     physicalDefence: 14
     magicalAttack: 15
     magicalDefence: 13
+    Luck: 16
     AttackList:
     - {fileID: 11427860, guid: ee8184724e16edd42bb1d8c8c587d9fe, type: 2}
     MagicAttacks:
@@ -910,6 +911,7 @@ MonoBehaviour:
   ActionPanel: {fileID: 1881176823}
   EnemySelectPanel: {fileID: 1248173494}
   MagicPanel: {fileID: 899163762}
+  HeroPanel: {fileID: 1186099495}
   ActionButton: {fileID: 144842, guid: 1ad2ec45865942c4e9f8062b917b5300, type: 2}
   MagicButton: {fileID: 144842, guid: 0218c4de65774be4d947fef1d2788255, type: 2}
   ActionButtons: []
@@ -1864,6 +1866,10 @@ Prefab:
     - target: {fileID: 114158, guid: c2d5fe90a3899dd469ad8dc28f8a3d8d, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11451648, guid: c2d5fe90a3899dd469ad8dc28f8a3d8d, type: 2}
+      propertyPath: Player.Luck
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c2d5fe90a3899dd469ad8dc28f8a3d8d, type: 2}

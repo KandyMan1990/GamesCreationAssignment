@@ -518,7 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 999944644}
   Player: {fileID: 1050223678}
-  EncounterRate: 1
+  EncounterRate: 0.5
 --- !u!65 &1210550977
 BoxCollider:
   m_ObjectHideFlags: 0

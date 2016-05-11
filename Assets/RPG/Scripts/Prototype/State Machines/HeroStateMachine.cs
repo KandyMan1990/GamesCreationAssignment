@@ -29,7 +29,7 @@ public class HeroStateMachine : MonoBehaviour
     private Image ProgressBar;
     private HeroPanelStats panelStats;
     private Transform heroPanelSpacer;
-    
+
     void Start()
     {
         heroPanelSpacer = GameObject.Find("BattleCanvas").transform.FindChild("HeroPanel").FindChild("HeroPanelSpacer");
@@ -63,13 +63,14 @@ public class HeroStateMachine : MonoBehaviour
                     return;
                 else
                 {
+                    currentProgress = 0f;
                     gameObject.tag = "DeadHero";                                                                    //change tag
                     BSM.HerosInBattle.Remove(gameObject);                                                           //not attackable
                     BSM.HerosToManage.Remove(gameObject);                                                           //not manageable
                     Selector.SetActive(false);                                                                      //deactivate selector
                     BSM.ActionPanel.SetActive(false);                                                               //deactivate gui
                     BSM.EnemySelectPanel.SetActive(false);                                                          //deactivate gui
-                    for(int i = 0; i < BSM.PerformList.Count; i++)                                                  //remove from performlist
+                    for (int i = 0; i < BSM.PerformList.Count; i++)                                                  //remove from performlist
                     {
                         if (BSM.PerformList[i].AttackerGameObject == gameObject)
                             BSM.PerformList.Remove(BSM.PerformList[i]);
@@ -87,7 +88,7 @@ public class HeroStateMachine : MonoBehaviour
     {
         currentProgress += Time.deltaTime;
         ProgressBar.fillAmount = Mathf.Clamp(currentProgress / max_progress, 0f, 1f);
-        if(currentProgress >= max_progress)
+        if (currentProgress >= max_progress)
         {
             currentTurnState = TurnState.ADDTOLIST;
         }
@@ -117,7 +118,8 @@ public class HeroStateMachine : MonoBehaviour
             yield return null;
         }
 
-        BSM.PerformList.RemoveAt(0);
+        if (BSM.PerformList.Count > 0)
+            BSM.PerformList.RemoveAt(0);
 
         BSM.BattleState = BattleStateMachine.PerformAction.WAIT;
 
@@ -135,7 +137,7 @@ public class HeroStateMachine : MonoBehaviour
     {
         Player.currentHP -= damageAmount;
 
-        if(Player.currentHP <= 0)
+        if (Player.currentHP <= 0)
         {
             Player.currentHP = 0;
             currentTurnState = TurnState.DEAD;
@@ -166,7 +168,22 @@ public class HeroStateMachine : MonoBehaviour
         //random modifier
         damage = Mathf.FloorToInt(damage * (Random.Range(0, 33) + 240) / 256);
 
+        if (damage < 1)
+            damage = 1;
+        if (damage > 9999) //create stat in database
+            damage = 9999;
+
+        //critical hit chance
+        float CriticalChance = (Player.Luck + 1) / 256 * 100;
+        float rand = Random.Range(0, 100);
+        if (rand < CriticalChance)
+        {
+            damage = damage * 2;
+            Debug.Log("Players' next hit will critical!");
+        }
+
         ESM.TakeDamage(damage);
+        Debug.Log("Damage: " + damage);
     }
 
     void CreateHeroPanel()
