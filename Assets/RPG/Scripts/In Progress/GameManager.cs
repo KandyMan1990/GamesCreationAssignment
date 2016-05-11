@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     private static CharacterDB _characters_DB;
     private static ArmourDB _armours_DB;
 
+    private static Vector3 _playerPosition = Vector3.zero;
+    private static Vector3 _playerRotation = Vector3.zero;
+    private static string _scene = string.Empty;
+
     public static GameManager Instance
     {
         get
@@ -120,5 +124,43 @@ public class GameManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    public Vector3 GetPlayerPosition
+    {
+       get
+        {
+            return _playerPosition; ;
+        }
+    }
+    public Vector3 GetPlayerRotation
+    {
+        get
+        {
+            return _playerRotation;
+        }
+    }
+    public void SetPlayerPosition(Vector3 position, Vector3 rotation)
+    {
+        _playerPosition = position;
+        _playerRotation = rotation;
+    }
+    public string GetSceneName
+    {
+        get
+        {
+            return _scene;
+        }
+    }
+    public void SetSceneName(string name)
+    {
+        _scene = name;
+    }
+    public void ClearPlayerPositionRotationAndScene()
+    {
+        _playerPosition = Vector3.zero;
+        _playerRotation = Vector3.zero;
+        _scene = string.Empty;
+
     }
 }

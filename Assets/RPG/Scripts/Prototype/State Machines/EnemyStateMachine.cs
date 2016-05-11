@@ -17,7 +17,7 @@ public class EnemyStateMachine : MonoBehaviour
     public GameObject heroToAttack;
     public GameObject Selector;
 
-    private float max_progress = 6f;
+    private float max_progress = 5f;
     private float currentProgress = 0f;
     private BattleStateMachine BSM;
     private Vector3 StartPosition;
@@ -61,7 +61,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     void UpdateProgressBar()
     {
-        currentProgress += Time.deltaTime;
+        currentProgress += 0.5f * Time.deltaTime;
         if (currentProgress >= max_progress)
         {
             currentTurnState = TurnState.CHOOSEACTION;

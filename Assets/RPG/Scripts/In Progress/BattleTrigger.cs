@@ -109,6 +109,8 @@ public class BattleTrigger : MonoBehaviour
             yield return 0;
         }
 
+        GameManager.Instance.SetSceneName(SceneManager.GetActiveScene().name);
+        GameManager.Instance.SetPlayerPosition(Player.transform.localPosition, Player.transform.localEulerAngles);
         SceneManager.LoadScene("Experimental");
     }
 }

@@ -518,7 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 999944644}
   Player: {fileID: 1050223678}
-  EncounterRate: 0.5
+  EncounterRate: 0.25
 --- !u!65 &1210550977
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -729,10 +729,6 @@ Prefab:
     - target: {fileID: 443614, guid: 19fd2eb44c05d364dbe7394794459a95, type: 2}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 107924, guid: 19fd2eb44c05d364dbe7394794459a95, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19fd2eb44c05d364dbe7394794459a95, type: 2}
