@@ -153,7 +153,7 @@ public class HeroStateMachine : MonoBehaviour
         if (Attack.IsPhysical)
         {
             damage = Mathf.FloorToInt(Mathf.Pow(Player.physicalAttack, 2) / 16 + Player.physicalAttack);
-            damage = Mathf.FloorToInt(damage * (265 / ESM.Enemy.physicalDefence) / 256);
+            damage = Mathf.FloorToInt(damage * (265 - ESM.Enemy.physicalDefence) / 256);
             damage = Mathf.FloorToInt(damage * Attack.BaseAttackDamage / 16);
         }
         else

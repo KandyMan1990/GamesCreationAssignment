@@ -356,6 +356,7 @@ MonoBehaviour:
     - {fileID: 11427860, guid: ee8184724e16edd42bb1d8c8c587d9fe, type: 2}
     MagicAttacks:
     - {fileID: 11451284, guid: 5f185ccbf30409e4fa60fa3f61005234, type: 2}
+    - {fileID: 11435800, guid: 4974dffd3a5a0c44a99a327cbc599416, type: 2}
   currentTurnState: 0
   Selector: {fileID: 1088696818}
   EnemyToAttack: {fileID: 0}

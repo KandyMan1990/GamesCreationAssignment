@@ -127,7 +127,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (Attack.IsPhysical)
         {
             damage = Mathf.FloorToInt(Mathf.Pow(Enemy.physicalAttack, 2) / 16 + Enemy.physicalAttack);
-            damage = Mathf.FloorToInt(damage * (265 / HSM.Player.physicalDefence) / 256);
+            damage = Mathf.FloorToInt(damage * (265 - HSM.Player.physicalDefence) / 256);
             damage = Mathf.FloorToInt(damage * Attack.BaseAttackDamage / 16);
         }
         else
