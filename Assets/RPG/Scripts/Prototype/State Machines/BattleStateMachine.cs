@@ -42,6 +42,7 @@ public class BattleStateMachine : MonoBehaviour
     public GameObject HeroPanel;
     public GameObject ActionButton;
     public GameObject MagicButton;
+    public GameObject DamageDisplayPanel;
     public List<GameObject> ActionButtons = new List<GameObject>();
 
     private HandleTurn HerosChoice;
@@ -62,6 +63,7 @@ public class BattleStateMachine : MonoBehaviour
         ActionPanel.SetActive(false);
         EnemySelectPanel.SetActive(false);
         MagicPanel.SetActive(false);
+        DamageDisplayPanel.SetActive(false);
 
         //EnemyButtons();
         Audio = GetComponent<AudioSource>();
@@ -359,5 +361,41 @@ public class BattleStateMachine : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         SceneManager.LoadSceneAsync(scene);
+    }
+
+    public void ShowDamage(int damage)
+    {
+        StartCoroutine(showDamage(damage));
+    }
+
+    IEnumerator showDamage(int dam)
+    {
+        Text damageText = DamageDisplayPanel.GetComponentInChildren<Text>();
+        damageText.text = dam.ToString();
+
+        Color textColour = damageText.color;
+        textColour.a = 0;
+
+        Vector3 originalPos = new Vector3(DamageDisplayPanel.transform.localPosition.x, DamageDisplayPanel.transform.localPosition.y, DamageDisplayPanel.transform.localPosition.z);
+        DamageDisplayPanel.transform.localPosition = new Vector3(DamageDisplayPanel.transform.localPosition.x, DamageDisplayPanel.transform.localPosition.y - 50, DamageDisplayPanel.transform.localPosition.z);
+        
+        DamageDisplayPanel.SetActive(true);
+        while(textColour.a < 1)
+        {
+            textColour.a += 8 * Time.deltaTime;
+            damageText.color = textColour;
+            DamageDisplayPanel.transform.localPosition =new Vector3
+                (DamageDisplayPanel.transform.localPosition.x, DamageDisplayPanel.transform.localPosition.y + (50 * (8 * Time.deltaTime)), DamageDisplayPanel.transform.localPosition.z);
+            yield return 0;
+        }
+        yield return new WaitForSeconds(0.5f);
+        while (textColour.a > 0)
+        {
+            textColour.a -= 8 * Time.deltaTime;
+            damageText.color = textColour;
+            yield return 0;
+        }
+        DamageDisplayPanel.transform.localPosition = originalPos;
+        DamageDisplayPanel.SetActive(false);
     }
 }

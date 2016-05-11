@@ -135,6 +135,8 @@ public class HeroStateMachine : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        BSM.ShowDamage(damageAmount);
+
         Player.currentHP -= damageAmount;
 
         if (Player.currentHP <= 0)
@@ -183,7 +185,6 @@ public class HeroStateMachine : MonoBehaviour
         }
 
         ESM.TakeDamage(damage);
-        Debug.Log("Damage: " + damage);
     }
 
     void CreateHeroPanel()

@@ -146,11 +146,11 @@ public class EnemyStateMachine : MonoBehaviour
             damage = 9999;
 
         HSM.TakeDamage(damage);
-        Debug.Log("Damage: " + damage);
     }
 
     public void TakeDamage(int damageAmount)
     {
+        BSM.ShowDamage(damageAmount);
         Enemy.currentHP -= damageAmount;
 
         if (Enemy.currentHP <= 0)
