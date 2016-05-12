@@ -76,7 +76,6 @@ public class BattleTrigger : MonoBehaviour
         anim.SetFloat("speed", 0);
         anim.gameObject.GetComponent<overlordcontrol>().enabled = false;
         
-
         canCheckForEncounter = false;
 
         audioSource.PlayOneShot(GameManager.Instance.System_DB.BattleStartSFX);

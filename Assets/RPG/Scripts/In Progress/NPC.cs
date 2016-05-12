@@ -16,9 +16,12 @@ public class NPC : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            if (QuestPopup.Instance.IsProcessing)
+                return;
+
             if(Input.GetKeyDown(KeyCode.E))
             {
-                if(!_hasGivenQuest)
+                if (!_hasGivenQuest)
                 {
                     QuestPopup.Instance.Popup(Name, QuestText, 3, true);
                     _hasGivenQuest = true;

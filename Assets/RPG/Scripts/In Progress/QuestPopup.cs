@@ -51,6 +51,7 @@ public class QuestPopup : MonoBehaviour
 
     private bool _isProcessing = false;
     private Queue<QuestObject> queue = new Queue<QuestObject>();
+    private GameObject player;
 
     void Awake()
     {
@@ -80,6 +81,10 @@ public class QuestPopup : MonoBehaviour
     {
         WaitForSeconds letterPause = new WaitForSeconds(0.03f);
 
+        player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<Animator>().SetFloat("speed", 0);
+        player.GetComponent<overlordcontrol>().enabled = false;
+        
         _isProcessing = true;
 
         while(queue.Count > 0)
@@ -133,6 +138,7 @@ public class QuestPopup : MonoBehaviour
         }
 
         _isProcessing = false;
+        player.GetComponent<overlordcontrol>().enabled = true;
     }
 
     public bool IsQueueEmpty
@@ -144,5 +150,10 @@ public class QuestPopup : MonoBehaviour
             else
                 return true;
         }
+    }
+
+    public bool IsProcessing
+    {
+        get { return _isProcessing; }
     }
 }
