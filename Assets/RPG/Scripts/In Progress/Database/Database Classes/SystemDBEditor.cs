@@ -198,6 +198,14 @@ public partial class SystemDB : ScriptableObject
             EditorUtility.SetDirty(this);
         }
     }
+    public AudioClip SetReceiveItemSFX
+    {
+        set
+        {
+            _receiveItemSFX = value;
+            EditorUtility.SetDirty(this);
+        }
+    }
 
     /*
     prefabs for vehicles (if any)

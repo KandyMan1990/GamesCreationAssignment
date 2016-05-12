@@ -16,7 +16,7 @@ public partial class DatabaseEditor : EditorWindow
                 DatabaseEditor window = GetWindow<DatabaseEditor>();
                 if (!window.maximized)
                 {
-                    window.maxSize = new Vector2(900, 400);
+                    window.maxSize = new Vector2(900, 430);
                     window.minSize = window.maxSize;
                 }
                 GUIUtility.keyboardControl = 0;
@@ -146,6 +146,9 @@ public partial class DatabaseEditor : EditorWindow
 
         EditorGUILayout.LabelField("Load Sound:");
         System_DB.SetLoadSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.LoadSFX, typeof(AudioClip), true);
+
+        EditorGUILayout.LabelField("Receive Item Sound:");
+        System_DB.SetReceiveItemSFX = (AudioClip)EditorGUILayout.ObjectField(System_DB.ReceiveItemSFX, typeof(AudioClip), true);
     }
 
     void SystemSFXSection2()

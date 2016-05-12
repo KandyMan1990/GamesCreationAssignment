@@ -77,6 +77,9 @@ public partial class SystemDB : ScriptableObject
     [HideInInspector]
     [SerializeField]
     AudioClip _magicMissSFX;
+    [HideInInspector]
+    [SerializeField]
+    AudioClip _receiveItemSFX;
 
     public string GameTitle
     {
@@ -175,6 +178,10 @@ public partial class SystemDB : ScriptableObject
     public AudioClip MagicMissSFX
     {
         get { return _magicMissSFX; }
+    }
+    public AudioClip ReceiveItemSFX
+    {
+        get { return _receiveItemSFX; }
     }
 
     /*

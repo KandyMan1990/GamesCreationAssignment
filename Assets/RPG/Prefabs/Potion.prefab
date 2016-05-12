@@ -12,7 +12,7 @@ GameObject:
   - 136: {fileID: 13624860}
   - 23: {fileID: 2367304}
   - 65: {fileID: 6553442}
-  - 114: {fileID: 11405868}
+  - 114: {fileID: 11433032}
   m_Layer: 0
   m_Name: Potion
   m_TagString: Untagged
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 278.65137, y: 1, z: 294.13}
+  m_LocalPosition: {x: 193.79, y: 1, z: 303.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,7 +77,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11405868
+--- !u!114 &11433032
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

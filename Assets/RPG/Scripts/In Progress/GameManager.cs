@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     private static Vector3 _playerRotation = Vector3.zero;
     private static string _scene = string.Empty;
 
+    private AudioSource _audio;
+
     public static GameManager Instance
     {
         get
@@ -26,9 +29,18 @@ public class GameManager : MonoBehaviour
                 _instance = (GameManager)FindObjectOfType(typeof(GameManager));
                 if (_instance == null)
                 {
+                    GameObject templatePrefab = Resources.Load("GameManager") as GameObject;
                     GameObject gameManager;
-                    gameManager = new GameObject("Game Manager");
-                    gameManager.AddComponent<GameManager>(); //This point Awake will be called
+                    if(templatePrefab != null)
+                    {
+                        gameManager = Instantiate(templatePrefab);
+                        gameManager.name = "GameManager";
+                    }
+                    else
+                    {
+                        gameManager = new GameObject("Game Manager");
+                        gameManager.AddComponent<GameManager>(); //This point Awake will be called
+                    }
 
                     _instance = gameManager.GetComponent<GameManager>();
                 }
@@ -126,6 +138,11 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        _audio = GetComponent<AudioSource>();
+    }
+
     public Vector3 GetPlayerPosition
     {
        get
@@ -162,5 +179,10 @@ public class GameManager : MonoBehaviour
         _playerRotation = Vector3.zero;
         _scene = string.Empty;
 
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        _audio.PlayOneShot(clip);
     }
 }
