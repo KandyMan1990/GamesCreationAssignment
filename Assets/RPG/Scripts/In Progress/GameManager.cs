@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
                 {
                     GameObject templatePrefab = Resources.Load("GameManager") as GameObject;
                     GameObject gameManager;
-                    if(templatePrefab != null)
+                    if (templatePrefab != null)
                     {
                         gameManager = Instantiate(templatePrefab);
                         gameManager.name = "GameManager";
@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
     {
         get
         {
-            if(_system_DB == null)
+            if (_system_DB == null)
             {
                 _system_DB = Resources.Load("Databases/System", typeof(SystemDB)) as SystemDB;
             }
@@ -145,7 +145,7 @@ public class GameManager : MonoBehaviour
 
     public Vector3 GetPlayerPosition
     {
-       get
+        get
         {
             return _playerPosition; ;
         }
@@ -183,6 +183,7 @@ public class GameManager : MonoBehaviour
 
     public void PlaySFX(AudioClip clip)
     {
-        _audio.PlayOneShot(clip);
+        if (clip != null)
+            _audio.PlayOneShot(clip);
     }
 }

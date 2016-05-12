@@ -43,6 +43,7 @@ MonoBehaviour:
   BaseAttackDamage: 20
   IsPhysical: 1
   AttackCost: 0
+  Sound: {fileID: 8300000, guid: 86b474099484e7b4290b2d7efabb5c36, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

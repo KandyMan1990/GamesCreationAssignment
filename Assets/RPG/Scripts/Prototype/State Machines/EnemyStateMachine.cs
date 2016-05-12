@@ -145,6 +145,7 @@ public class EnemyStateMachine : MonoBehaviour
         if (damage > 9999) //create stat in database
             damage = 9999;
 
+        GameManager.Instance.PlaySFX(Attack.Sound);
         HSM.TakeDamage(damage);
     }
 

@@ -82,9 +82,12 @@ public class QuestPopup : MonoBehaviour
         WaitForSeconds letterPause = new WaitForSeconds(0.03f);
 
         player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<Animator>().SetFloat("speed", 0);
-        player.GetComponent<overlordcontrol>().enabled = false;
-        
+        if(player != null)
+        {
+            player.GetComponent<Animator>().SetFloat("speed", 0);
+            player.GetComponent<overlordcontrol>().enabled = false;
+        }
+
         _isProcessing = true;
 
         while(queue.Count > 0)
@@ -138,7 +141,9 @@ public class QuestPopup : MonoBehaviour
         }
 
         _isProcessing = false;
-        player.GetComponent<overlordcontrol>().enabled = true;
+
+        if(player!= null)
+            player.GetComponent<overlordcontrol>().enabled = true;
     }
 
     public bool IsQueueEmpty

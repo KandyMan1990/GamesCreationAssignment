@@ -7,4 +7,5 @@ public abstract class BaseAttack : MonoBehaviour
     public int BaseAttackDamage;
     public bool IsPhysical;
     public int AttackCost;
+    public AudioClip Sound;
 }

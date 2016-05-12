@@ -184,6 +184,7 @@ public class HeroStateMachine : MonoBehaviour
             Debug.Log("Players' next hit will critical!");
         }
 
+        GameManager.Instance.PlaySFX(Attack.Sound);
         ESM.TakeDamage(damage);
     }
 
