@@ -34,6 +34,7 @@ public class NPC : MonoBehaviour
                     {
                         QuestPopup.Instance.Popup(Name, CompletionText, 3, true);
                         _questComplete = true;
+                        GameManager.Instance.CompleteQuest();
                         if (!other.GetComponent<Inventory>().CheckInventory())
                             other.GetComponent<Inventory>().RemoveFromInventory(0);
                     }

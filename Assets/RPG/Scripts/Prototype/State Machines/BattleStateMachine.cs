@@ -55,6 +55,8 @@ public class BattleStateMachine : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Cursor.visible = true;
+
         BattleState = PerformAction.WAIT;
         EnemiesInBattle.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         HerosInBattle.AddRange(GameObject.FindGameObjectsWithTag("Hero"));

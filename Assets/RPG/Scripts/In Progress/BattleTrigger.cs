@@ -19,6 +19,8 @@ public class BattleTrigger : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = false;
+
         anim = Player.GetComponent<Animator>();
         canCheckForEncounter = true;
         twirl = cam.GetComponent<UnityStandardAssets.ImageEffects.Twirl>();

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     private static Vector3 _playerRotation = Vector3.zero;
     private static string _scene = string.Empty;
 
+    private bool _questComplete = false;
+
     private AudioSource _audio;
 
     public static GameManager Instance
@@ -185,5 +187,26 @@ public class GameManager : MonoBehaviour
     {
         if (clip != null)
             _audio.PlayOneShot(clip);
+    }
+
+    public bool IsQuestComplete
+    {
+        get { return _questComplete; }
+    }
+
+    public void CompleteQuest()
+    {
+        _questComplete = true;
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            Application.Quit();
+        }
     }
 }

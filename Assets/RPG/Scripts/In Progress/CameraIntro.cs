@@ -14,6 +14,7 @@ public class CameraIntro : MonoBehaviour
 
 	void Start ()
 	{
+        Cursor.visible = false;
         points = GameObject.Find("Camera Points").GetComponent<CameraPoints>();
 
         col = panel.color;

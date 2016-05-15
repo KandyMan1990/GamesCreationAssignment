@@ -28,6 +28,7 @@ public class TitleScreen : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Cursor.visible = true;
         SceneManager.SetActiveScene(gameObject.scene);
 
         Title.text = GameManager.Instance.System_DB.GameTitle;

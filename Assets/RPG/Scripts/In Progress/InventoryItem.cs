@@ -5,6 +5,12 @@ public class InventoryItem : MonoBehaviour
 {
     public int HealthToRestore;
 
+    void Start()
+    {
+        if (GameManager.Instance.IsQuestComplete)
+            gameObject.SetActive(false);
+    }
+
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
