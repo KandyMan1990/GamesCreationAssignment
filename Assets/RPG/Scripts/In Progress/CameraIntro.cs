@@ -40,6 +40,7 @@ public class CameraIntro : MonoBehaviour
             points.Points[i].GetComponent<CameraPoint>().ShowText();
             while (moveTowards(points.Points[i].transform.position))
             {
+                transform.localRotation = Quaternion.Slerp(transform.localRotation, points.Points[i].transform.localRotation, (1 / CamSpeed) * Time.deltaTime);
                 yield return null;
             }
         }
